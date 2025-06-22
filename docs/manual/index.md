@@ -10,4 +10,4 @@ If you are looking to install Hjem Rum, please see **Installation** and
 **Quirks, Tips, and Tricks** in the left pane.
 
 If you are looking to contribute to Hjem Rum, please see **Contributing**,
-**Writing Tests**, and **Review Tips**.
+**Setting Up Module Tests**, and **Review Tips**.
