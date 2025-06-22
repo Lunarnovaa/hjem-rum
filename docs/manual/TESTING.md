@@ -1,4 +1,4 @@
-# Setting Up Module Tests {#setting-up-module-tests}
+# Contributing: Setting Up Module Tests {#contributing-setting-up-module-tests}
 
 [nushell test module]: https://github.com/snugnug/hjem-rum/blob/main/modules/tests/programs/nushell.nix
 [nix.dev provides a useful guide]: https://nix.dev/tutorials/nixos/integration-testing-using-virtual-machines.html

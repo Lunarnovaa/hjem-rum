@@ -1,4 +1,4 @@
-# Installing Hjem Rum {#installing-hjem-rum}
+# Usage: Installing Hjem Rum {#usage-installing-hjem-rum}
 
 Welcome to Hjem Rum. Installing and configuring Hjem Rum is as easy as any other
 module.

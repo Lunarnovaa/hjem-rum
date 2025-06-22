@@ -1,4 +1,4 @@
-# Quirks, Tips, & Tricks {#quirks-tips-tricks}
+# Usage: Quirks, Tips, & Tricks {#usage-quirks-tips-tricks}
 
 [#17]: https://github.com/snugnug/hjem-rum/issues/17
 

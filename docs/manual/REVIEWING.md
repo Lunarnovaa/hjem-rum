@@ -1,4 +1,4 @@
-# Review Tips {#review-tips}
+# Contributing: Review Tips {#contributing-review-tips}
 
 [Code Review Antipatterns]: https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/code-review-antipatterns/
 [nixpkgs]: https://github.com/NixOS/nixpkgs
