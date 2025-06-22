@@ -109,6 +109,8 @@
     ''
       mkdir -p "$out/assets" # mkdir $out and the assets subfolder
 
+      footer=$(cat ${./footer.html})
+
       ndg --verbose html \
         --title "Hjem Rum"  \
         --jobs $NIX_BUILD_CORES \
@@ -117,6 +119,7 @@
         --options-depth 3 \
         --generate-search true \
         --template-dir ${./templates} \
+        --footer $footer \
         --input-dir ${./manual} \
         --output-dir "$out"
 
