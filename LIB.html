@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hjem Rum - Search</title>
+    <title>Contributing: Extending Hjem Rum's Library</title>
     <script>
       // Apply sidebar state immediately to prevent flash
       (function () {
@@ -14,7 +14,9 @@
     </script>
     <link rel="stylesheet" href="assets/style.css" />
     <script defer src="assets/main.js"></script>
+    
     <script defer src="assets/search.js"></script>
+    
   </head>
   <body>
     <div class="container">
@@ -25,13 +27,17 @@
         <nav class="header-nav">
           <ul>
             <li ><a href="options.html">Options</a></li>
-            <li class="active"><a href="search.html">Search</a></li>
+            
+            <li><a href="search.html">Search</a></li>
+            
           </ul>
         </nav>
+        
         <div class="search-container">
           <input type="text" id="search-input" placeholder="Search..." />
           <div id="search-results" class="search-results"></div>
         </div>
+        
       </header>
 
       <div class="layout">
@@ -45,7 +51,7 @@
             <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
           </svg>
         </div>
-        <nav id="sidebar" class="sidebar">
+        <nav class="sidebar">
           <div class="docs-nav">
             <h2>Documents</h2>
             <ul>
@@ -66,24 +72,35 @@
           <div class="toc">
             <h2>Contents</h2>
             <ul class="toc-list">
-              
+              <li><a href="#contributing-extending-hjem-rum-library">Contributing: Extending Hjem Rum's Library</a>
+</li>
             </ul>
           </div>
         </nav>
 
         <main class="content">
-          <h1>Search</h1>
-          <div class="search-page">
-            <div class="search-form">
-              <input
-                type="text"
-                id="search-page-input"
-                placeholder="Search..."
-                autofocus
-              />
-            </div>
-            <div id="search-page-results" class="search-page-results"></div>
-          </div>
+          <h1 id="contributing-extending-hjem-rum-library">Contributing: Extending Hjem Rum's Library</h1>
+<p>Rather than having functions scattered throughout the module collection, we
+would rather keep our directories organized and purposeful. Therefore, all
+custom functions should go into our extended lib, found at <code>modules/lib/</code>.</p>
+<p>The most common functions that might be created are a <code>generator</code> and <code>type</code>
+pair. The former should be prefixed with "to" to maintain style and describe
+their function: conversion <em>to</em> other formats. For example, <code>toNcmpcppSettings</code>
+is the function that converts to the format required for ncmpcpp settings.</p>
+<p>Likewise, types should be suffixed with "Type" to maintain style and describe
+their function. For example, <code>hyprType</code> describes the type used in <code>settings</code>
+converted to Hyprlang.</p>
+<p>When it comes to directory structure, you should be able to infer how we
+organize our lib by both our folder structure itself as well as the names of
+functions. For example, <code class="nixos-option">rumLib.types.gtkType</code> is found in
+<code>lib/types/gtkType.nix</code>. In cases where a file is a single function, always be
+sure to make sure the name matches the file.</p>
+<p>If a program uses multiple functions of the same kind (e.g. two generators), you
+can put them in one file, like is done in <code>lib/generators/gtk.nix</code>.</p>
+<p>Additionally, please follow how lib is structured in Nixpkgs. For example, the
+custom function <code>attrsNamesHasPrefix</code> is under <code>attrsets</code> to signify that it
+operates on an attribute set, just like in Nixpkgs.</p>
+
           <div class="footnotes-container">
             <!-- Footnotes will be appended here -->
           </div>
