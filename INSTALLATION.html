@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Installing Hjem Rum</title>
+    <script>
+      // Apply sidebar state immediately to prevent flash
+      (function () {
+        if (localStorage.getItem("sidebar-collapsed") === "true") {
+          document.documentElement.classList.add("sidebar-collapsed");
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script defer src="assets/main.js"></script>
+    
+    <script defer src="assets/search.js"></script>
+    
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header-left">
+          <h1 class="site-title"><a href="index.html">Hjem Rum</a></h1>
+        </div>
+        <nav class="header-nav">
+          <ul>
+            <li ><a href="options.html">Options</a></li>
+            
+            <li><a href="search.html">Search</a></li>
+            
+          </ul>
+        </nav>
+        
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Search..." />
+          <div id="search-results" class="search-results"></div>
+        </div>
+        
+      </header>
+
+      <div class="layout">
+        <div class="sidebar-toggle" aria-label="Toggle sidebar">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+          </svg>
+        </div>
+        <nav class="sidebar">
+          <div class="docs-nav">
+            <h2>Documents</h2>
+            <ul>
+              <li><a href="REVIEWING.html">Review Tips</a></li>
+<li><a href="QUIRKS.html">Quirks, Tips, & Tricks</a></li>
+<li><a href="TESTING.html">Testing setup for modules</a></li>
+<li><a href="CONTRIBUTING.html">Contributing</a></li>
+<li><a href="INSTALLATION.html">Installing Hjem Rum</a></li>
+<li><a href="search.html">Search</a></li>
+
+            </ul>
+          </div>
+
+          <div class="toc">
+            <h2>Contents</h2>
+            <ul class="toc-list">
+              <li><a href="#installing-hjem-rum">Installing Hjem Rum</a>
+<ul><li><a href="#ch-importing-the-hjem-rum-flake">Importing the Hjem Rum Flake</a>
+<li><a href="#ch-important-hjem-settings">Important Hjem Settings</a>
+<li><a href="#ch-configuring-the-hjem-rum-modules">Configuring Hjem Rum Modules</a>
+</li></ul></li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="content">
+          <h1 id="installing-hjem-rum">Installing Hjem Rum</h1>
+<p>Welcome to Hjem Rum. Installing and configuring Hjem Rum is as easy as any other
+module.</p>
+<h2 id="ch-importing-the-hjem-rum-flake">Importing the Hjem Rum Flake</h2>
+<p>To begin using Hjem Rum, simply add and import Hjem and Hjem Rum into your
+flake:</p>
+<pre><code class="language-nix"># flake.nix
+inputs = {
+    nixpkgs.url = &quot;github:NixOS/nixpkgs?ref=nixos-unstable&quot;;
+    # To minimize redundancies, we suggest you set your flakes to follow your inputs.
+    hjem = {
+        url = &quot;github:feel-co/hjem&quot;;
+        inputs.nixpkgs.follows = &quot;nixpkgs&quot;;
+    };
+    hjem-rum = {
+        url = &quot;github:snugnug/hjem-rum&quot;;
+        inputs = {
+            nixpkgs.follows = &quot;nixpkgs&quot;;
+            hjem.follows = &quot;hjem&quot;;
+        };
+    };
+};
+
+# One example of importing the module into your system configuration
+outputs = {
+    self,
+    nixpkgs,
+    ...
+} @ inputs: {
+    nixosConfigurations = {
+        default = nixpkgs.lib.nixosSystem {
+            specialArgs = {inherit inputs;};
+            modules = [
+                inputs.hjem.nixosModules.default # Import the hjem module
+                ./modules
+            ];
+        };
+    };
+}
+</code></pre><h2 id="ch-important-hjem-settings">Important Hjem Settings</h2>
+<p>Be sure to first set the necessary settings for Hjem and import Hjem Rum's Hjem
+module from the input:</p>
+<pre><code class="language-nix"># configuration.nix
+hjem = {
+    # Importing the modules
+    extraModules = [
+        inputs.hjem-rum.hjemModules.default
+    ];
+    # Configuring your user(s)
+    users.&lt;username&gt; = {
+        enable = true;
+        directory = &quot;/home/&lt;username&gt;&quot;;
+        user = &quot;&lt;username&gt;&quot;;
+    };
+    # You should probably also enable clobberByDefault at least for now.
+    clobberByDefault = true;
+};
+</code></pre><h2 id="ch-configuring-the-hjem-rum-modules">Configuring Hjem Rum Modules</h2>
+<p>You can then configure any of the options defined in this flake in any nix
+module:</p>
+<pre><code class="language-nix"># configuration.nix
+hjem.users.&lt;username&gt;.rum.programs.alacritty = {
+    enable = true;
+    package = pkgs.alacritty; # Default
+    settings = {
+        window = {
+            dimensions = {
+                lines = 28;
+                columns = 101;
+            };
+            padding = {
+                x = 6;
+                y = 3;
+            };
+        };
+    };
+}
+</code></pre><p>Please see the options page for a thorough list of options you can set.</p>
+
+          <div class="footnotes-container">
+            <!-- Footnotes will be appended here -->
+          </div>
+        </main>
+      </div>
+
+      <footer>
+        <p></p>
+      </footer>
+    </div>
+
+    <script src="assets/search.js"></script>
+
+  </body>
+</html>

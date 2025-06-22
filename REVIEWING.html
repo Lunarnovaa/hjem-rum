@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Tips</title>
+    <script>
+      // Apply sidebar state immediately to prevent flash
+      (function () {
+        if (localStorage.getItem("sidebar-collapsed") === "true") {
+          document.documentElement.classList.add("sidebar-collapsed");
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script defer src="assets/main.js"></script>
+    
+    <script defer src="assets/search.js"></script>
+    
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header-left">
+          <h1 class="site-title"><a href="index.html">Hjem Rum</a></h1>
+        </div>
+        <nav class="header-nav">
+          <ul>
+            <li ><a href="options.html">Options</a></li>
+            
+            <li><a href="search.html">Search</a></li>
+            
+          </ul>
+        </nav>
+        
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Search..." />
+          <div id="search-results" class="search-results"></div>
+        </div>
+        
+      </header>
+
+      <div class="layout">
+        <div class="sidebar-toggle" aria-label="Toggle sidebar">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+          </svg>
+        </div>
+        <nav class="sidebar">
+          <div class="docs-nav">
+            <h2>Documents</h2>
+            <ul>
+              <li><a href="REVIEWING.html">Review Tips</a></li>
+<li><a href="QUIRKS.html">Quirks, Tips, & Tricks</a></li>
+<li><a href="TESTING.html">Testing setup for modules</a></li>
+<li><a href="CONTRIBUTING.html">Contributing</a></li>
+<li><a href="INSTALLATION.html">Installing Hjem Rum</a></li>
+<li><a href="search.html">Search</a></li>
+
+            </ul>
+          </div>
+
+          <div class="toc">
+            <h2>Contents</h2>
+            <ul class="toc-list">
+              <li><a href="#review-tips">Review Tips</a>
+<ul><li><a href="#ch-1-be-nice">1. Be nice</a>
+<li><a href="#ch-2-single-trip-reviews">2. Single-trip reviews</a>
+<li><a href="#ch-3-united-front">3. United front</a>
+<li><a href="#ch-4-bikeshedding">4. Bikeshedding</a>
+<li><a href="#ch-extending-this-document">Extending this document</a>
+</li></ul></li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="content">
+          <h1 id="review-tips">Review Tips</h1>
+<p>An often overlooked part of contributing to an open source project is proper
+review practices. It's very easy to alienate contributors with bad code review.
+Of course, nobody will get this right <em>all</em> of the time. Rather, this guide aims
+to encourage some good practices to make Hjem Rum a better environment for
+contributors.</p>
+<p>If you notice another contributor not following these, don't call them out
+publicly―choose instead to respectfully message them via private channels. These
+tips serve as a reference, not a rule of law.</p>
+<p><sub>Much of this guide is inspired by <a href="https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/code-review-antipatterns/">Code Review Antipatterns</a> by Simon
+Tatham. If you're interested, give it a look! </sub></p>
+<h2 id="ch-1-be-nice">1. Be nice</h2>
+<p>Starting off with an easy one! However, there's actually something meaningful to
+be said here. As a reviewer, it's easy to get frustrated with constantly giving
+the same feedback. If you find yourself giving feedback like:</p>
+<blockquote>
+<p>Use ____.</p>
+</blockquote>
+<p>Instead, maybe phrase it as:</p>
+<blockquote>
+<p>Could you change this to ____?</p>
+</blockquote>
+<p>This might sound silly at first. But when it feels like a reviewer is <em>on your
+side</em>, it makes a huge difference. If this tone feels a little foreign, pretend
+you're writing an email, and that should give you a good barometer.</p>
+<h2 id="ch-2-single-trip-reviews">2. Single-trip reviews</h2>
+<p>As a contributor, it can be frustrating to finish accommodating all the review
+comments, only to immediately be given a bunch of other suggestions, which
+could've easily been included in the first review session. As a reviewer, take a
+moment and think―if these review comments were accommodated, would you be happy
+to merge this? If not, you might want to add something else to the review―or you
+might leave the contributor with unnecessarily high hopes.</p>
+<p>Part of this is also communicating big problems early on. Imagine if, as a
+contributor, you have been responding to review comments for ages and are hoping
+things are actually getting close to being merged. Only suddenly, the reviewer
+tells you:</p>
+<blockquote>
+<p>I actually don't like any of this, and want it completely redone.</p>
+</blockquote>
+<p>Or:</p>
+<blockquote>
+<p>I don't think this is a good idea for the project.</p>
+</blockquote>
+<p>How would that feel? As a reviewer, it's best to temper expectations. If
+something will require a lot of changes to be mergeable, be up-front about
+it―even if you feel a little guilty. Better to rip the bandaid off now, than to
+leave it on for a few review sessions.</p>
+<h2 id="ch-3-united-front">3. United front</h2>
+<p>Anyone who's contributed to <a href="https://github.com/NixOS/nixpkgs">nixpkgs</a> knows the cycle―you've accommodated one
+reviewer's comments, only for a different reviewer to come in with MORE things
+to change. Or, even worse―maybe reviewer 2 disagrees with reviewer 1―and now
+they're fighting on your PR.</p>
+<p>When possible, try to coordinate review feedback. The <a href="https://discord.gg/6rMPtKDKzt">SNUG Discord server</a> is a
+great place for working together to ensure feedback is clear and consistent
+between reviewers.</p>
+<h2 id="ch-4-bikeshedding">4. Bikeshedding</h2>
+<p>Have you ever made a PR, only for every single line to be criticized for not
+being done exactly how the reviewer wants? It feels like your code is being held
+to an impossibly high standard. Reviewers often view code more harshly―after
+all, they're the arbiter of whether some piece of code makes it into the
+project. But this alienates contributors―especially when this is combined with
+<a href="#ch-2-single-trip-reviews">multi-trip reviews</a>. It ends up feeling like your code is being held hostage,
+until the maintainer declares it <em>perfect</em>.</p>
+<p>To prevent this as a reviewer, there are a few ways to determine whether you, or
+someone else, might be bikeshedding.</p>
+<ol>
+<li>Are the standards you're requesting to be followed actually written down in
+the documentation? If not, is the unwritten standard consistently followed in
+the existing codebase? If neither of these are true, maybe you shouldn't put
+this on a random contributor.</li>
+<li>Is it <strong>blocking</strong>? A stylistic change might be nice to have, but could be
+merged without it. Maybe you as the reviewer could make the patch yourself
+after the PR is merged, to take the work off the contributor.</li>
+<li>Is your requested change part of code actually introduced by this
+contributor? Maybe you never noticed that this part of the code is a little
+ugly, or uses a paradigm you don't love. But this code wasn't changed by the
+contributor―you only noticed it because their changes touched the same file.
+Rather than putting this work on the contributor, who just wants <em>their</em>
+change in, maybe just make this patch separately.</li>
+</ol>
+<p>Sometimes, a <em>little</em> bikeshedding isn't that big of a deal―if you've worked
+with this contributor before and think they'll be fine with a few stylistic
+nitpicks, then mentioning a stylistic change is probably fine. But when
+bikeshedding does happen, try to treat it as <em>optional</em>. Rather than saying:</p>
+<blockquote>
+<p>Please do ___.</p>
+</blockquote>
+<p>Maybe, if it's a stylistic change, say:</p>
+<blockquote>
+<p>Stylistic nitpick, but could you maybe change this to ____? Not blocking.</p>
+</blockquote>
+<h2 id="ch-extending-this-document">Extending this document</h2>
+<p>If you find yourself experiencing something as a contributor that makes you less
+motivated to contribute―whether it's for Hjem Rum or some other project―feel
+free to make a PR extending this document. Proper code review practices keep
+contributors around, which is how an open source project thrives. Code review
+will never be perfect, but it can be better.</p>
+
+          <div class="footnotes-container">
+            <!-- Footnotes will be appended here -->
+          </div>
+        </main>
+      </div>
+
+      <footer>
+        <p></p>
+      </footer>
+    </div>
+
+    <script src="assets/search.js"></script>
+
+  </body>
+</html>

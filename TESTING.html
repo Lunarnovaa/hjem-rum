@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testing setup for modules</title>
+    <script>
+      // Apply sidebar state immediately to prevent flash
+      (function () {
+        if (localStorage.getItem("sidebar-collapsed") === "true") {
+          document.documentElement.classList.add("sidebar-collapsed");
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script defer src="assets/main.js"></script>
+    
+    <script defer src="assets/search.js"></script>
+    
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header-left">
+          <h1 class="site-title"><a href="index.html">Hjem Rum</a></h1>
+        </div>
+        <nav class="header-nav">
+          <ul>
+            <li ><a href="options.html">Options</a></li>
+            
+            <li><a href="search.html">Search</a></li>
+            
+          </ul>
+        </nav>
+        
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Search..." />
+          <div id="search-results" class="search-results"></div>
+        </div>
+        
+      </header>
+
+      <div class="layout">
+        <div class="sidebar-toggle" aria-label="Toggle sidebar">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+          </svg>
+        </div>
+        <nav class="sidebar">
+          <div class="docs-nav">
+            <h2>Documents</h2>
+            <ul>
+              <li><a href="REVIEWING.html">Review Tips</a></li>
+<li><a href="QUIRKS.html">Quirks, Tips, & Tricks</a></li>
+<li><a href="TESTING.html">Testing setup for modules</a></li>
+<li><a href="CONTRIBUTING.html">Contributing</a></li>
+<li><a href="INSTALLATION.html">Installing Hjem Rum</a></li>
+<li><a href="search.html">Search</a></li>
+
+            </ul>
+          </div>
+
+          <div class="toc">
+            <h2>Contents</h2>
+            <ul class="toc-list">
+              <li><a href="#testing-setup-for-module">Testing setup for modules</a>
+<ul><li><a href="#ch-creating-tests">Creating Tests</a>
+<ul><li><a href="#sec-naming">Naming</a>
+</ul><li><a href="#ch-writing-tests">Writing Tests</a>
+</li></ul></li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="content">
+          <h1 id="testing-setup-for-module">Testing setup for modules</h1>
+<p>Hjem Rum's testing system is designed with simplicity in mind, so we shy away
+from other testing frameworks and stick with <code>runTest</code>, from the
+<a href="https://github.com/NixOS/nixpkgs/tree/master/nixos/lib/testing">internal NixOS lib</a> located in the Nixpkgs monorepo. There are no non-standard
+abstractions in regards to writing the tests, so they should be written just
+like any other test that uses the NixOS Test Driver.</p>
+<h2 id="ch-creating-tests">Creating Tests</h2>
+<p>Every file is automatically imported with
+<code class="file-path">lib.filesystem.listFilesRecursive</code>, given that there is a check output
+that imports the directory (more on that later), so your only worry should be
+creating the tests in their relevant directories. If you're writing a test for
+btop, for instance, you should create a module as
+<code>modules/tests/programs/btop.nix</code>.</p>
+<p>If you're certain your test category doesn't get covered by any of the existing
+directories, you can create a new one together with a check that imports files
+in this directory. This is really easy to do:</p>
+<pre><code class="language-nix">checks = hjem-rum-services = import ./modules/tests (mkCheckArgs ./modules/tests/services);
+  # Just // (import ./modules/tests and pass mkCheckArgs with your brand-new directory to it.
+</code></pre><h3 id="sec-naming">Naming</h3>
+<p>To reduce CI run time, we only run checks for which the module or test file has
+changed. For this association to work, the following naming scheme has to be
+respected: <code>&lt;category&gt;-&lt;module name&gt;</code>.</p>
+<p>Below is a list of files, and their corresponding name.</p>
+<ul>
+<li><code>modules/collection/programs/foot.nix</code> -&gt; <code>programs-foot</code></li>
+<li><code>modules/tests/programs/fish.nix</code> -&gt; <code>programs-fish</code></li>
+<li><code>modules/tests/programs/ncmpcpp/ncmpcpp.nix</code> -&gt; <code>programs-ncmpcpp</code></li>
+</ul>
+<p>You may declare multiple test files for a module by having all of those names
+start with the aformentioned pattern, such as <code>programs-foot-test-plugins</code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you do not follow this rule, your tests will not be run during CI.</p>
+</div>
+<h2 id="ch-writing-tests">Writing Tests</h2>
+<p>Tests for Hjem Rum are written just like any other test, so it might be worth to
+take a read at how NixOS tests work. <a href="https://nix.dev/tutorials/nixos/integration-testing-using-virtual-machines.html">nix.dev provides a useful guide</a>, as does
+the <a href="https://nixos.org/manual/nixos/stable/index.html#sec-calling-nixos-tests">NixOS Manual</a>,<sup class="footnote-reference"><a href="#1">1</a></sup> both detailing how to use the framework.</p>
+<p>Our test system has some pre-defined things aiming at avoid boilerplate code:</p>
+<ul>
+<li>A user named "bob" is already created, with no groups, <code>isNormalUser</code> set to
+true and no password.</li>
+<li>Both Hjem and Hjem Rum are already imported by default.</li>
+</ul>
+<p><code>self</code>, <code>lib</code> and <code>pkgs</code> are also passed to every test module, so you're free to
+use them as you will.</p>
+<p>The <a href="https://github.com/snugnug/hjem-rum/blob/main/modules/tests/programs/nushell.nix">nushell test module</a> can serve as a strong example of a test module, and
+provides comments for each step of the <code>testScript</code>. Care should be taken to
+wait for the proper systemd targets to be reached, change users to run commands,
+and avoid other possible footguns. The approach this module uses to test its
+configuration is to have a file for each configuration alongside it, which then
+gets passed to the test VM and gets evaluated with diff. You can use other
+approaches if it's more convenient, that's just a suggestion.</p>
+<p>You can also debug your tests through a Python REPL by running:</p>
+<pre><code class="language-bash">nix run .#checks.&lt;arch&gt;.vm-test-run-&lt;category&gt;-&lt;module name&gt;[-suffix].driver -- --interactive
+</code></pre><div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup><p>Although both guides refer to <code class="file-path">lib.tests.runNixOSTest</code> instead of
+<code>runTest</code>, the former is just a wrapper around the latter, abstracting
+certain concepts, so the code ran by them should be interchangeable between
+one another.</p>
+</div>
+
+          <div class="footnotes-container">
+            <!-- Footnotes will be appended here -->
+          </div>
+        </main>
+      </div>
+
+      <footer>
+        <p></p>
+      </footer>
+    </div>
+
+    <script src="assets/search.js"></script>
+
+  </body>
+</html>
