@@ -107,7 +107,7 @@
   hjemRumDocs =
     pkgs.runCommandLocal "hjem-rum-docs" {nativeBuildInputs = [ndg];}
     ''
-      mkdir -p $out
+      mkdir -p "$out/assets" # mkdir $out and the assets subfolder
 
       ndg --verbose html \
         --title "Hjem Rum"  \
@@ -120,7 +120,9 @@
         --input-dir ${./manual} \
         --output-dir "$out"
 
-      cat ${./CNAME} > "$out/CNAME"
+      cat ${./templates/main.js} > "$out/assets/main.js" # use the default script
+
+      cat ${./CNAME} > "$out/CNAME" # use the CNAME
     '';
 in
   hjemRumDocs
