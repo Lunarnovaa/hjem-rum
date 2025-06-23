@@ -6,13 +6,13 @@
 [documentation on forking repositories]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
 [documentation on reviewing PRs]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request
 [Core Principles]: #ch-core-principles
-[**Contributing: Writing Modules**]: ./MODULES.html
+[**Contributing: Writing Modules**]: ./writing-modules.html
 [#43]: https://github.com/snugnug/hjem-rum/pull/43
-[**Contributing: Setting Up Module Tests**]: ./TESTING.html
-[**Contributing: Extending Hjem Rum's Library**]: ./LIB.html
-[**Contributign: Expanding the Documenation**]: ./DOCS.html
+[**Contributing: Setting Up Module Tests**]: ./testing.html
+[**Contributing: Extending Hjem Rum's Library**]: ./rumlib.html
+[**Contributign: Expanding the Documenation**]: ./docs.html
 [reviewed]: #ch-reviewing-a-pr
-[**Contributing: Review Tips**]: ./REVIEWING.html
+[**Contributing: Review Tips**]: ./reviewing.html
 
 Hjem Rum (or HJR) is always in need of contributions as a module collection. As
 programs are developed, modules will need to be added, changed, removed, etc.,

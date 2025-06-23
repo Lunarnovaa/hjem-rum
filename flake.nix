@@ -12,7 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ndg = {
-      url = "github:feel-co/ndg";
+      url = "github:feel-co/ndg?ref=nested-templates";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

@@ -3,8 +3,8 @@
 [**Hjem Rum**]: ./index.html
 [**Options**]: ./options.html
 [**Search**]: ./search.html
-[**Usage: Installing Hjem Rum**]: ./INSTALLATION.html
-[**Contributing: Introduction**]: ./CONTRIBUTING.html
+[**Usage: Installing Hjem Rum**]: ./usage/installation.html
+[**Contributing: Introduction**]: ./contributing/introduction.html
 
 Welcome to Hjem Rum's Official Documentation.
 
