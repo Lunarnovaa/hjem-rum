@@ -15,15 +15,15 @@ standards are lower.
 If you are including an option or function labeled like:
 
 ```md
-Make sure to use `lib.options.mkEnableOption`, like is done in
-`rum.programs.fish.enable`
+Make sure to use \`lib.options.mkEnableOption\`, like is done in
+\`rum.programs.fish.enable\`.
 ```
 
 Then you will have to include {file} before it, or {option} if it is an option:[^1]
 
 ```md
-Make sure to use {file}`lib.options.mkEnableOption`, like is done in
-{option}`rum.programs.fish.enable`.
+Make sure to use {file}\`lib.options.mkEnableOption\`, like is done in
+{option}\`rum.programs.fish.enable\`.
 ```
 
 [^1]: It is admittedly a bit confusing why we could use {file} for `lib`, but
