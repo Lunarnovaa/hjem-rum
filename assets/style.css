@@ -118,22 +118,8 @@ body.sidebar-collapsed .sidebar-toggle svg {
   src: url("https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2")
     format("woff2");
   unicode-range:
-    U+0000-00FF,
-    U+0131,
-    U+0152-0153,
-    U+02BB-02BC,
-    U+02C6,
-    U+02DA,
-    U+02DC,
-    U+2000-206F,
-    U+2074,
-    U+20AC,
-    U+2122,
-    U+2191,
-    U+2193,
-    U+2212,
-    U+2215,
-    U+FEFF,
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
     U+FFFD;
 }
 
@@ -145,22 +131,8 @@ body.sidebar-collapsed .sidebar-toggle svg {
   src: url("https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2")
     format("woff2");
   unicode-range:
-    U+0000-00FF,
-    U+0131,
-    U+0152-0153,
-    U+02BB-02BC,
-    U+02C6,
-    U+02DA,
-    U+02DC,
-    U+2000-206F,
-    U+2074,
-    U+20AC,
-    U+2122,
-    U+2191,
-    U+2193,
-    U+2212,
-    U+2215,
-    U+FEFF,
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
     U+FFFD;
 }
 
@@ -172,22 +144,8 @@ body.sidebar-collapsed .sidebar-toggle svg {
   src: url("https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hiA.woff2")
     format("woff2");
   unicode-range:
-    U+0000-00FF,
-    U+0131,
-    U+0152-0153,
-    U+02BB-02BC,
-    U+02C6,
-    U+02DA,
-    U+02DC,
-    U+2000-206F,
-    U+2074,
-    U+20AC,
-    U+2122,
-    U+2191,
-    U+2193,
-    U+2212,
-    U+2215,
-    U+FEFF,
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
     U+FFFD;
 }
 
@@ -199,22 +157,8 @@ body.sidebar-collapsed .sidebar-toggle svg {
   src: url("https://fonts.gstatic.com/s/jetbrainsmono/v13/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxTOlOV.woff2")
     format("woff2");
   unicode-range:
-    U+0000-00FF,
-    U+0131,
-    U+0152-0153,
-    U+02BB-02BC,
-    U+02C6,
-    U+02DA,
-    U+02DC,
-    U+2000-206F,
-    U+2074,
-    U+20AC,
-    U+2122,
-    U+2191,
-    U+2193,
-    U+2212,
-    U+2215,
-    U+FEFF,
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
     U+FFFD;
 }
 
@@ -235,7 +179,9 @@ body {
   background-color: var(--bg-color);
   margin: 0;
   padding: 0;
-  transition: background-color var(--transition), color var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -738,7 +684,9 @@ img {
   font-size: 0.875rem;
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--header-text);
-  transition: background-color var(--transition-fast), width var(--transition);
+  transition:
+    background-color var(--transition-fast),
+    width var(--transition);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255, 255, 255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: 0.75rem center;
@@ -990,7 +938,7 @@ img {
 .search-page-results .search-result-title {
   font-size: 1.125rem;
   font-weight: 600;
-  margin-bottom: var(--space-3);
+  margin-bottom: var (--space-3);
   color: var(--heading-color);
 }
 
@@ -1036,9 +984,11 @@ img {
 .toc-list a {
   display: inline-block;
   padding: var(--space-1) 0;
-  transition: transform var(--transition-fast), color var(--transition-fast);
+  transition:
+    transform var(--transition-fast),
+    color var(--transition-fast);
   font-size: 0.9375rem;
-  color: var(--text-color);
+  color: var (--text-color);
 }
 
 .toc-list a:hover {
@@ -1054,7 +1004,9 @@ img {
   background-color: var(--bg-surface);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  transition: background-color var(--transition), box-shadow var(--transition);
+  transition:
+    background-color var(--transition),
+    box-shadow var(--transition);
   border: 1px solid var(--border-color);
 }
 
@@ -1389,7 +1341,7 @@ h6:hover .copy-link {
     top: 70px;
     left: 0;
     background-color: var(--header-bg);
-    color: var(--header-text);
+    color: var (--header-text);
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
     padding: var(--space-2);
     width: 32px;
@@ -1549,7 +1501,9 @@ h6:hover .copy-link {
 .toc-list a {
   display: inline-block;
   padding: var(--space-1) 0;
-  transition: transform var(--transition-fast), color var(--transition-fast);
+  transition:
+    transform var(--transition-fast),
+    color var(--transition-fast);
   font-size: 0.9375rem;
   color: var(--text-color);
   text-decoration: none;
@@ -1582,7 +1536,9 @@ h6:hover .copy-link {
   overflow: hidden;
   text-overflow: ellipsis;
   list-style: none;
-  transition: transform var(--transition-fast), color var(--transition-fast);
+  transition:
+    transform var(--transition-fast),
+    color var(--transition-fast);
 }
 
 .toc-list details summary:hover {
@@ -1691,7 +1647,7 @@ h6:hover .copy-link {
 }
 
 .option-type {
-  margin-bottom: var(--space-3);
+  margin-bottom: var (--space-3);
 }
 
 .option-description {

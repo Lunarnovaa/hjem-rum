@@ -315,12 +315,10 @@ function performSearch(query) {
     .filter((item) => item.priority !== -1)
     .sort((a, b) => {
       if (a.priority !== b.priority) return a.priority - b.priority;
-      if (a.priority === 1 && b.priority === 1) {
+      if (a.priority === 1 && b.priority === 1)
         return a.titleMatch - b.titleMatch;
-      }
-      if (a.priority === 2 && b.priority === 2) {
+      if (a.priority === 2 && b.priority === 2)
         return a.descMatch - b.descMatch;
-      }
       return 0;
     })
     .map((item) => item.doc);

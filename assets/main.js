@@ -111,9 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.classList.toggle("sidebar-collapsed");
 
       // Use documentElement to check state and save to localStorage
-      const isCollapsed = document.documentElement.classList.contains(
-        "sidebar-collapsed",
-      );
+      const isCollapsed =
+        document.documentElement.classList.contains("sidebar-collapsed");
       localStorage.setItem("sidebar-collapsed", isCollapsed);
     });
   }
@@ -437,8 +436,8 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     // Detect if we're on a mobile device
-    const isMobile = window.innerWidth < 768 ||
-      /Mobi|Android/i.test(navigator.userAgent);
+    const isMobile =
+      window.innerWidth < 768 || /Mobi|Android/i.test(navigator.userAgent);
 
     // Cache all option elements and their searchable content
     const options = Array.from(document.querySelectorAll(".option"));
@@ -516,8 +515,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Update counter at the very end for best performance
         if (filterResults.visibleCount !== undefined) {
           if (filterResults.visibleCount < totalCount) {
-            filterResults.textContent =
-              `Showing ${filterResults.visibleCount} of ${totalCount} options`;
+            filterResults.textContent = `Showing ${filterResults.visibleCount} of ${totalCount} options`;
             filterResults.style.display = "block";
           } else {
             filterResults.style.display = "none";
@@ -564,7 +562,8 @@ document.addEventListener("DOMContentLoaded", function () {
           isDescMatch = !isTitleMatch && data.description.includes(term);
         } else {
           isTitleMatch = searchTerms.every((term) => data.name.includes(term));
-          isDescMatch = !isTitleMatch &&
+          isDescMatch =
+            !isTitleMatch &&
             searchTerms.every((term) => data.description.includes(term));
         }
         if (isTitleMatch) {

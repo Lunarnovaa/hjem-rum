@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,23 +12,23 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="assets/style.css" />
-    <script defer src="assets/main.js"></script>
+    <link rel="stylesheet" href="../assets/style.css" />
+    <script defer src="../assets/main.js"></script>
     
-    <script defer src="assets/search.js"></script>
+    <script defer src="../assets/search.js"></script>
     
   </head>
   <body>
     <div class="container">
       <header>
         <div class="header-left">
-          <h1 class="site-title"><a href="index.html">Hjem Rum</a></h1>
+          <h1 class="site-title"><a href="../index.html">Hjem Rum</a></h1>
         </div>
         <nav class="header-nav">
           <ul>
-            <li ><a href="options.html">Options</a></li>
+            <li ><a href="../options.html">Options</a></li>
             
-            <li><a href="search.html">Search</a></li>
+            <li><a href="../search.html">Search</a></li>
             
           </ul>
         </nav>
@@ -92,11 +92,11 @@ specific asks of you depending on the case. Writing can be very personal and
 very fluid, so there are less rigid expectations here, but that does not mean
 standards are lower.</p>
 <p>If you are including an option or function labeled like:</p>
-<pre><code class="language-md">Make sure to use `lib.options.mkEnableOption`, like is done in
-`rum.programs.fish.enable`
+<pre><code class="language-md">Make sure to use \`lib.options.mkEnableOption\`, like is done in
+\`rum.programs.fish.enable\`.
 </code></pre><p>Then you will have to include {file} before it, or {option} if it is an option:<sup class="footnote-reference"><a href="#1">1</a></sup></p>
-<pre><code class="language-md">Make sure to use &lt;code class=&quot;file-path&quot;&gt;lib.options.mkEnableOption&lt;/code&gt;, like is done in
-&lt;code class=&quot;nixos-option&quot;&gt;rum.programs.fish.enable&lt;/code&gt;.
+<pre><code class="language-md">Make sure to use {file}\`lib.options.mkEnableOption\`, like is done in
+{option}\`rum.programs.fish.enable\`.
 </code></pre><div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup><p>It is admittedly a bit confusing why we could use {file} for <code>lib</code>, but
 the best way to think of it is that <code class="file-path">lib.modules.mkIf</code> literally
 corresponds to file <code class="file-path">lib/modules.nix</code> in Nixpkgs, which contains the
