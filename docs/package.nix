@@ -118,12 +118,11 @@
         --manpage-urls ${./manpage-urls.json} \
         --options-depth 3 \
         --generate-search true \
-        --template-dir ${./templates} \
         --footer "$footer" \
         --input-dir ${./manual} \
         --output-dir "$out"
 
-      cat ${./templates/main.js} > "$out/assets/main.js" # use the default script
+      #cat ${./templates/main.js} > "$out/assets/main.js" # use the default script
 
       cat ${./CNAME} > "$out/CNAME" # use the CNAME
     '';
