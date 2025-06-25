@@ -74,9 +74,10 @@
             <ul class="toc-list">
               <li><a href="#usage-installing-hjem-rum">Usage: Installing Hjem Rum</a>
 <ul><li><a href="#ch-importing-the-hjem-rum-flake">Importing the Hjem Rum Flake</a>
-<li><a href="#ch-important-hjem-settings">Important Hjem Settings</a>
-<li><a href="#ch-configuring-the-hjem-rum-modules">Configuring Hjem Rum Modules</a>
-</li></ul></li>
+<li><a href="#ch-using-hjem-rum-modules">Using Hjem Rum Modules</a>
+<ul><li><a href="#sec-configuring-in-nixos-modules">Configuring in NixOS Modules</a>
+<li><a href="#sec-configuring-in-hjem-modules">Configuring in Hjem Modules</a>
+</li></ul></li></ul></li>
             </ul>
           </div>
         </nav>
@@ -121,45 +122,185 @@ outputs = {
         };
     };
 }
-</code></pre><h2 id="ch-important-hjem-settings">Important Hjem Settings</h2>
-<p>Be sure to first set the necessary settings for Hjem and import Hjem Rum's Hjem
-module from the input:</p>
+</code></pre><h2 id="ch-using-hjem-rum-modules">Using Hjem Rum Modules</h2>
+<p>You can declare Hjem Rum modules either in a NixOS module, imported into all
+your hosts, or as a special "Hjem" module, imported directly into Hjem. If you
+do not know which to choose, we recommend configuring Hjem Rum in NixOS modules.</p>
+<p>Please see <a href="../options.html"><strong>Options</strong></a> for a thorough list of options you can set.</p>
+<h3 id="sec-configuring-in-nixos-modules">Configuring in NixOS Modules</h3>
+<p>To configure Hjem Rum in a NixOS Module, set the according settings, import Hjem
+Rum's flake output, and configure away.</p>
 <pre><code class="language-nix"># configuration.nix
-hjem = {
-    # Importing the modules
-    extraModules = [
-        inputs.hjem-rum.hjemModules.default
-    ];
-    # Configuring your user(s)
-    users.&lt;username&gt; = {
-        enable = true;
-        directory = &quot;/home/&lt;username&gt;&quot;;
-        user = &quot;&lt;username&gt;&quot;;
-    };
-    # You should probably also enable clobberByDefault at least for now.
-    clobberByDefault = true;
-};
-</code></pre><h2 id="ch-configuring-the-hjem-rum-modules">Configuring Hjem Rum Modules</h2>
-<p>You can then configure any of the options defined in this flake in any nix
-module:</p>
-<pre><code class="language-nix"># configuration.nix
-hjem.users.&lt;username&gt;.rum.programs.alacritty = {
-    enable = true;
-    package = pkgs.alacritty; # Default
-    settings = {
-        window = {
-            dimensions = {
-                lines = 28;
-                columns = 101;
-            };
-            padding = {
-                x = 6;
-                y = 3;
+{
+    pkgs,
+    inputs,
+    ...
+}: {
+    hjem = {
+        # Import the module collection
+        extraModules = [inputs.hjem-rum.hjemModules.default];
+
+        # You should probably also enable clobberByDefault at least for now.
+        clobberByDefault = true;
+
+        # Configuring your user(s)
+        users.&lt;username&gt; = {
+            enable = true;
+            directory = &quot;/home/&lt;username&gt;&quot;;
+            user = &quot;&lt;username&gt;&quot;;
+            rum.programs.alacritty = {
+                enable = true;
+                package = pkgs.alacritty; # Default
+                settings = {
+                    window = {
+                        dimensions = {
+                            lines = 28;
+                            columns = 101;
+                        };
+                        padding = {
+                            x = 6;
+                            y = 3;
+                        };
+                    };
+                };
             };
         };
     };
 }
-</code></pre><p>Please see the options page for a thorough list of options you can set.</p>
+</code></pre><p>This setup is ideal for a single-user configuration, as you can easily integrate
+your home configuration right in your system. It minimizes friction and creates
+a single-setup configuration. You can, of course, modularize your configuration
+into files, like you should do for NixOS:</p>
+<pre><code class="language-nix"># configuration.nix
+{
+    imports = [
+        ./hjem
+    ];
+}
+</code></pre><pre><code class="language-nix"># hjem/default.nix
+{
+    config,
+    inputs,
+    ...
+}: {
+    imports = [
+        ./alacritty.nix
+    ];
+    config.hjem = {
+        # Import the module collection
+        extraModules = [inputs.hjem-rum.hjemModules.default];
+
+        # You should probably also enable clobberByDefault at least for now.
+        clobberByDefault = true;
+
+        # Configuring your user(s)
+        users.&lt;username&gt; = {
+            enable = true;
+            directory = &quot;/home/&lt;username&gt;&quot;;
+            user = &quot;&lt;username&gt;&quot;;
+        };
+    };
+}
+</code></pre><pre><code class="language-nix"># hjem/alacritty.nix
+{pkgs,...}: {
+    hjem.users.&lt;username&gt;.rum.programs.alacritty = {
+        enable = true;
+        package = pkgs.alacritty; # Default
+        settings = {
+            window = {
+                dimensions = {
+                    lines = 28;
+                    columns = 101;
+                };
+                padding = {
+                    x = 6;
+                    y = 3;
+                };
+            };
+        };
+    };
+}
+</code></pre><p>Using this setup, a single-user configuration can be well implemented into your
+existing NixOS configuration. For example, you could configure the necessary
+system-wide configurations for your desktop environment and manage its dotfiles
+in the same file or directory.</p>
+<h3 id="sec-configuring-in-hjem-modules">Configuring in Hjem Modules</h3>
+<p>Alternatively, if you would rather separate your Hjem modules from your NixOS
+modules, you can simply import Hjem Rum's modules and Nix files written as Hjem
+modules straight into your Hjem user.</p>
+<pre><code class="language-nix"># configuration.nix
+{inputs, ...}: {
+    hjem = {
+        # Import the module collection
+        extraModules = [inputs.hjem-rum.hjemModules.default];
+
+        # You should probably also enable clobberByDefault at least for now.
+        clobberByDefault = true;
+
+        # Configuring your user(s)
+        users.&lt;username&gt; = {
+            enable = true;
+            directory = &quot;/home/&lt;username&gt;&quot;;
+            user = &quot;&lt;username&gt;&quot;;
+            imports = [./hjem/&lt;username&gt;];
+        };
+    };
+}
+</code></pre><pre><code class="language-nix"># hjem/&lt;username&gt;/default.nix
+{
+    imports = [./alacritty.nix];
+}
+</code></pre><pre><code class="language-nix"># hjem/&lt;username&gt;/alacritty.nix
+{pkgs, ...}: {
+    rum.programs.alacritty = {
+        enable = true;
+        package = pkgs.alacritty; # Default
+        settings = {
+            window = {
+                dimensions = {
+                    lines = 28;
+                    columns = 101;
+                };
+                padding = {
+                    x = 6;
+                    y = 3;
+                };
+            };
+        };
+    };
+}
+</code></pre><p>In this example, Alacritty would only be enabled and configured in the user the
+module is imported into. Using this setup, you could also import Hjem Rum
+exclusively into the user, rather than into <code class="nixos-option">hjem.extraModules</code>.</p>
+<pre><code class="language-nix"># configuration.nix
+{inputs, ...}: {
+    hjem = {
+        # Don&#39;t import the flake into all users
+        extraModules = [];
+        # Instead, import it into a single user
+        users.&lt;username&gt; = {
+            imports = [
+                inputs.hjem-rum.hjemModules.default
+                ./hjem/&lt;username&gt;
+            ];
+        };
+    };
+}
+</code></pre><p>Keep in mind, if you wish to access any specialArgs, you will need to declare
+them in <code class="nixos-option">hjem.specialArgs</code>:</p>
+<pre><code class="language-nix"># configuration.nix
+{inputs, ...}: {
+    hjem = {
+        specialArgs = {inherit inputs;}; # inputs = inputs
+        users.&lt;username&gt;.imports = [./hjem/&lt;username&gt;];
+    };
+}
+</code></pre><pre><code class="language-nix"># hjem/&lt;username&gt;/default.nix
+{inputs, ...}: {
+    imports = [inputs.hjem-rum.hjemModules.default];
+}
+</code></pre><p>In this example, this allows us to import the Hjem Rum collection inside of a
+user-specific Hjem module.</p>
 
           <div class="footnotes-container">
             <!-- Footnotes will be appended here -->
@@ -168,23 +309,15 @@ hjem.users.&lt;username&gt;.rum.programs.alacritty = {
       </div>
 
       <footer>
-        <p><!--
-  ndg template
-  <p>
--->
-<div>
+        <p><div>
   Built with <a href='https://www.github.com/feel-co/ndg'>ndg</a> from <a
-    href='https://www.github.com/snugnug/hjem-rum'
-  >snugnug/hjem-rum</a>
+    href='https://www.github.com/lunarnovaa/hjem-rum'
+  >lunarnovaa/hjem-rum</a>
 </div>
 <div>
   For more information on the SNUG, see <a href='https://www.github.com/snugnug'
   >our repo</a>
-</div>
-<!--
-  ndg template
-  </p>
---></p>
+</div></p>
       </footer>
     </div>
 
