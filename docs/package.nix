@@ -109,7 +109,7 @@
     ''
       mkdir -p "$out/assets" # mkdir $out and the assets subfolder
 
-      footer=$(cat ${./footer})
+      footer=$(cat ${./footer.html})
 
       ndg --verbose html \
         --title "Hjem Rum"  \
