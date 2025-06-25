@@ -1,6 +1,7 @@
 # Hjem Rum
 
 [Hjem]: https://github.com/feel-co/hjem
+[discussions]: https://github.com/snugnug/hjem-rum/discussions
 [documentation]: rum.snugnug.org
 [our docs]: ./CONTRIBUTING.html
 [@NotAShelf]: https://github.com/NotAShelf
@@ -32,6 +33,66 @@ functionality that Home Manager provides. Hjem Rum, in contrast, is intended to
 provide an expansive module collection as a useful abstraction for users to
 configure their applications with ease, recreating Home Manager's complete
 functionality.
+
+## FAQ
+
+Have any questions? Please read ahead.
+
+**Q.** Is Hjem just a cleaner Home Manager?
+
+**A.** You can think of Hjem as "Home Manager without modules." It is also a
+cleaner implementation yes. The decision to make Hjem "Home Manager without
+modules" was done for two reasons: firstly, in order to reduce evaluation times
+for the core toolset. When using Hjem by itself, evaluation/build time is much
+less than using Home Manager, since the entire module collection does not need
+to be evaluated. The second reason was to streamline the implementation. Because
+Hjem is _just_ the management of user files and services, it is easier to
+optimize the implementation and continue maintenance, without the overhead of
+the entire module collection sharing the same repository. Ultimately, Hjem
+leaving out the modules makes it lighter for both users and developers.
+
+**Q.** So then why does Hjem Rum exist?
+
+**A.** Hjem Rum exists to fill the gap that Hjem leaves in $HOME management.
+While the bare implementation that Hjem provides is useful for those that have
+an intimate understanding of NixOS, the average user needs a cleaner, more user
+friendly interface between NixOS and Hjem. If Hjem is "Home Manager without
+modules," Hjem Rum are the modules that are added on top of Hjem. This means
+easy to use options like `programs.alacritty.enable` and
+`programs.alacritty.settings` that automatically install the program, configure
+it to your liking, and integrate it into other programs you manage with Hjem
+Rum.
+
+**Q.** If Hjem Rum just adds the modules back, why would I use it instead of
+Home Manager?
+
+**A.** Hjem Rum was built from the ground up with more sane and unopinionated
+practices and defaults, intending to minimize overhead and streamline the
+codebase, even at the cost of development time. The goal of Hjem Rum is to
+minimize technical debt and produce something that uses the optimized Hjem to
+manage $HOME in a much cleaner fashion that makes it more maintainable in the
+long term. Just as Hjem's lack of modules allows its implementation to be
+streamlined, we hope that Hjem Rum's distance from the underlying toolset allows
+its implementation to be similarly streamlined. Furthermore, if Hjem is brought
+into Nixpkgs, Hjem Rum can easily serve as an external module set, not further
+bloating Nixpkgs, without requiring extensive refactoring.
+
+**Q.** Okay, you've sold me―is there an easy way to migrate from Home Manager to
+Hjem Rum?
+
+**A.** Unfortunately, there is no shortcut―you'll have to do it manually.
+However, because Hjem Rum's API is not too different from Home Manager's, it is
+thankfully not too difficult. The most burdensome part would be moving your
+module configuration from Home Manager modules into your NixOS/Hjem Modules, and
+changing the names of the option calls.
+
+**Q.** Do you support Darwin/Standalone?
+
+**A.** At the moment, we do not support Darwin or Standalone. This is mainly
+because Hjem does not yet support Darwin/Standalone. It is a possibility for the
+future, however.
+
+_Still_ confused? Go ahead and leave a question in [discussions].
 
 ## Usage and Documentation
 
