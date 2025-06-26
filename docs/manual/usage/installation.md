@@ -1,6 +1,7 @@
 # Usage: Installing Hjem Rum {#usage-installing-hjem-rum}
 
 [**Options**]: ../options.html
+[**Quirks, Tips, and Tricks**]: ./quirks.html
 
 Welcome to Hjem Rum. Installing and configuring Hjem Rum is as easy as any other
 module.
@@ -39,7 +40,7 @@ outputs = {
             specialArgs = {inherit inputs;};
             modules = [
                 inputs.hjem.nixosModules.default # Import the hjem module
-                ./modules
+                ./configuration.nix
             ];
         };
     };
@@ -49,12 +50,14 @@ outputs = {
 ## Using Hjem Rum Modules {#ch-using-hjem-rum-modules}
 
 You can declare Hjem Rum modules either in a NixOS module, imported into all
-your hosts, or as a special "Hjem" module, imported directly into Hjem. If you
-do not know which to choose, we recommend configuring Hjem Rum in NixOS modules.
+your hosts, or as a special Hjem module, imported directly into Hjem. If you do
+not know which to choose, we recommend configuring Hjem Rum in NixOS modules.
 
-Please see [**Options**] for a thorough list of options you can set.
+> [!INFO]
+> For the purposes of this example, we will be pretending your username is
+> `alice`.
 
-### Configuring in NixOS Modules {#sec-configuring-in-nixos-modules}
+### Configuring in a NixOS Module {#sec-configuring-in-a-nixos-module}
 
 To configure Hjem Rum in a NixOS Module, set the according settings, import Hjem
 Rum's flake output, and configure away.
@@ -70,14 +73,14 @@ Rum's flake output, and configure away.
         # Import the module collection
         extraModules = [inputs.hjem-rum.hjemModules.default];
 
-        # You should probably also enable clobberByDefault at least for now.
-        clobberByDefault = true;
+        # We recommend using the experimental linker
+        linker = inputs.hjem.packages."x86_64-linux".sfmh; # Use your host's system
 
         # Configuring your user(s)
-        users.<username> = {
+        users.alice = {
             enable = true;
-            directory = "/home/<username>";
-            user = "<username>";
+            directory = "/home/alice";
+            user = "alice";
             rum.programs.alacritty = {
                 enable = true;
                 package = pkgs.alacritty; # Default
@@ -107,9 +110,7 @@ into files, like you should do for NixOS:
 ```nix
 # configuration.nix
 {
-    imports = [
-        ./hjem
-    ];
+    imports = [./hjem];
 }
 ```
 
@@ -127,14 +128,14 @@ into files, like you should do for NixOS:
         # Import the module collection
         extraModules = [inputs.hjem-rum.hjemModules.default];
 
-        # You should probably also enable clobberByDefault at least for now.
-        clobberByDefault = true;
+        # We recommend using the experimental linker
+        linker = inputs.hjem.packages."x86_64-linux".sfmh; # Use your host's system
 
         # Configuring your user(s)
-        users.<username> = {
+        users.alice = {
             enable = true;
-            directory = "/home/<username>";
-            user = "<username>";
+            directory = "/home/alice";
+            user = "alice";
         };
     };
 }
@@ -143,7 +144,7 @@ into files, like you should do for NixOS:
 ```nix
 # hjem/alacritty.nix
 {pkgs,...}: {
-    hjem.users.<username>.rum.programs.alacritty = {
+    hjem.users.alice.rum.programs.alacritty = {
         enable = true;
         package = pkgs.alacritty; # Default
         settings = {
@@ -167,7 +168,7 @@ existing NixOS configuration. For example, you could configure the necessary
 system-wide configurations for your desktop environment and manage its dotfiles
 in the same file or directory.
 
-### Configuring in Hjem Modules {#sec-configuring-in-hjem-modules}
+### Configuring in a Hjem Module {#sec-configuring-in-a-hjem-module}
 
 Alternatively, if you would rather separate your Hjem modules from your NixOS
 modules, you can simply import Hjem Rum's modules and Nix files written as Hjem
@@ -180,29 +181,29 @@ modules straight into your Hjem user.
         # Import the module collection
         extraModules = [inputs.hjem-rum.hjemModules.default];
 
-        # You should probably also enable clobberByDefault at least for now.
-        clobberByDefault = true;
+        # We recommend using the experimental linker
+        linker = inputs.hjem.packages."x86_64-linux".sfmh; # Use your host's system
 
         # Configuring your user(s)
-        users.<username> = {
+        users.alice = {
             enable = true;
-            directory = "/home/<username>";
-            user = "<username>";
-            imports = [./hjem/<username>];
+            directory = "/home/alice";
+            user = "alice";
+            imports = [./hjem/alice];
         };
     };
 }
 ```
 
 ```nix
-# hjem/<username>/default.nix
+# hjem/alice/default.nix
 {
     imports = [./alacritty.nix];
 }
 ```
 
 ```nix
-# hjem/<username>/alacritty.nix
+# hjem/alice/alacritty.nix
 {pkgs, ...}: {
     rum.programs.alacritty = {
         enable = true;
@@ -233,11 +234,12 @@ exclusively into the user, rather than into {option}`hjem.extraModules`.
     hjem = {
         # Don't import the flake into all users
         extraModules = [];
+
         # Instead, import it into a single user
-        users.<username> = {
+        users.alice = {
             imports = [
                 inputs.hjem-rum.hjemModules.default
-                ./hjem/<username>
+                ./hjem/alice
             ];
         };
     };
@@ -252,13 +254,13 @@ them in {option}`hjem.specialArgs`:
 {inputs, ...}: {
     hjem = {
         specialArgs = {inherit inputs;}; # inputs = inputs
-        users.<username>.imports = [./hjem/<username>];
+        users.alice.imports = [./hjem/alice];
     };
 }
 ```
 
 ```nix
-# hjem/<username>/default.nix
+# hjem/alice/default.nix
 {inputs, ...}: {
     imports = [inputs.hjem-rum.hjemModules.default];
 }
@@ -266,3 +268,10 @@ them in {option}`hjem.specialArgs`:
 
 In this example, this allows us to import the Hjem Rum collection inside of a
 user-specific Hjem module.
+
+## Beyond Installation {#ch-beyond-installation}
+
+Please see [**Options**] for a thorough list of options you can set.
+
+Additionally, please see [**Usage: Quirks, Tips, and Tricks**] for important
+information regarding your usage of Hjem Rum.
