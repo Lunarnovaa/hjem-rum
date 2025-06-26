@@ -60,11 +60,14 @@ should help inform you of what options are needed and what are not:
 - As needed, `extraConfig`: Extra lines of strings passed directly to config
   file for certain programs.
 
-For the most part, this should be sufficient. Overrides of packages should be
-simply offered through a direct override in `package`. For example, ncmpcpp's
-package has a `withVisualizer ? false` argument. Rather than creating an extra
-option for this, the contributor should note this with `extraDescription`, and
-give an example of it like so:
+For the most part, this should be sufficient.
+
+### Package Overrides {#sec-package-overrides}
+
+Overrides of packages should be simply offered through a direct override in
+`package`. For example, ncmpcpp's package has a `withVisualizer ? false`
+argument. Rather than creating an extra option for this, the contributor should
+note this with `extraDescription`, and give an example of it like so:
 
 ```nix
 options.rum.programs.ncmpcpp = {
@@ -99,11 +102,15 @@ config.hjem.users.<username>.rum.programs.ncmpcpp = {
 };
 ```
 
+### Type {#sec-type}
+
 The `type` of `settings` and other conversion options should preferably be a
 `type` option exposed by the generator (for example, TOML has
 `pkgs.formats.toml {}.type` and `pkgs.formats.toml {}.generate`), or, if using a
 custom generator, a `type` should be created in `lib/types/` (for example,
 `hyprType`). Otherwise, a simple `attrsOf anything` would suffice.
+
+### Submodules / Nested Configuration {#sec-submodules-nested-configuration}
 
 As a rule of thumb, submodules should not be employed. Instead, there should
 only be one option per file. For some files, such as spotify-player's
@@ -144,6 +151,8 @@ and/or a list of actions that get propagated accordingly:
 Also note that the option description includes a link to upstream info on
 settings options.
 
+### Dependence on `config` {#sec-dependence-on-config}
+
 If an option is dependent on `config`, (e.g.
 `default = config.myOption.enable;`) you must _also_ set `defaultText` alongside
 `default`. Example:
@@ -171,7 +180,7 @@ Always use a `mkIf` before the `config` section. Example:
 
 ```nix
 config = mkIf cfg.enable {
-    ...
+    # Module code
 };
 ```
 
