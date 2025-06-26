@@ -75,7 +75,11 @@
               <li><a href="#contributing-writing-modules">Contributing: Writing Modules</a>
 <ul><li><a href="#ch-aliases">Aliases</a>
 <li><a href="#ch-writing-options">Writing Options</a>
-<li><a href="#ch-conditionals-in-modules">Conditionals in Modules</a>
+<ul><li><a href="#sec-package-overrides">Package Overrides</a>
+<li><a href="#sec-type">Type</a>
+<li><a href="#sec-submodules-nested-configuration">Submodules / Nested Configuration</a>
+<li><a href="#sec-dependence-on-config">Dependence on `config`</a>
+</ul><li><a href="#ch-conditionals-in-modules">Conditionals in Modules</a>
 </li></ul></li>
             </ul>
           </div>
@@ -137,11 +141,12 @@ theme.toml.</li>
 <li>As needed, <code>extraConfig</code>: Extra lines of strings passed directly to config
 file for certain programs.</li>
 </ul>
-<p>For the most part, this should be sufficient. Overrides of packages should be
-simply offered through a direct override in <code>package</code>. For example, ncmpcpp's
-package has a <code>withVisualizer ? false</code> argument. Rather than creating an extra
-option for this, the contributor should note this with <code>extraDescription</code>, and
-give an example of it like so:</p>
+<p>For the most part, this should be sufficient.</p>
+<h3 id="sec-package-overrides">Package Overrides</h3>
+<p>Overrides of packages should be simply offered through a direct override in
+<code>package</code>. For example, ncmpcpp's package has a <code>withVisualizer ? false</code>
+argument. Rather than creating an extra option for this, the contributor should
+note this with <code>extraDescription</code>, and give an example of it like so:</p>
 <pre><code class="language-nix">options.rum.programs.ncmpcpp = {
   enable = mkEnableOption &quot;ncmpcpp, a mpd-based music player.&quot;;
 
@@ -168,11 +173,13 @@ give an example of it like so:</p>
         withVisualizer = true;
     });
 };
-</code></pre><p>The <code>type</code> of <code>settings</code> and other conversion options should preferably be a
+</code></pre><h3 id="sec-type">Type</h3>
+<p>The <code>type</code> of <code>settings</code> and other conversion options should preferably be a
 <code>type</code> option exposed by the generator (for example, TOML has
 <code>pkgs.formats.toml {}.type</code> and <code>pkgs.formats.toml {}.generate</code>), or, if using a
 custom generator, a <code>type</code> should be created in <code>lib/types/</code> (for example,
 <code>hyprType</code>). Otherwise, a simple <code>attrsOf anything</code> would suffice.</p>
+<h3 id="sec-submodules-nested-configuration">Submodules / Nested Configuration</h3>
 <p>As a rule of thumb, submodules should not be employed. Instead, there should
 only be one option per file. For some files, such as spotify-player's
 <code class="file-path">keymap.toml</code>, you may be tempted to create multiple options for <code>actions</code>
@@ -207,6 +214,7 @@ and/or a list of actions that get propagated accordingly:</p>
   };
 </code></pre><p>Also note that the option description includes a link to upstream info on
 settings options.</p>
+<h3 id="sec-dependence-on-config">Dependence on <code>config</code></h3>
 <p>If an option is dependent on <code>config</code>, (e.g.
 <code>default = config.myOption.enable;</code>) you must <em>also</em> set <code>defaultText</code> alongside
 <code>default</code>. Example:</p>
@@ -225,7 +233,7 @@ resolve the reference to <code>config</code>.</p>
 <h2 id="ch-conditionals-in-modules">Conditionals in Modules</h2>
 <p>Always use a <code>mkIf</code> before the <code>config</code> section. Example:</p>
 <pre><code class="language-nix">config = mkIf cfg.enable {
-    ...
+    # Module code
 };
 </code></pre><p>As a general guideline, <strong>do not write empty strings to files</strong>. Not only is
 this poorly optimized, but it will cause issues if a user happens to be manually

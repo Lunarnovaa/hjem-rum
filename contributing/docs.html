@@ -73,7 +73,12 @@
             <h2>Contents</h2>
             <ul class="toc-list">
               <li><a href="#contributing-extending-the-documentation">Contributing: Extending the Documentation</a>
-</li>
+<ul><li><a href="#ch-nixpkgs-commonmark">Nixpkgs Markdown</a>
+<ul><li><a href="#sec-roles">Roles</a>
+<li><a href="#sec-anchors">Anchors</a>
+</ul><li><a href="#ch-other-guidelines">Other Guidelines</a>
+<ul><li><a href="#sec-masked-links">Masked Links</a>
+</li></ul></li></ul></li>
             </ul>
           </div>
         </nav>
@@ -91,19 +96,23 @@ you:</p>
 specific asks of you depending on the case. Writing can be very personal and
 very fluid, so there are less rigid expectations here, but that does not mean
 standards are lower.</p>
+<h2 id="ch-nixpkgs-commonmark">Nixpkgs Markdown</h2>
+<p>[ndg] supports extended markdown syntax in accordance with Nixpkgs' flavor.</p>
+<h3 id="sec-roles">Roles</h3>
 <p>If you are including an option or function labeled like:</p>
-<pre><code class="language-md">Make sure to use \`lib.options.mkEnableOption\`, like is done in
-\`rum.programs.fish.enable\`.
+<pre><code class="language-md">Make sure to use `lib.options.mkEnableOption`, like is done in
+`rum.programs.fish.enable`.
 </code></pre><p>Then you will have to include {file} before it, or {option} if it is an option:<sup class="footnote-reference"><a href="#1">1</a></sup></p>
-<pre><code class="language-md">Make sure to use {file}\`lib.options.mkEnableOption\`, like is done in
-{option}\`rum.programs.fish.enable\`.
+<pre><code class="language-md">Make sure to use &lt;code class=&quot;file-path&quot;&gt;lib.options.mkEnableOption&lt;/code&gt;, like is done in
+&lt;code class=&quot;nixos-option&quot;&gt;rum.programs.fish.enable&lt;/code&gt;.
 </code></pre><div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup><p>It is admittedly a bit confusing why we could use {file} for <code>lib</code>, but
 the best way to think of it is that <code class="file-path">lib.modules.mkIf</code> literally
-corresponds to file <code class="file-path">lib/modules.nix</code> in Nixpkgs, which contains the
-<code>mkIf</code> function.</p>
+corresponds to the file <code class="file-path">lib/modules.nix</code> in Nixpkgs, which contains
+the <code>mkIf</code> function.</p>
 </div>
 <p>If you do not do it like this, the link check on the docs will fail, since our
 docs generator will attempt to make hyperlinks out of those function names.</p>
+<h3 id="sec-anchors">Anchors</h3>
 <p>Headers should always have an anchor with them to ensure the link checker can
 follow header links at time of build. Follow these examples, and you should find
 it simple:</p>
@@ -117,6 +126,21 @@ are fine to keep, extra spaces should be removed, everything should be lower
 caps, first headings have no prefix, second headings have <code>ch</code> prefix, third
 headings have <code>sec</code> prefix, etc. If you're unsure, just give it your best shot
 and a reviewer will make sure it's as it should be.</p>
+<h2 id="ch-other-guidelines">Other Guidelines</h2>
+<h3 id="sec-masked-links">Masked Links</h3>
+<p>All links should be "masked," meaning with in-line redirects to their links at
+the top of the page directly under the first heading:</p>
+<pre><code class="language-md"># My Document Page {#my-document-page}
+
+[cool link]: <a href="https://rum.aurabora.org">https://rum.aurabora.org</a>
+
+Here&#39;s my page.
+
+## First Heading {#ch-first-heading}
+
+Here&#39;s my [cool link]!
+</code></pre><p>We do this so that paragraph clutter is minimized, making it easier for
+reviewers to review and writers to edit. This should be done everywhere.</p>
 
           <div class="footnotes-container">
             <!-- Footnotes will be appended here -->
