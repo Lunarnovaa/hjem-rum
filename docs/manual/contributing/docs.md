@@ -1,5 +1,7 @@
 # Contributing: Extending the Documentation {#contributing-extending-the-documentation}
 
+[ndg]: https://github.com/feel-co/ndg
+
 If you would like to contribute to our documentation, we ask a few things of
 you:
 
@@ -12,7 +14,7 @@ specific asks of you depending on the case. Writing can be very personal and
 very fluid, so there are less rigid expectations here, but that does not mean
 standards are lower.
 
-## Nixpkgs Markdown {#ch-nixpkgs-commonmark}
+## Nixpkgs Markdown {#ch-nixpkgs-markdown}
 
 [ndg] supports extended markdown syntax in accordance with Nixpkgs' flavor.
 

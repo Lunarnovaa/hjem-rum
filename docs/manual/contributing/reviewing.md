@@ -1,7 +1,7 @@
 # Contributing: Review Tips {#contributing-review-tips}
 
 [Code Review Antipatterns]: https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/code-review-antipatterns/
-[nixpkgs]: https://github.com/NixOS/nixpkgs
+[Nixpkgs]: https://github.com/NixOS/Nixpkgs
 [SNUG Discord server]: https://discord.gg/6rMPtKDKzt
 [multi-trip reviews]: #ch-2-single-trip-reviews
 
@@ -61,7 +61,7 @@ leave it on for a few review sessions.
 
 ## 3. United front {#ch-3-united-front}
 
-Anyone who's contributed to [nixpkgs] knows the cycle―you've accommodated one
+Anyone who's contributed to [Nixpkgs] knows the cycle―you've accommodated one
 reviewer's comments, only for a different reviewer to come in with MORE things
 to change. Or, even worse―maybe reviewer 2 disagrees with reviewer 1―and now
 they're fighting on your PR.

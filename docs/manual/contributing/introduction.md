@@ -10,7 +10,7 @@
 [#43]: https://github.com/snugnug/hjem-rum/pull/43
 [**Contributing: Setting Up Module Tests**]: ./testing.html
 [**Contributing: Extending Hjem Rum's Library**]: ./rumlib.html
-[**Contributign: Expanding the Documenation**]: ./docs.html
+[**Contributign: Expanding the Documentation**]: ./docs.html
 [reviewed]: #ch-reviewing-a-pr
 [**Contributing: Review Tips**]: ./reviewing.html
 
