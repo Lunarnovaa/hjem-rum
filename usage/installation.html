@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Usage: Installing Hjem Rum</title>
+    <title>Usage: Installing Hjem Rum {#usage-installing-hjem-rum}</title>
     <script>
       // Apply sidebar state immediately to prevent flash
       (function () {
@@ -22,11 +22,15 @@
     <div class="container">
       <header>
         <div class="header-left">
-          <h1 class="site-title"><a href="../index.html">Hjem Rum</a></h1>
+          <h1 class="site-title">
+            <a href="../index.html">Hjem Rum</a>
+          </h1>
         </div>
         <nav class="header-nav">
           <ul>
-            <li ><a href="../options.html">Options</a></li>
+            <li >
+              <a href="../options.html">Options</a>
+            </li>
             
             <li><a href="../search.html">Search</a></li>
             
@@ -72,22 +76,21 @@
           <div class="toc">
             <h2>Contents</h2>
             <ul class="toc-list">
-              <li><a href="#usage-installing-hjem-rum">Usage: Installing Hjem Rum</a>
-<ul><li><a href="#ch-importing-the-hjem-rum-flake">Importing the Hjem Rum Flake</a>
-<li><a href="#ch-using-hjem-rum-modules">Using Hjem Rum Modules</a>
-<ul><li><a href="#sec-configuring-in-a-nixos-module">Configuring in a NixOS Module</a>
-<li><a href="#sec-configuring-in-a-hjem-module">Configuring in a Hjem Module</a>
-</ul><li><a href="#ch-beyond-installation">Beyond Installation</a>
+              <li><a href="#usage-installing-hjem-rum">Usage: Installing Hjem Rum {#usage-installing-hjem-rum}</a>
+<ul><li><a href="#ch-importing-the-hjem-rum-flake">Importing the Hjem Rum Flake {#ch-importing-the-hjem-rum-flake}</a>
+<li><a href="#ch-using-hjem-rum-modules">Using Hjem Rum Modules {#ch-using-hjem-rum-modules}</a>
+<ul><li><a href="#sec-configuring-in-a-nixos-module">Configuring in a NixOS Module {#sec-configuring-in-a-nixos-module}</a>
+<li><a href="#sec-configuring-in-a-hjem-module">Configuring in a Hjem Module {#sec-configuring-in-a-hjem-module}</a>
+</ul><li><a href="#ch-beyond-installation">Beyond Installation {#ch-beyond-installation}</a>
 </li></ul></li>
             </ul>
           </div>
         </nav>
 
-        <main class="content">
-          <h1 id="usage-installing-hjem-rum">Usage: Installing Hjem Rum</h1>
+        <main class="content"><h1 id="usage-installing-hjem-rum"><a href="#usage-installing-hjem-rum-usage-installing-hjem-rum" aria-hidden="true" class="anchor" id="usage-installing-hjem-rum-usage-installing-hjem-rum"></a>Usage: Installing Hjem Rum</h1>
 <p>Welcome to Hjem Rum. Installing and configuring Hjem Rum is as easy as any other
 module.</p>
-<h2 id="ch-importing-the-hjem-rum-flake">Importing the Hjem Rum Flake</h2>
+<h2 id="ch-importing-the-hjem-rum-flake"><a href="#importing-the-hjem-rum-flake-ch-importing-the-hjem-rum-flake" aria-hidden="true" class="anchor" id="importing-the-hjem-rum-flake-ch-importing-the-hjem-rum-flake"></a>Importing the Hjem Rum Flake</h2>
 <p>To begin using Hjem Rum, simply add and import Hjem and Hjem Rum into your
 flake:</p>
 <pre><code class="language-nix"># flake.nix
@@ -123,7 +126,8 @@ outputs = {
         };
     };
 }
-</code></pre><h2 id="ch-using-hjem-rum-modules">Using Hjem Rum Modules</h2>
+</code></pre>
+<h2 id="ch-using-hjem-rum-modules"><a href="#using-hjem-rum-modules-ch-using-hjem-rum-modules" aria-hidden="true" class="anchor" id="using-hjem-rum-modules-ch-using-hjem-rum-modules"></a>Using Hjem Rum Modules</h2>
 <p>You can declare Hjem Rum modules either in a NixOS module, imported into all
 your hosts, or as a special Hjem module, imported directly into Hjem. If you do
 not know which to choose, we recommend configuring Hjem Rum in NixOS modules.</p>
@@ -132,7 +136,7 @@ not know which to choose, we recommend configuring Hjem Rum in NixOS modules.</p
 For the purposes of this example, we will be pretending your username is
 <code>alice</code>.</p>
 </blockquote>
-<h3 id="sec-configuring-in-a-nixos-module">Configuring in a NixOS Module</h3>
+<h3 id="sec-configuring-in-a-nixos-module"><a href="#configuring-in-a-nixos-module-sec-configuring-in-a-nixos-module" aria-hidden="true" class="anchor" id="configuring-in-a-nixos-module-sec-configuring-in-a-nixos-module"></a>Configuring in a NixOS Module</h3>
 <p>To configure Hjem Rum in a NixOS Module, set the according settings, import Hjem
 Rum's flake output, and configure away.</p>
 <pre><code class="language-nix"># configuration.nix
@@ -146,7 +150,7 @@ Rum's flake output, and configure away.</p>
         extraModules = [inputs.hjem-rum.hjemModules.default];
 
         # We recommend using the experimental linker
-        linker = inputs.hjem.packages.&quot;x86_64-linux&quot;.sfmh; # Use your host&#39;s system
+        linker = inputs.hjem.packages.&quot;x86_64-linux&quot;.sfmh; # Use your host's system
 
         # Configuring your user(s)
         users.alice = {
@@ -172,7 +176,8 @@ Rum's flake output, and configure away.</p>
         };
     };
 }
-</code></pre><p>This setup is ideal for a single-user configuration, as you can easily integrate
+</code></pre>
+<p>This setup is ideal for a single-user configuration, as you can easily integrate
 your home configuration right in your system. It minimizes friction and creates
 a single-setup configuration. You can, of course, modularize your configuration
 into files, like you should do for NixOS:</p>
@@ -180,7 +185,8 @@ into files, like you should do for NixOS:</p>
 {
     imports = [./hjem];
 }
-</code></pre><pre><code class="language-nix"># hjem/default.nix
+</code></pre>
+<pre><code class="language-nix"># hjem/default.nix
 {
     config,
     inputs,
@@ -194,7 +200,7 @@ into files, like you should do for NixOS:</p>
         extraModules = [inputs.hjem-rum.hjemModules.default];
 
         # We recommend using the experimental linker
-        linker = inputs.hjem.packages.&quot;x86_64-linux&quot;.sfmh; # Use your host&#39;s system
+        linker = inputs.hjem.packages.&quot;x86_64-linux&quot;.sfmh; # Use your host's system
 
         # Configuring your user(s)
         users.alice = {
@@ -204,7 +210,8 @@ into files, like you should do for NixOS:</p>
         };
     };
 }
-</code></pre><pre><code class="language-nix"># hjem/alacritty.nix
+</code></pre>
+<pre><code class="language-nix"># hjem/alacritty.nix
 {pkgs,...}: {
     hjem.users.alice.rum.programs.alacritty = {
         enable = true;
@@ -223,11 +230,12 @@ into files, like you should do for NixOS:</p>
         };
     };
 }
-</code></pre><p>Using this setup, a single-user configuration can be well implemented into your
+</code></pre>
+<p>Using this setup, a single-user configuration can be well implemented into your
 existing NixOS configuration. For example, you could configure the necessary
 system-wide configurations for your desktop environment and manage its dotfiles
 in the same file or directory.</p>
-<h3 id="sec-configuring-in-a-hjem-module">Configuring in a Hjem Module</h3>
+<h3 id="sec-configuring-in-a-hjem-module"><a href="#configuring-in-a-hjem-module-sec-configuring-in-a-hjem-module" aria-hidden="true" class="anchor" id="configuring-in-a-hjem-module-sec-configuring-in-a-hjem-module"></a>Configuring in a Hjem Module</h3>
 <p>Alternatively, if you would rather separate your Hjem modules from your NixOS
 modules, you can simply import Hjem Rum's modules and Nix files written as Hjem
 modules straight into your Hjem user.</p>
@@ -238,7 +246,7 @@ modules straight into your Hjem user.</p>
         extraModules = [inputs.hjem-rum.hjemModules.default];
 
         # We recommend using the experimental linker
-        linker = inputs.hjem.packages.&quot;x86_64-linux&quot;.sfmh; # Use your host&#39;s system
+        linker = inputs.hjem.packages.&quot;x86_64-linux&quot;.sfmh; # Use your host's system
 
         # Configuring your user(s)
         users.alice = {
@@ -249,11 +257,13 @@ modules straight into your Hjem user.</p>
         };
     };
 }
-</code></pre><pre><code class="language-nix"># hjem/alice/default.nix
+</code></pre>
+<pre><code class="language-nix"># hjem/alice/default.nix
 {
     imports = [./alacritty.nix];
 }
-</code></pre><pre><code class="language-nix"># hjem/alice/alacritty.nix
+</code></pre>
+<pre><code class="language-nix"># hjem/alice/alacritty.nix
 {pkgs, ...}: {
     rum.programs.alacritty = {
         enable = true;
@@ -272,13 +282,14 @@ modules straight into your Hjem user.</p>
         };
     };
 }
-</code></pre><p>In this example, Alacritty would only be enabled and configured in the user the
+</code></pre>
+<p>In this example, Alacritty would only be enabled and configured in the user the
 module is imported into. Using this setup, you could also import Hjem Rum
 exclusively into the user, rather than into <code class="nixos-option">hjem.extraModules</code>.</p>
 <pre><code class="language-nix"># configuration.nix
 {inputs, ...}: {
     hjem = {
-        # Don&#39;t import the flake into all users
+        # Don't import the flake into all users
         extraModules = [];
 
         # Instead, import it into a single user
@@ -290,7 +301,8 @@ exclusively into the user, rather than into <code class="nixos-option">hjem.extr
         };
     };
 }
-</code></pre><p>Keep in mind, if you wish to access any specialArgs, you will need to declare
+</code></pre>
+<p>Keep in mind, if you wish to access any specialArgs, you will need to declare
 them in <code class="nixos-option">hjem.specialArgs</code>:</p>
 <pre><code class="language-nix"># configuration.nix
 {inputs, ...}: {
@@ -299,31 +311,29 @@ them in <code class="nixos-option">hjem.specialArgs</code>:</p>
         users.alice.imports = [./hjem/alice];
     };
 }
-</code></pre><pre><code class="language-nix"># hjem/alice/default.nix
+</code></pre>
+<pre><code class="language-nix"># hjem/alice/default.nix
 {inputs, ...}: {
     imports = [inputs.hjem-rum.hjemModules.default];
 }
-</code></pre><p>In this example, this allows us to import the Hjem Rum collection inside of a
+</code></pre>
+<p>In this example, this allows us to import the Hjem Rum collection inside of a
 user-specific Hjem module.</p>
-<h2 id="ch-beyond-installation">Beyond Installation</h2>
+<h2 id="ch-beyond-installation"><a href="#beyond-installation-ch-beyond-installation" aria-hidden="true" class="anchor" id="beyond-installation-ch-beyond-installation"></a>Beyond Installation</h2>
 <p>Please see <a href="../options.html"><strong>Options</strong></a> for a thorough list of options you can set.</p>
 <p>Additionally, please see [<strong>Usage: Quirks, Tips, and Tricks</strong>] for important
 information regarding your usage of Hjem Rum.</p>
-
-          <div class="footnotes-container">
-            <!-- Footnotes will be appended here -->
-          </div>
-        </main>
+</main>
       </div>
 
       <footer>
         <p><div>
-  Built with <a href='https://www.github.com/feel-co/ndg'>ndg</a> from <a
-    href='https://www.github.com/lunarnovaa/hjem-rum'
+  Built with <a href='https://github.com/feel-co/ndg'>ndg</a> from <a
+    href='https://github.com/lunarnovaa/hjem-rum'
   >lunarnovaa/hjem-rum</a>
 </div>
 <div>
-  For more information on the SNUG, see <a href='https://www.github.com/snugnug'
+  For more information on the SNUG, see <a href='https://github.com/snugnug'
   >our repo</a>
 </div></p>
       </footer>

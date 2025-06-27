@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contributing: Writing Modules</title>
+    <title>Contributing: Writing Modules {#contributing-writing-modules}</title>
     <script>
       // Apply sidebar state immediately to prevent flash
       (function () {
@@ -22,11 +22,15 @@
     <div class="container">
       <header>
         <div class="header-left">
-          <h1 class="site-title"><a href="../index.html">Hjem Rum</a></h1>
+          <h1 class="site-title">
+            <a href="../index.html">Hjem Rum</a>
+          </h1>
         </div>
         <nav class="header-nav">
           <ul>
-            <li ><a href="../options.html">Options</a></li>
+            <li >
+              <a href="../options.html">Options</a>
+            </li>
             
             <li><a href="../search.html">Search</a></li>
             
@@ -72,26 +76,25 @@
           <div class="toc">
             <h2>Contents</h2>
             <ul class="toc-list">
-              <li><a href="#contributing-writing-modules">Contributing: Writing Modules</a>
-<ul><li><a href="#ch-aliases">Aliases</a>
-<li><a href="#ch-writing-options">Writing Options</a>
-<ul><li><a href="#sec-package-overrides">Package Overrides</a>
-<li><a href="#sec-type">Type</a>
-<li><a href="#sec-submodules-nested-configuration">Submodules / Nested Configuration</a>
-<li><a href="#sec-dependence-on-config">Dependence on `config`</a>
-</ul><li><a href="#ch-conditionals-in-modules">Conditionals in Modules</a>
+              <li><a href="#contributing-writing-modules">Contributing: Writing Modules {#contributing-writing-modules}</a>
+<ul><li><a href="#ch-aliases">Aliases {#ch-aliases}</a>
+<li><a href="#ch-writing-options">Writing Options {#ch-writing-options}</a>
+<ul><li><a href="#sec-package-overrides">Package Overrides {#sec-package-overrides}</a>
+<li><a href="#sec-type">Type {#sec-type}</a>
+<li><a href="#sec-submodules-nested-configuration">Submodules / Nested Configuration {#sec-submodules-nested-configuration}</a>
+<li><a href="#dependence-on-config---sec-dependence-on-config">Dependence on config {#sec-dependence-on-config}</a>
+</ul><li><a href="#ch-conditionals-in-modules">Conditionals in Modules {#ch-conditionals-in-modules}</a>
 </li></ul></li>
             </ul>
           </div>
         </nav>
 
-        <main class="content">
-          <h1 id="contributing-writing-modules">Contributing: Writing Modules</h1>
+        <main class="content"><h1 id="contributing-writing-modules"><a href="#contributing-writing-modules-contributing-writing-modules" aria-hidden="true" class="anchor" id="contributing-writing-modules-contributing-writing-modules"></a>Contributing: Writing Modules</h1>
 <p>Writing modules is a core task of contributing to Hjem Rum, and makes up the
 bulk of PRs. Learning to follow our guidelines, standards, and expectations in
 writing modules is accordingly crucial. Please read the following to be made
 aware of these.</p>
-<h2 id="ch-aliases">Aliases</h2>
+<h2 id="ch-aliases"><a href="#aliases-ch-aliases" aria-hidden="true" class="anchor" id="aliases-ch-aliases"></a>Aliases</h2>
 <p>At the top of any module, there should always be a <code>let ... in</code> set. Within
 this, functions should have their location aliased, cfg should be aliased, and
 any generators should have an alias as well. Here's an example for a module that
@@ -102,8 +105,8 @@ makes use of the TOML generator used in Nixpkgs:</p>
   pkgs,
   ...
 }: let
-  # in case you are unfamiliar, &#39;inherit func;&#39; is the same as &#39;func = func;&#39;, and
-  # &#39;inherit (cfg) func;&#39; is the same as &#39;func = cfg.func;&#39;
+  # in case you are unfamiliar, 'inherit func;' is the same as 'func = func;', and
+  # 'inherit (cfg) func;' is the same as 'func = cfg.func;'
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkOption mkEnableOption mkPackageOption;
 
@@ -112,7 +115,8 @@ makes use of the TOML generator used in Nixpkgs:</p>
   cfg = config.rum.programs.alacritty;
 in {
   options.rum.programs.alacritty = {
-</code></pre><p>Notice that each function has its location aliased with an inherit to its target
+</code></pre>
+<p>Notice that each function has its location aliased with an inherit to its target
 location. Ideally, this location should be where one could find it in the source
 code. For example, rather than using <code class="file-path">lib.mkIf</code>, we use
 <code class="file-path">lib.modules.mkIf</code>, because mkIf is declared at <code>lib/modules.nix</code> within
@@ -121,19 +125,21 @@ the Nixpkgs repo.</p>
 and <code>type</code>, so the alias name is just <code>toml</code>.</p>
 <p>Always be sure to include <code>cfg</code> that links to the point where options are
 configured by the user.</p>
-<h2 id="ch-writing-options">Writing Options</h2>
+<h2 id="ch-writing-options"><a href="#writing-options-ch-writing-options" aria-hidden="true" class="anchor" id="writing-options-ch-writing-options"></a>Writing Options</h2>
 <p>Writing new options is the core of any new module. It is also the easiest place
 to blunder. As stated above, a core principle of HJR is to minimize the number
 of options as much as possible. As such, we have created a general template that
 should help inform you of what options are needed and what are not:</p>
 <ul>
 <li><code>enable</code>: Used to toggle install and configuration of package(s).</li>
-<li><code>package</code>: Used to customize and override the package installed.<ul>
+<li><code>package</code>: Used to customize and override the package installed.
+<ul>
 <li>As needed, <code>packages</code>: List of packages used in a module.</li>
 </ul>
 </li>
 <li><code>settings</code>: Primary configuration option, takes Nix code and converts to
-target lang.<ul>
+target lang.
+<ul>
 <li>As needed, one extra option for each extra file, such as <code>theme</code> for
 theme.toml.</li>
 </ul>
@@ -142,7 +148,7 @@ theme.toml.</li>
 file for certain programs.</li>
 </ul>
 <p>For the most part, this should be sufficient.</p>
-<h3 id="sec-package-overrides">Package Overrides</h3>
+<h3 id="sec-package-overrides"><a href="#package-overrides-sec-package-overrides" aria-hidden="true" class="anchor" id="package-overrides-sec-package-overrides"></a>Package Overrides</h3>
 <p>Overrides of packages should be simply offered through a direct override in
 <code>package</code>. For example, ncmpcpp's package has a <code>withVisualizer ? false</code>
 argument. Rather than creating an extra option for this, the contributor should
@@ -151,12 +157,12 @@ note this with <code>extraDescription</code>, and give an example of it like so:
   enable = mkEnableOption &quot;ncmpcpp, a mpd-based music player.&quot;;
 
   package = mkPackageOption pkgs &quot;ncmpcpp&quot; {
-    extraDescription = &#39;&#39;
+    extraDescription = ''
         You can override the package to customize certain settings that are baked
         into the package.
-    &#39;&#39;;
-    # Note that mkPackageOption&#39;s example automatically uses literalExpression
-    example = &#39;&#39;
+    '';
+    # Note that mkPackageOption's example automatically uses literalExpression
+    example = ''
         pkgs.ncmpcpp.override {
             # useful overrides in the package
             outputsSupport = true; # outputs screen
@@ -164,22 +170,24 @@ note this with <code>extraDescription</code>, and give an example of it like so:
             clockSupport = true; # clock screen
             taglibSupport = true; # tag editor
         };
-    &#39;&#39;;
+    '';
   };
-</code></pre><p>and the user could simply pass:</p>
+</code></pre>
+<p>and the user could simply pass:</p>
 <pre><code class="language-nix">config.hjem.users.&lt;username&gt;.rum.programs.ncmpcpp = {
     enable = true;
     package = (pkgs.ncmpcpp.override {
         withVisualizer = true;
     });
 };
-</code></pre><h3 id="sec-type">Type</h3>
+</code></pre>
+<h3 id="sec-type"><a href="#type-sec-type" aria-hidden="true" class="anchor" id="type-sec-type"></a>Type</h3>
 <p>The <code>type</code> of <code>settings</code> and other conversion options should preferably be a
 <code>type</code> option exposed by the generator (for example, TOML has
 <code>pkgs.formats.toml {}.type</code> and <code>pkgs.formats.toml {}.generate</code>), or, if using a
 custom generator, a <code>type</code> should be created in <code>lib/types/</code> (for example,
 <code>hyprType</code>). Otherwise, a simple <code>attrsOf anything</code> would suffice.</p>
-<h3 id="sec-submodules-nested-configuration">Submodules / Nested Configuration</h3>
+<h3 id="sec-submodules-nested-configuration"><a href="#submodules--nested-configuration-sec-submodules-nested-configuration" aria-hidden="true" class="anchor" id="submodules--nested-configuration-sec-submodules-nested-configuration"></a>Submodules / Nested Configuration</h3>
 <p>As a rule of thumb, submodules should not be employed. Instead, there should
 only be one option per file. For some files, such as spotify-player's
 <code class="file-path">keymap.toml</code>, you may be tempted to create multiple options for <code>actions</code>
@@ -203,18 +211,19 @@ and/or a list of actions that get propagated accordingly:</p>
         }
       ];
     };
-    description = &#39;&#39;
+    description = ''
       Sets of keymaps and actions converted into TOML and written to
       &lt;code class=&quot;file-path&quot;&gt;$HOME/.config/spotify-player/keymap.toml&lt;/code&gt;.
       See example for how to format declarations.
 
       Please reference <a href="https://github.com/aome510/spotify-player/blob/master/docs/config.md#keymaps">https://github.com/aome510/spotify-player/blob/master/docs/config.md#keymaps</a>
       for more information.
-    &#39;&#39;;
+    '';
   };
-</code></pre><p>Also note that the option description includes a link to upstream info on
+</code></pre>
+<p>Also note that the option description includes a link to upstream info on
 settings options.</p>
-<h3 id="sec-dependence-on-config">Dependence on <code>config</code></h3>
+<h3 id="sec-dependence-on-config"><a href="#dependence-on-config-sec-dependence-on-config" aria-hidden="true" class="anchor" id="dependence-on-config-sec-dependence-on-config"></a>Dependence on <code>config</code></h3>
 <p>If an option is dependent on <code>config</code>, (e.g.
 <code>default = config.myOption.enable;</code>) you must <em>also</em> set <code>defaultText</code> alongside
 <code>default</code>. Example:</p>
@@ -225,17 +234,19 @@ settings options.</p>
         defaultText = &quot;config.programs.fish.enable&quot;;
     };
 };
-</code></pre><p>It is essentially just a string that shows the user what the option is set to by
+</code></pre>
+<p>It is essentially just a string that shows the user what the option is set to by
 default. This can also be used in <code>mkOption</code>, but it is more common to use it in
 <code>mkEnableOption</code>.</p>
 <p>If you do not set this, the docs builder will break due to not knowing how to
 resolve the reference to <code>config</code>.</p>
-<h2 id="ch-conditionals-in-modules">Conditionals in Modules</h2>
+<h2 id="ch-conditionals-in-modules"><a href="#conditionals-in-modules-ch-conditionals-in-modules" aria-hidden="true" class="anchor" id="conditionals-in-modules-ch-conditionals-in-modules"></a>Conditionals in Modules</h2>
 <p>Always use a <code>mkIf</code> before the <code>config</code> section. Example:</p>
 <pre><code class="language-nix">config = mkIf cfg.enable {
     # Module code
 };
-</code></pre><p>As a general guideline, <strong>do not write empty strings to files</strong>. Not only is
+</code></pre>
+<p>As a general guideline, <strong>do not write empty strings to files</strong>. Not only is
 this poorly optimized, but it will cause issues if a user happens to be manually
 using the Hjem tooling alongside HJR. Here are some examples of how you might
 avoid this:</p>
@@ -245,7 +256,8 @@ avoid this:</p>
     toml.generate &quot;alacritty.toml&quot; cfg.settings # The indentation makes it more readable
   );
 };
-</code></pre><p>Here all that is needed is a simple <code>mkIf</code> with a condition of the <code>settings</code>
+</code></pre>
+<p>Here all that is needed is a simple <code>mkIf</code> with a condition of the <code>settings</code>
 option not being left empty. In a case where you write to multiple files, you
 can use <code>optionalAttrs</code>, like so:</p>
 <pre><code class="language-nix">files = (
@@ -261,7 +273,8 @@ can use <code>optionalAttrs</code>, like so:</p>
     &quot;.config/gtk-4.0/gtk.css&quot;.text = cfg.css.gtk4;
     }
 );
-</code></pre><p>This essentially takes the attribute set of <code>files</code> and <em>conditionally</em> adds
+</code></pre>
+<p>This essentially takes the attribute set of <code>files</code> and <em>conditionally</em> adds
 attributes defining more files to be written to depending on <em>if</em> the
 corresponding option has been set. This is optimal because the first three files
 written to share an option due to how GTK configuration works.</p>
@@ -307,7 +320,7 @@ in {
 
   &quot;.config/uwsm/env-hyprland&quot;.text = let
     /*
-    this is needed as we&#39;re using a predicate so we don&#39;t create an empty file
+    this is needed as we're using a predicate so we don't create an empty file
     (improvements are welcome)
     */
     filteredVars =
@@ -316,27 +329,24 @@ in {
     mkIf (check.variables.withUWSM &amp;&amp; filteredVars != {})
     (toEnvExport filteredVars);
 };
-</code></pre><p>An additional attribute set of boolean aliases is set within a <code>let ... in</code> set
+</code></pre>
+<p>An additional attribute set of boolean aliases is set within a <code>let ... in</code> set
 to highlight the different checks done and to add quick ways to reference each
 check without excess and redundant code.</p>
 <p>First, the file is only written if any of the options to write to the file are
 set. <code>optionalString</code> is then used to compile each option's results in an
 optimized and clean way.</p>
-
-          <div class="footnotes-container">
-            <!-- Footnotes will be appended here -->
-          </div>
-        </main>
+</main>
       </div>
 
       <footer>
         <p><div>
-  Built with <a href='https://www.github.com/feel-co/ndg'>ndg</a> from <a
-    href='https://www.github.com/lunarnovaa/hjem-rum'
+  Built with <a href='https://github.com/feel-co/ndg'>ndg</a> from <a
+    href='https://github.com/lunarnovaa/hjem-rum'
   >lunarnovaa/hjem-rum</a>
 </div>
 <div>
-  For more information on the SNUG, see <a href='https://www.github.com/snugnug'
+  For more information on the SNUG, see <a href='https://github.com/snugnug'
   >our repo</a>
 </div></p>
       </footer>
