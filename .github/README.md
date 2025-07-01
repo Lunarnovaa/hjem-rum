@@ -35,7 +35,7 @@ provide an expansive module collection as a useful abstraction for users to
 configure their applications with ease, recreating Home Manager's complete
 functionality.
 
-## FAQ
+## Frequently Asked Questions (FAQ)
 
 Have any questions? Please read ahead.
 
