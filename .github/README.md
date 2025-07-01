@@ -102,9 +102,10 @@ and changing the names of the option calls.
 
 **Q.** Do you support Darwin/Standalone?
 
-**A.** At the moment, we do not support Darwin or Standalone. This is mainly
-because Hjem does not yet support Darwin/Standalone. It is a possibility for the
-future, however.
+**A.** The question of supporting Nix Darwin and Standalone is more a matter of
+what Hjem supports. At the moment, Hjem supports neither Darwin nor Standalone,
+and so Hjem Rum does not either. However, both are on the table for the
+development of Hjem, and Hjem Rum would follow suit if compatibility was added.
 
 _Still_ confused? Go ahead and leave a question in [discussions].
 
