@@ -1,6 +1,7 @@
 # Hjem Rum
 
 [Hjem]: https://github.com/feel-co/hjem
+[source]: https://github.com/snugnug/hjem-rum/tree/main/modules/collection
 [discussions]: https://github.com/snugnug/hjem-rum/discussions
 [documentation]: https://rum.aurabora.org
 [our docs]: https://rum.aurabora.org/contributing/introduction.html
@@ -77,14 +78,23 @@ its implementation to be similarly streamlined. Furthermore, if Hjem is brought
 into Nixpkgs, Hjem Rum can easily serve as an external module set, not further
 bloating Nixpkgs, without requiring extensive refactoring.
 
-**Q.** Okay, you've sold me―is there an easy way to migrate from Home Manager to
-Hjem Rum?
+**Q.** What if I don't want the modules?
+
+**A.** If you don't want to use our supplied modules and instead write your own
+or even forgo wrapping `files` and `packages` entirely, we strongly encourage
+you to just use Hjem on its own! If that route interests you, we also encourage
+you to take a look through this repository to view the [source] of Hjem Rum's
+modules. You can certainly learn a lot from our code, even if you do not wish to
+use it.
+
+**Q.** Okay, you've sold me. Is there an easy way to migrate from Home Manager
+to Hjem Rum?
 
 **A.** Unfortunately, there is no shortcut―you'll have to do it manually.
 However, because Hjem Rum's API is not too different from Home Manager's, it is
 thankfully not too difficult. The most burdensome part would be moving your
-module configuration from Home Manager modules into your NixOS/Hjem Modules, and
-changing the names of the option calls.
+module configuration from Home Manager modules into your NixOS or Hjem Modules,
+and changing the names of the option calls.
 
 **Q.** Do you support Darwin/Standalone?
 
