@@ -15,7 +15,8 @@
 A module collection for managing your `$HOME` with [Hjem].
 
 [^1]: Please see Wikipedia's article on [Danish IPA]. Alternatively, a rough
-    English phonetic transcription would be _Yem Roam_.
+    English phonetic transcription would be _Yem Room_, with _room_ pronounced a
+    bit closer to _rawm_.
 
 ## A brief explanation
 
