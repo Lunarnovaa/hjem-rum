@@ -1,4 +1,4 @@
-# Hjem Rum
+# Hjem Rum \[ˈjɛmˀ ˈʁɔmˀ\] (Hyem-Roam)
 
 [Hjem]: https://github.com/feel-co/hjem
 [source]: https://github.com/snugnug/hjem-rum/tree/main/modules/collection
