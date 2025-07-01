@@ -1,6 +1,7 @@
-# Hjem Rum \[ˈjɛmˀ ˈʁɔmˀ\] (Hyem-Roam)
+# Hjem Rum \[ˈjɛmˀ ˈʁɔmˀ\][^1]
 
 [Hjem]: https://github.com/feel-co/hjem
+[Danish IPA]: https://en.wikipedia.org/wiki/Help:IPA/Danish
 [source]: https://github.com/snugnug/hjem-rum/tree/main/modules/collection
 [discussions]: https://github.com/snugnug/hjem-rum/discussions
 [documentation]: https://rum.aurabora.org
@@ -12,6 +13,9 @@
 [license]: https://github.com/snugnug/hjem-rum/blob/main/LICENSE
 
 A module collection for managing your `$HOME` with [Hjem].
+
+[^1]: Please see Wikipedia's article on [Danish IPA]. Alternatively, a rough
+    English phonetic transcription would be _Yem Roam_.
 
 ## A brief explanation
 
