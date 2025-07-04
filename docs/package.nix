@@ -123,8 +123,6 @@
         --input-dir ${./manual} \
         --output-dir "$out"
 
-      #cat ${./templates/main.js} > "$out/assets/main.js" # use the default script
-
       cat ${./CNAME} > "$out/CNAME" # use the CNAME
     '';
 in
