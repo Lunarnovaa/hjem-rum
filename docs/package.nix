@@ -118,6 +118,7 @@
         --manpage-urls ${./manpage-urls.json} \
         --options-depth 3 \
         --generate-search true \
+        --highlight-code true \
         --footer "$footer" \
         --input-dir ${./manual} \
         --output-dir "$out"
