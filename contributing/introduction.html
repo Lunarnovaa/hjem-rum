@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contributing: Introduction {#contributing-introduction}</title>
+    <title>Contributing: Introduction</title>
     <script>
       // Apply sidebar state immediately to prevent flash
       (function () {
@@ -22,15 +22,11 @@
     <div class="container">
       <header>
         <div class="header-left">
-          <h1 class="site-title">
-            <a href="../index.html">Hjem Rum</a>
-          </h1>
+          <h1 class="site-title"><a href="../index.html">Hjem Rum</a></h1>
         </div>
         <nav class="header-nav">
           <ul>
-            <li >
-              <a href="../options.html">Options</a>
-            </li>
+            <li ><a href="../options.html">Options</a></li>
             
             <li><a href="../search.html">Search</a></li>
             
@@ -76,21 +72,22 @@
           <div class="toc">
             <h2>Contents</h2>
             <ul class="toc-list">
-              <li><a href="#contributing-introduction">Contributing: Introduction {#contributing-introduction}</a>
-<ul><li><a href="#ch-getting-started">Getting Started {#ch-getting-started}</a>
-<ul><li><a href="#sec-commit-format">Commit Format {#sec-commit-format}</a>
-</ul><li><a href="#ch-core-principles">Core Principles {#ch-core-principles}</a>
-<li><a href="#ch-writing-modules">Writing Modules {#ch-writing-modules}</a>
-<li><a href="#ch-tests">Tests {#ch-tests}</a>
-<li><a href="#ch-extending-rumlib">Extending RumLib {#ch-extending-rumlib}</a>
-<li><a href="#ch-docs">Docs {#ch-docs}</a>
-<li><a href="#ch-reviewing-a-pr">Reviewing a PR {#ch-reviewing-a-pr}</a>
+              <li><a href="#contributing-introduction">Contributing: Introduction</a>
+<ul><li><a href="#ch-getting-started">Getting Started</a>
+<ul><li><a href="#sec-commit-format">Commit Format</a>
+</ul><li><a href="#ch-core-principles">Core Principles</a>
+<li><a href="#ch-writing-modules">Writing Modules</a>
+<li><a href="#ch-tests">Tests</a>
+<li><a href="#ch-extending-rumlib">Extending RumLib</a>
+<li><a href="#ch-docs">Docs</a>
+<li><a href="#ch-reviewing-a-pr">Reviewing a PR</a>
 </li></ul></li>
             </ul>
           </div>
         </nav>
 
-        <main class="content"><h1 id="contributing-introduction"><a href="#contributing-introduction-contributing-introduction" aria-hidden="true" class="anchor" id="contributing-introduction-contributing-introduction"></a>Contributing: Introduction</h1>
+        <main class="content">
+          <h1 id="contributing-introduction">Contributing: Introduction</h1>
 <p>Hjem Rum (or HJR) is always in need of contributions as a module collection. As
 programs are developed, modules will need to be added, changed, removed, etc.,
 meaning that the development of HJR is, in essence, unending.</p>
@@ -99,16 +96,16 @@ function writing. Don't be afraid to experiment and try learning something new.<
 <p>If you are familiar with contributing to open source software, you can safely
 skip ahead to <a href="#ch-core-principles">Core Principles</a>. Otherwise, read the following section to learn
 how to fork a repo and open a PR.</p>
-<h2 id="ch-getting-started"><a href="#getting-started-ch-getting-started" aria-hidden="true" class="anchor" id="getting-started-ch-getting-started"></a>Getting Started</h2>
+<h2 id="ch-getting-started">Getting Started</h2>
 <p>To begin contributing to HJR, you will first need to create a fork off of the
 main branch in order to make changes. For info on how to do this, we recommend
-GitHub's own <a href="<a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo</a>">documentation on forking repositories</a>.</p>
+GitHub's own <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo">documentation on forking repositories</a>.</p>
 <p>Once you have your own fork, it is recommend that you create a branch for the
 changes or additions you seek to make, to make it easier to set up multiple PRs
-from your fork. To do so, you can read this <a href="<a href="https://www.geeksforgeeks.org/how-to-create-a-new-branch-in-git/">https://www.geeksforgeeks.org/how-to-create-a-new-branch-in-git/</a>">article from GeeksforGeeks</a> that
+from your fork. To do so, you can read this <a href="https://www.geeksforgeeks.org/how-to-create-a-new-branch-in-git/">article from GeeksforGeeks</a> that
 will also explain branches for you. Don't worry too much about the technical
 details, the most important thing is to make and switch to a branch from HEAD.</p>
-<h3 id="sec-commit-format"><a href="#commit-format-sec-commit-format" aria-hidden="true" class="anchor" id="commit-format-sec-commit-format"></a>Commit Format</h3>
+<h3 id="sec-commit-format">Commit Format</h3>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Our dev shell allows for interactive commits, through the means of
@@ -117,40 +114,38 @@ build your commit.</p>
 </div>
 <p>For consistency, we do enforce a strict (but simple) commit style, that will be
 linted against. The format is as follows (sections between <code>[]</code> are optional):</p>
-<pre><code class="language-console">&lt;top_level_scope&gt;[/&lt;specific_scope&gt;]: &lt;message&gt;
-
-[&lt;body&gt;]
-</code></pre>
+<pre style="background-color:#ffffff;">
+<span style="color:#323232;">&lt;top_level_scope&gt;[/&lt;specific_scope&gt;]: &lt;message&gt;
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">[&lt;body&gt;]
+</span></pre>
 <ul>
-<li>
-<p>&lt;top_level_scope&gt;: the main scope of your commit. If making a change to a
+<li><p>&lt;top_level_scope&gt;: the main scope of your commit. If making a change to a
 program, this would be <code>programs</code>). For changes unrelated to the modules API,
 we tend to use semantic scopes such as <code>meta</code> for CI/repo related changes.</p>
 </li>
-<li>
-<p>[&lt;specific_scope&gt;]: An optional, more specific scope for your module. If
+<li><p>[&lt;specific_scope&gt;]: An optional, more specific scope for your module. If
 making changes to a specific program, this would be <code>programs/foot</code>.</p>
 </li>
-<li>
-<p>&lt;message&gt;: A free form commit message. Needs to be imperative and without
+<li><p>&lt;message&gt;: A free form commit message. Needs to be imperative and without
 punctuation (e.g. <code>do stuff</code> instead of <code>did stuff.</code>).</p>
 </li>
-<li>
-<p>[&lt;body&gt;]: A free form commit body. Having one is encouraged when your
+<li><p>[&lt;body&gt;]: A free form commit body. Having one is encouraged when your
 changes are difficult to explain, unless you're writing in-depth code comments
 (it is still preferred however).</p>
 </li>
 </ul>
 <p>You can now make your changes in your editor of choice. After committing your
 changes, you can run:</p>
-<pre><code class="language-shell">git push origin &lt;branch-name&gt;
-</code></pre>
-<p>and then open up a PR, or &quot;Pull Request,&quot; in the upstream HJR repository. Again,
-GitHub has good documentation for <a href="<a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request</a>">creating a PR</a>.</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#323232;">git push origin &lt;branch-name&gt;
+</span></pre>
+<p>and then open up a PR, or "Pull Request," in the upstream HJR repository. Again,
+GitHub has good documentation for <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">creating a PR</a>.</p>
 <p>After you have setup a PR, it will be <a href="#ch-reviewing-a-pr">reviewed</a> by maintainers and changes may
 be requested. Make the changes requested and eventually it will likely be
 accepted and merged into main.</p>
-<h2 id="ch-core-principles"><a href="#core-principles-ch-core-principles" aria-hidden="true" class="anchor" id="core-principles-ch-core-principles"></a>Core Principles</h2>
+<h2 id="ch-core-principles">Core Principles</h2>
 <p>In creating HJR, we had a few principles in mind for development:</p>
 <ol>
 <li>Minimize the number of options written.</li>
@@ -159,31 +154,35 @@ accepted and merged into main.</p>
 </ol>
 <p>Please keep these in mind as you read through our general guidelines for
 contributing.</p>
-<h2 id="ch-writing-modules"><a href="#writing-modules-ch-writing-modules" aria-hidden="true" class="anchor" id="writing-modules-ch-writing-modules"></a>Writing Modules</h2>
+<h2 id="ch-writing-modules">Writing Modules</h2>
 <p>Writing modules is a core task of contributing to Hjem Rum, and makes up the
 bulk of PRs. Learning to follow our guidelines, standards, and expectations in
 writing modules is accordingly crucial. Please see
 <a href="./writing-modules.html"><strong>Contributing: Writing Modules</strong></a> for more information.</p>
-<h2 id="ch-tests"><a href="#tests-ch-tests" aria-hidden="true" class="anchor" id="tests-ch-tests"></a>Tests</h2>
-<p>Since <a href="<a href="https://github.com/snugnug/hjem-rum/pull/43">https://github.com/snugnug/hjem-rum/pull/43</a>">#43</a>, all modules are expected to have tests to ensure their maintained
+<h2 id="ch-tests">Tests</h2>
+<p>Since <a href="https://github.com/snugnug/hjem-rum/pull/43">#43</a>, all modules are expected to have tests to ensure their maintained
 function through development. Writing tests has a steep learning curve, but
 becomes easier over time. Please see [<strong>Contributing: Writing Module Tests</strong>]
 for more information.</p>
-<h2 id="ch-extending-rumlib"><a href="#extending-rumlib-ch-extending-rumlib" aria-hidden="true" class="anchor" id="extending-rumlib-ch-extending-rumlib"></a>Extending RumLib</h2>
+<h2 id="ch-extending-rumlib">Extending RumLib</h2>
 <p>In writing modules, you may often find yourself in need of a custom function or
 two. While writing functions is certainly a more advanced contributing task, it
 is absolutely within your range to do. Please see
 <a href="./rumlib.html"><strong>Contributing: Extending Hjem Rum's Library</strong></a> for more information.</p>
-<h2 id="ch-docs"><a href="#docs-ch-docs" aria-hidden="true" class="anchor" id="docs-ch-docs"></a>Docs</h2>
+<h2 id="ch-docs">Docs</h2>
 <p>Please see [<strong>Contributing: Expanding the Documentation</strong>] for information on
 this.</p>
-<h2 id="ch-reviewing-a-pr"><a href="#reviewing-a-pr-ch-reviewing-a-pr" aria-hidden="true" class="anchor" id="reviewing-a-pr-ch-reviewing-a-pr"></a>Reviewing a PR</h2>
+<h2 id="ch-reviewing-a-pr">Reviewing a PR</h2>
 <p>Even if you do not have write-access, you can always leave a review on someone
-else's PR. GitHub has great <a href="<a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request</a>">documentation on reviewing PRs</a>. This is great
+else's PR. GitHub has great <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request">documentation on reviewing PRs</a>. This is great
 practice for learning the guidelines as well as learning exceptions to the
 rules. For some guidelines on review practices, see
 <a href="./reviewing.html"><strong>Contributing: Review Tips</strong></a>.</p>
-</main>
+
+          <div class="footnotes-container">
+            <!-- Footnotes will be appended here -->
+          </div>
+        </main>
       </div>
 
       <footer>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Usage: Installing Hjem Rum {#usage-installing-hjem-rum}</title>
+    <title>Usage: Installing Hjem Rum</title>
     <script>
       // Apply sidebar state immediately to prevent flash
       (function () {
@@ -22,15 +22,11 @@
     <div class="container">
       <header>
         <div class="header-left">
-          <h1 class="site-title">
-            <a href="../index.html">Hjem Rum</a>
-          </h1>
+          <h1 class="site-title"><a href="../index.html">Hjem Rum</a></h1>
         </div>
         <nav class="header-nav">
           <ul>
-            <li >
-              <a href="../options.html">Options</a>
-            </li>
+            <li ><a href="../options.html">Options</a></li>
             
             <li><a href="../search.html">Search</a></li>
             
@@ -76,58 +72,60 @@
           <div class="toc">
             <h2>Contents</h2>
             <ul class="toc-list">
-              <li><a href="#usage-installing-hjem-rum">Usage: Installing Hjem Rum {#usage-installing-hjem-rum}</a>
-<ul><li><a href="#ch-importing-the-hjem-rum-flake">Importing the Hjem Rum Flake {#ch-importing-the-hjem-rum-flake}</a>
-<li><a href="#ch-using-hjem-rum-modules">Using Hjem Rum Modules {#ch-using-hjem-rum-modules}</a>
-<ul><li><a href="#sec-configuring-in-a-nixos-module">Configuring in a NixOS Module {#sec-configuring-in-a-nixos-module}</a>
-<li><a href="#sec-configuring-in-a-hjem-module">Configuring in a Hjem Module {#sec-configuring-in-a-hjem-module}</a>
-</ul><li><a href="#ch-beyond-installation">Beyond Installation {#ch-beyond-installation}</a>
+              <li><a href="#usage-installing-hjem-rum">Usage: Installing Hjem Rum</a>
+<ul><li><a href="#ch-importing-the-hjem-rum-flake">Importing the Hjem Rum Flake</a>
+<li><a href="#ch-using-hjem-rum-modules">Using Hjem Rum Modules</a>
+<ul><li><a href="#sec-configuring-in-a-nixos-module">Configuring in a NixOS Module</a>
+<li><a href="#sec-configuring-in-a-hjem-module">Configuring in a Hjem Module</a>
+</ul><li><a href="#ch-beyond-installation">Beyond Installation</a>
 </li></ul></li>
             </ul>
           </div>
         </nav>
 
-        <main class="content"><h1 id="usage-installing-hjem-rum"><a href="#usage-installing-hjem-rum-usage-installing-hjem-rum" aria-hidden="true" class="anchor" id="usage-installing-hjem-rum-usage-installing-hjem-rum"></a>Usage: Installing Hjem Rum</h1>
+        <main class="content">
+          <h1 id="usage-installing-hjem-rum">Usage: Installing Hjem Rum</h1>
 <p>Welcome to Hjem Rum. Installing and configuring Hjem Rum is as easy as any other
 module.</p>
-<h2 id="ch-importing-the-hjem-rum-flake"><a href="#importing-the-hjem-rum-flake-ch-importing-the-hjem-rum-flake" aria-hidden="true" class="anchor" id="importing-the-hjem-rum-flake-ch-importing-the-hjem-rum-flake"></a>Importing the Hjem Rum Flake</h2>
+<h2 id="ch-importing-the-hjem-rum-flake">Importing the Hjem Rum Flake</h2>
 <p>To begin using Hjem Rum, simply add and import Hjem and Hjem Rum into your
 flake:</p>
-<pre><code class="language-nix"># flake.nix
-inputs = {
-    nixpkgs.url = &quot;github:NixOS/nixpkgs?ref=nixos-unstable&quot;;
-    # To minimize redundancies, we suggest you set your flakes to follow your inputs.
-    hjem = {
-        url = &quot;github:feel-co/hjem&quot;;
-        inputs.nixpkgs.follows = &quot;nixpkgs&quot;;
-    };
-    hjem-rum = {
-        url = &quot;github:snugnug/hjem-rum&quot;;
-        inputs = {
-            nixpkgs.follows = &quot;nixpkgs&quot;;
-            hjem.follows = &quot;hjem&quot;;
-        };
-    };
-};
-
-# One example of importing the module into your system configuration
-outputs = {
-    self,
-    nixpkgs,
-    ...
-} @ inputs: {
-    nixosConfigurations = {
-        default = nixpkgs.lib.nixosSystem {
-            specialArgs = {inherit inputs;};
-            modules = [
-                inputs.hjem.nixosModules.default # Import the hjem module
-                ./configuration.nix
-            ];
-        };
-    };
-}
-</code></pre>
-<h2 id="ch-using-hjem-rum-modules"><a href="#using-hjem-rum-modules-ch-using-hjem-rum-modules" aria-hidden="true" class="anchor" id="using-hjem-rum-modules-ch-using-hjem-rum-modules"></a>Using Hjem Rum Modules</h2>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># flake.nix
+</span><span style="color:#323232;">inputs </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> {
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">nixpkgs</span><span style="color:#323232;">.</span><span style="color:#795da3;">url </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;github:NixOS/nixpkgs?ref=nixos-unstable&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">    </span><span style="font-style:italic;color:#969896;"># To minimize redundancies, we suggest you set your flakes to follow your inputs.
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">hjem </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">url </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;github:feel-co/hjem&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">inputs</span><span style="color:#323232;">.</span><span style="color:#795da3;">nixpkgs</span><span style="color:#323232;">.</span><span style="color:#795da3;">follows </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;nixpkgs&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">hjem-rum </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">url </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;github:snugnug/hjem-rum&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">inputs </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">nixpkgs</span><span style="color:#323232;">.</span><span style="color:#795da3;">follows </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;nixpkgs&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">hjem</span><span style="color:#323232;">.</span><span style="color:#795da3;">follows </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;hjem&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">        };
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">}</span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">;</span><span style="color:#323232;">
+</span><span style="color:#323232;">
+</span><span style="font-style:italic;color:#969896;"># One example of importing the module into your system configuration
+</span><span style="color:#323232;">outputs </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> {
+</span><span style="color:#323232;">    self</span><span style="font-weight:bold;color:#a71d5d;">,
+</span><span style="color:#323232;">    nixpkgs</span><span style="font-weight:bold;color:#a71d5d;">,
+</span><span style="color:#323232;">    </span><span style="font-weight:bold;color:#a71d5d;">...
+</span><span style="color:#323232;">} @ inputs: {
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">nixosConfigurations </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">default </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">nixpkgs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">lib</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">nixosSystem {
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">specialArgs </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{</span><span style="font-weight:bold;color:#a71d5d;">inherit </span><span style="color:#795da3;">inputs</span><span style="color:#323232;">;};
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">modules </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[
+</span><span style="color:#323232;">                inputs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjem</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">nixosModules</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">default </span><span style="font-style:italic;color:#969896;"># Import the hjem module
+</span><span style="color:#323232;">                </span><span style="color:#183691;">./configuration.nix
+</span><span style="color:#323232;">            ];
+</span><span style="color:#323232;">        };
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">}
+</span></pre>
+<h2 id="ch-using-hjem-rum-modules">Using Hjem Rum Modules</h2>
 <p>You can declare Hjem Rum modules either in a NixOS module, imported into all
 your hosts, or as a special Hjem module, imported directly into Hjem. If you do
 not know which to choose, we recommend configuring Hjem Rum in NixOS modules.</p>
@@ -136,194 +134,208 @@ not know which to choose, we recommend configuring Hjem Rum in NixOS modules.</p
 For the purposes of this example, we will be pretending your username is
 <code>alice</code>.</p>
 </blockquote>
-<h3 id="sec-configuring-in-a-nixos-module"><a href="#configuring-in-a-nixos-module-sec-configuring-in-a-nixos-module" aria-hidden="true" class="anchor" id="configuring-in-a-nixos-module-sec-configuring-in-a-nixos-module"></a>Configuring in a NixOS Module</h3>
+<h3 id="sec-configuring-in-a-nixos-module">Configuring in a NixOS Module</h3>
 <p>To configure Hjem Rum in a NixOS Module, set the according settings, import Hjem
 Rum's flake output, and configure away.</p>
-<pre><code class="language-nix"># configuration.nix
-{
-    pkgs,
-    inputs,
-    ...
-}: {
-    hjem = {
-        # Import the module collection
-        extraModules = [inputs.hjem-rum.hjemModules.default];
-
-        # We recommend using the experimental linker
-        linker = inputs.hjem.packages.&quot;x86_64-linux&quot;.sfmh; # Use your host's system
-
-        # Configuring your user(s)
-        users.alice = {
-            enable = true;
-            directory = &quot;/home/alice&quot;;
-            user = &quot;alice&quot;;
-            rum.programs.alacritty = {
-                enable = true;
-                package = pkgs.alacritty; # Default
-                settings = {
-                    window = {
-                        dimensions = {
-                            lines = 28;
-                            columns = 101;
-                        };
-                        padding = {
-                            x = 6;
-                            y = 3;
-                        };
-                    };
-                };
-            };
-        };
-    };
-}
-</code></pre>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># configuration.nix
+</span><span style="color:#323232;">{
+</span><span style="color:#323232;">    pkgs</span><span style="font-weight:bold;color:#a71d5d;">,
+</span><span style="color:#323232;">    inputs</span><span style="font-weight:bold;color:#a71d5d;">,
+</span><span style="color:#323232;">    </span><span style="font-weight:bold;color:#a71d5d;">...
+</span><span style="color:#323232;">}: {
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">hjem </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">        </span><span style="font-style:italic;color:#969896;"># Import the module collection
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">extraModules </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[inputs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjem-rum</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjemModules</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">default];
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">        </span><span style="font-style:italic;color:#969896;"># We recommend using the experimental linker
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">linker </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">inputs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjem</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">packages</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#183691;">&quot;x86_64-linux&quot;</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">sfmh; </span><span style="font-style:italic;color:#969896;"># Use your host&#39;s system
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">        </span><span style="font-style:italic;color:#969896;"># Configuring your user(s)
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">users</span><span style="color:#323232;">.</span><span style="color:#795da3;">alice </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">enable </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">true</span><span style="color:#323232;">;
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">directory </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;/home/alice&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">user </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;alice&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">rum</span><span style="color:#323232;">.</span><span style="color:#795da3;">programs</span><span style="color:#323232;">.</span><span style="color:#795da3;">alacritty </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">                </span><span style="color:#795da3;">enable </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">true</span><span style="color:#323232;">;
+</span><span style="color:#323232;">                </span><span style="color:#795da3;">package </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">pkgs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">alacritty; </span><span style="font-style:italic;color:#969896;"># Default
+</span><span style="color:#323232;">                </span><span style="color:#795da3;">settings </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">                    </span><span style="color:#795da3;">window </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">                        </span><span style="color:#795da3;">dimensions </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">                            </span><span style="color:#795da3;">lines </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">28</span><span style="color:#323232;">;
+</span><span style="color:#323232;">                            </span><span style="color:#795da3;">columns </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">101</span><span style="color:#323232;">;
+</span><span style="color:#323232;">                        };
+</span><span style="color:#323232;">                        </span><span style="color:#795da3;">padding </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">                            </span><span style="color:#795da3;">x </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">6</span><span style="color:#323232;">;
+</span><span style="color:#323232;">                            </span><span style="color:#795da3;">y </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">3</span><span style="color:#323232;">;
+</span><span style="color:#323232;">                        };
+</span><span style="color:#323232;">                    };
+</span><span style="color:#323232;">                };
+</span><span style="color:#323232;">            };
+</span><span style="color:#323232;">        };
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">}
+</span></pre>
 <p>This setup is ideal for a single-user configuration, as you can easily integrate
 your home configuration right in your system. It minimizes friction and creates
 a single-setup configuration. You can, of course, modularize your configuration
 into files, like you should do for NixOS:</p>
-<pre><code class="language-nix"># configuration.nix
-{
-    imports = [./hjem];
-}
-</code></pre>
-<pre><code class="language-nix"># hjem/default.nix
-{
-    config,
-    inputs,
-    ...
-}: {
-    imports = [
-        ./alacritty.nix
-    ];
-    config.hjem = {
-        # Import the module collection
-        extraModules = [inputs.hjem-rum.hjemModules.default];
-
-        # We recommend using the experimental linker
-        linker = inputs.hjem.packages.&quot;x86_64-linux&quot;.sfmh; # Use your host's system
-
-        # Configuring your user(s)
-        users.alice = {
-            enable = true;
-            directory = &quot;/home/alice&quot;;
-            user = &quot;alice&quot;;
-        };
-    };
-}
-</code></pre>
-<pre><code class="language-nix"># hjem/alacritty.nix
-{pkgs,...}: {
-    hjem.users.alice.rum.programs.alacritty = {
-        enable = true;
-        package = pkgs.alacritty; # Default
-        settings = {
-            window = {
-                dimensions = {
-                    lines = 28;
-                    columns = 101;
-                };
-                padding = {
-                    x = 6;
-                    y = 3;
-                };
-            };
-        };
-    };
-}
-</code></pre>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># configuration.nix
+</span><span style="color:#323232;">{
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">imports </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[</span><span style="color:#183691;">./hjem</span><span style="color:#323232;">];
+</span><span style="color:#323232;">}
+</span></pre>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># hjem/default.nix
+</span><span style="color:#323232;">{
+</span><span style="color:#323232;">    config</span><span style="font-weight:bold;color:#a71d5d;">,
+</span><span style="color:#323232;">    inputs</span><span style="font-weight:bold;color:#a71d5d;">,
+</span><span style="color:#323232;">    </span><span style="font-weight:bold;color:#a71d5d;">...
+</span><span style="color:#323232;">}: {
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">imports </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[
+</span><span style="color:#323232;">        </span><span style="color:#183691;">./alacritty.nix
+</span><span style="color:#323232;">    ];
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">config</span><span style="color:#323232;">.</span><span style="color:#795da3;">hjem </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">        </span><span style="font-style:italic;color:#969896;"># Import the module collection
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">extraModules </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[inputs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjem-rum</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjemModules</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">default];
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">        </span><span style="font-style:italic;color:#969896;"># We recommend using the experimental linker
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">linker </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">inputs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjem</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">packages</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#183691;">&quot;x86_64-linux&quot;</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">sfmh; </span><span style="font-style:italic;color:#969896;"># Use your host&#39;s system
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">        </span><span style="font-style:italic;color:#969896;"># Configuring your user(s)
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">users</span><span style="color:#323232;">.</span><span style="color:#795da3;">alice </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">enable </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">true</span><span style="color:#323232;">;
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">directory </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;/home/alice&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">user </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;alice&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">        };
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">}
+</span></pre>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># hjem/alacritty.nix
+</span><span style="color:#323232;">{pkgs</span><span style="font-weight:bold;color:#a71d5d;">,...</span><span style="color:#323232;">}: {
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">hjem</span><span style="color:#323232;">.</span><span style="color:#795da3;">users</span><span style="color:#323232;">.</span><span style="color:#795da3;">alice</span><span style="color:#323232;">.</span><span style="color:#795da3;">rum</span><span style="color:#323232;">.</span><span style="color:#795da3;">programs</span><span style="color:#323232;">.</span><span style="color:#795da3;">alacritty </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">enable </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">true</span><span style="color:#323232;">;
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">package </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">pkgs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">alacritty; </span><span style="font-style:italic;color:#969896;"># Default
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">settings </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">window </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">                </span><span style="color:#795da3;">dimensions </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">                    </span><span style="color:#795da3;">lines </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">28</span><span style="color:#323232;">;
+</span><span style="color:#323232;">                    </span><span style="color:#795da3;">columns </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">101</span><span style="color:#323232;">;
+</span><span style="color:#323232;">                };
+</span><span style="color:#323232;">                </span><span style="color:#795da3;">padding </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">                    </span><span style="color:#795da3;">x </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">6</span><span style="color:#323232;">;
+</span><span style="color:#323232;">                    </span><span style="color:#795da3;">y </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">3</span><span style="color:#323232;">;
+</span><span style="color:#323232;">                };
+</span><span style="color:#323232;">            };
+</span><span style="color:#323232;">        };
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">}
+</span></pre>
 <p>Using this setup, a single-user configuration can be well implemented into your
 existing NixOS configuration. For example, you could configure the necessary
 system-wide configurations for your desktop environment and manage its dotfiles
 in the same file or directory.</p>
-<h3 id="sec-configuring-in-a-hjem-module"><a href="#configuring-in-a-hjem-module-sec-configuring-in-a-hjem-module" aria-hidden="true" class="anchor" id="configuring-in-a-hjem-module-sec-configuring-in-a-hjem-module"></a>Configuring in a Hjem Module</h3>
+<h3 id="sec-configuring-in-a-hjem-module">Configuring in a Hjem Module</h3>
 <p>Alternatively, if you would rather separate your Hjem modules from your NixOS
 modules, you can simply import Hjem Rum's modules and Nix files written as Hjem
 modules straight into your Hjem user.</p>
-<pre><code class="language-nix"># configuration.nix
-{inputs, ...}: {
-    hjem = {
-        # Import the module collection
-        extraModules = [inputs.hjem-rum.hjemModules.default];
-
-        # We recommend using the experimental linker
-        linker = inputs.hjem.packages.&quot;x86_64-linux&quot;.sfmh; # Use your host's system
-
-        # Configuring your user(s)
-        users.alice = {
-            enable = true;
-            directory = &quot;/home/alice&quot;;
-            user = &quot;alice&quot;;
-            imports = [./hjem/alice];
-        };
-    };
-}
-</code></pre>
-<pre><code class="language-nix"># hjem/alice/default.nix
-{
-    imports = [./alacritty.nix];
-}
-</code></pre>
-<pre><code class="language-nix"># hjem/alice/alacritty.nix
-{pkgs, ...}: {
-    rum.programs.alacritty = {
-        enable = true;
-        package = pkgs.alacritty; # Default
-        settings = {
-            window = {
-                dimensions = {
-                    lines = 28;
-                    columns = 101;
-                };
-                padding = {
-                    x = 6;
-                    y = 3;
-                };
-            };
-        };
-    };
-}
-</code></pre>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># configuration.nix
+</span><span style="color:#323232;">{inputs</span><span style="font-weight:bold;color:#a71d5d;">, ...</span><span style="color:#323232;">}: {
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">hjem </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">        </span><span style="font-style:italic;color:#969896;"># Import the module collection
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">extraModules </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[inputs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjem-rum</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjemModules</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">default];
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">        </span><span style="font-style:italic;color:#969896;"># We recommend using the experimental linker
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">linker </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">inputs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjem</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">packages</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#183691;">&quot;x86_64-linux&quot;</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">sfmh; </span><span style="font-style:italic;color:#969896;"># Use your host&#39;s system
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">        </span><span style="font-style:italic;color:#969896;"># Configuring your user(s)
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">users</span><span style="color:#323232;">.</span><span style="color:#795da3;">alice </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">enable </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">true</span><span style="color:#323232;">;
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">directory </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;/home/alice&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">user </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;alice&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">imports </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[</span><span style="color:#183691;">./hjem/alice</span><span style="color:#323232;">];
+</span><span style="color:#323232;">        };
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">}
+</span></pre>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># hjem/alice/default.nix
+</span><span style="color:#323232;">{
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">imports </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[</span><span style="color:#183691;">./alacritty.nix</span><span style="color:#323232;">];
+</span><span style="color:#323232;">}
+</span></pre>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># hjem/alice/alacritty.nix
+</span><span style="color:#323232;">{pkgs</span><span style="font-weight:bold;color:#a71d5d;">, ...</span><span style="color:#323232;">}: {
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">rum</span><span style="color:#323232;">.</span><span style="color:#795da3;">programs</span><span style="color:#323232;">.</span><span style="color:#795da3;">alacritty </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">enable </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">true</span><span style="color:#323232;">;
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">package </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">pkgs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">alacritty; </span><span style="font-style:italic;color:#969896;"># Default
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">settings </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">window </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">                </span><span style="color:#795da3;">dimensions </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">                    </span><span style="color:#795da3;">lines </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">28</span><span style="color:#323232;">;
+</span><span style="color:#323232;">                    </span><span style="color:#795da3;">columns </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">101</span><span style="color:#323232;">;
+</span><span style="color:#323232;">                };
+</span><span style="color:#323232;">                </span><span style="color:#795da3;">padding </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">                    </span><span style="color:#795da3;">x </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">6</span><span style="color:#323232;">;
+</span><span style="color:#323232;">                    </span><span style="color:#795da3;">y </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">3</span><span style="color:#323232;">;
+</span><span style="color:#323232;">                };
+</span><span style="color:#323232;">            };
+</span><span style="color:#323232;">        };
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">}
+</span></pre>
 <p>In this example, Alacritty would only be enabled and configured in the user the
 module is imported into. Using this setup, you could also import Hjem Rum
 exclusively into the user, rather than into <code class="nixos-option">hjem.extraModules</code>.</p>
-<pre><code class="language-nix"># configuration.nix
-{inputs, ...}: {
-    hjem = {
-        # Don't import the flake into all users
-        extraModules = [];
-
-        # Instead, import it into a single user
-        users.alice = {
-            imports = [
-                inputs.hjem-rum.hjemModules.default
-                ./hjem/alice
-            ];
-        };
-    };
-}
-</code></pre>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># configuration.nix
+</span><span style="color:#323232;">{inputs</span><span style="font-weight:bold;color:#a71d5d;">, ...</span><span style="color:#323232;">}: {
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">hjem </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">        </span><span style="font-style:italic;color:#969896;"># Don&#39;t import the flake into all users
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">extraModules </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[];
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">        </span><span style="font-style:italic;color:#969896;"># Instead, import it into a single user
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">users</span><span style="color:#323232;">.</span><span style="color:#795da3;">alice </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">            </span><span style="color:#795da3;">imports </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[
+</span><span style="color:#323232;">                inputs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjem-rum</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjemModules</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">default
+</span><span style="color:#323232;">                </span><span style="color:#183691;">./hjem/alice
+</span><span style="color:#323232;">            ];
+</span><span style="color:#323232;">        };
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">}
+</span></pre>
 <p>Keep in mind, if you wish to access any specialArgs, you will need to declare
 them in <code class="nixos-option">hjem.specialArgs</code>:</p>
-<pre><code class="language-nix"># configuration.nix
-{inputs, ...}: {
-    hjem = {
-        specialArgs = {inherit inputs;}; # inputs = inputs
-        users.alice.imports = [./hjem/alice];
-    };
-}
-</code></pre>
-<pre><code class="language-nix"># hjem/alice/default.nix
-{inputs, ...}: {
-    imports = [inputs.hjem-rum.hjemModules.default];
-}
-</code></pre>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># configuration.nix
+</span><span style="color:#323232;">{inputs</span><span style="font-weight:bold;color:#a71d5d;">, ...</span><span style="color:#323232;">}: {
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">hjem </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">specialArgs </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{</span><span style="font-weight:bold;color:#a71d5d;">inherit </span><span style="color:#795da3;">inputs</span><span style="color:#323232;">;}; </span><span style="font-style:italic;color:#969896;"># inputs = inputs
+</span><span style="color:#323232;">        </span><span style="color:#795da3;">users</span><span style="color:#323232;">.</span><span style="color:#795da3;">alice</span><span style="color:#323232;">.</span><span style="color:#795da3;">imports </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[</span><span style="color:#183691;">./hjem/alice</span><span style="color:#323232;">];
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">}
+</span></pre>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># hjem/alice/default.nix
+</span><span style="color:#323232;">{inputs</span><span style="font-weight:bold;color:#a71d5d;">, ...</span><span style="color:#323232;">}: {
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">imports </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[inputs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjem-rum</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjemModules</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">default];
+</span><span style="color:#323232;">}
+</span></pre>
 <p>In this example, this allows us to import the Hjem Rum collection inside of a
 user-specific Hjem module.</p>
-<h2 id="ch-beyond-installation"><a href="#beyond-installation-ch-beyond-installation" aria-hidden="true" class="anchor" id="beyond-installation-ch-beyond-installation"></a>Beyond Installation</h2>
+<h2 id="ch-beyond-installation">Beyond Installation</h2>
 <p>Please see <a href="../options.html"><strong>Options</strong></a> for a thorough list of options you can set.</p>
 <p>Additionally, please see [<strong>Usage: Quirks, Tips, and Tricks</strong>] for important
 information regarding your usage of Hjem Rum.</p>
-</main>
+
+          <div class="footnotes-container">
+            <!-- Footnotes will be appended here -->
+          </div>
+        </main>
       </div>
 
       <footer>

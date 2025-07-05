@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contributing: Review Tips {#contributing-review-tips}</title>
+    <title>Contributing: Review Tips</title>
     <script>
       // Apply sidebar state immediately to prevent flash
       (function () {
@@ -22,15 +22,11 @@
     <div class="container">
       <header>
         <div class="header-left">
-          <h1 class="site-title">
-            <a href="../index.html">Hjem Rum</a>
-          </h1>
+          <h1 class="site-title"><a href="../index.html">Hjem Rum</a></h1>
         </div>
         <nav class="header-nav">
           <ul>
-            <li >
-              <a href="../options.html">Options</a>
-            </li>
+            <li ><a href="../options.html">Options</a></li>
             
             <li><a href="../search.html">Search</a></li>
             
@@ -76,18 +72,19 @@
           <div class="toc">
             <h2>Contents</h2>
             <ul class="toc-list">
-              <li><a href="#contributing-review-tips">Contributing: Review Tips {#contributing-review-tips}</a>
-<ul><li><a href="#ch-1-be-nice">1. Be nice {#ch-1-be-nice}</a>
-<li><a href="#ch-2-single-trip-reviews">2. Single-trip reviews {#ch-2-single-trip-reviews}</a>
-<li><a href="#ch-3-united-front">3. United front {#ch-3-united-front}</a>
-<li><a href="#ch-4-bikeshedding">4. Bikeshedding {#ch-4-bikeshedding}</a>
-<li><a href="#ch-extending-this-document">Extending this document {#ch-extending-this-document}</a>
+              <li><a href="#contributing-review-tips">Contributing: Review Tips</a>
+<ul><li><a href="#ch-1-be-nice">1. Be nice</a>
+<li><a href="#ch-2-single-trip-reviews">2. Single-trip reviews</a>
+<li><a href="#ch-3-united-front">3. United front</a>
+<li><a href="#ch-4-bikeshedding">4. Bikeshedding</a>
+<li><a href="#ch-extending-this-document">Extending this document</a>
 </li></ul></li>
             </ul>
           </div>
         </nav>
 
-        <main class="content"><h1 id="contributing-review-tips"><a href="#contributing-review-tips-contributing-review-tips" aria-hidden="true" class="anchor" id="contributing-review-tips-contributing-review-tips"></a>Contributing: Review Tips</h1>
+        <main class="content">
+          <h1 id="contributing-review-tips">Contributing: Review Tips</h1>
 <p>An often overlooked part of contributing to an open source project is proper
 review practices. It's very easy to alienate contributors with bad code review.
 Of course, nobody will get this right <em>all</em> of the time. Rather, this guide aims
@@ -96,9 +93,9 @@ contributors.</p>
 <p>If you notice another contributor not following these, don't call them out
 publicly―choose instead to respectfully message them via private channels. These
 tips serve as a reference, not a rule of law.</p>
-<p><sub>Much of this guide is inspired by <a href="<a href="https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/code-review-antipatterns/">https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/code-review-antipatterns/</a>">Code Review Antipatterns</a> by Simon
+<p><sub>Much of this guide is inspired by <a href="https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/code-review-antipatterns/">Code Review Antipatterns</a> by Simon
 Tatham. If you're interested, give it a look! </sub></p>
-<h2 id="ch-1-be-nice"><a href="#1-be-nice-ch-1-be-nice" aria-hidden="true" class="anchor" id="1-be-nice-ch-1-be-nice"></a>1. Be nice</h2>
+<h2 id="ch-1-be-nice">1. Be nice</h2>
 <p>Starting off with an easy one! However, there's actually something meaningful to
 be said here. As a reviewer, it's easy to get frustrated with constantly giving
 the same feedback. If you find yourself giving feedback like:</p>
@@ -112,7 +109,7 @@ the same feedback. If you find yourself giving feedback like:</p>
 <p>This might sound silly at first. But when it feels like a reviewer is <em>on your
 side</em>, it makes a huge difference. If this tone feels a little foreign, pretend
 you're writing an email, and that should give you a good barometer.</p>
-<h2 id="ch-2-single-trip-reviews"><a href="#2-single-trip-reviews-ch-2-single-trip-reviews" aria-hidden="true" class="anchor" id="2-single-trip-reviews-ch-2-single-trip-reviews"></a>2. Single-trip reviews</h2>
+<h2 id="ch-2-single-trip-reviews">2. Single-trip reviews</h2>
 <p>As a contributor, it can be frustrating to finish accommodating all the review
 comments, only to immediately be given a bunch of other suggestions, which
 could've easily been included in the first review session. As a reviewer, take a
@@ -134,15 +131,15 @@ tells you:</p>
 something will require a lot of changes to be mergeable, be up-front about
 it―even if you feel a little guilty. Better to rip the bandaid off now, than to
 leave it on for a few review sessions.</p>
-<h2 id="ch-3-united-front"><a href="#3-united-front-ch-3-united-front" aria-hidden="true" class="anchor" id="3-united-front-ch-3-united-front"></a>3. United front</h2>
-<p>Anyone who's contributed to <a href="<a href="https://github.com/NixOS/Nixpkgs">https://github.com/NixOS/Nixpkgs</a>">Nixpkgs</a> knows the cycle―you've accommodated one
+<h2 id="ch-3-united-front">3. United front</h2>
+<p>Anyone who's contributed to <a href="https://github.com/NixOS/Nixpkgs">Nixpkgs</a> knows the cycle―you've accommodated one
 reviewer's comments, only for a different reviewer to come in with MORE things
 to change. Or, even worse―maybe reviewer 2 disagrees with reviewer 1―and now
 they're fighting on your PR.</p>
-<p>When possible, try to coordinate review feedback. The <a href="<a href="https://discord.gg/6rMPtKDKzt">https://discord.gg/6rMPtKDKzt</a>">SNUG Discord server</a> is a
+<p>When possible, try to coordinate review feedback. The <a href="https://discord.gg/6rMPtKDKzt">SNUG Discord server</a> is a
 great place for working together to ensure feedback is clear and consistent
 between reviewers.</p>
-<h2 id="ch-4-bikeshedding"><a href="#4-bikeshedding-ch-4-bikeshedding" aria-hidden="true" class="anchor" id="4-bikeshedding-ch-4-bikeshedding"></a>4. Bikeshedding</h2>
+<h2 id="ch-4-bikeshedding">4. Bikeshedding</h2>
 <p>Have you ever made a PR, only for every single line to be criticized for not
 being done exactly how the reviewer wants? It feels like your code is being held
 to an impossibly high standard. Reviewers often view code more harshly―after
@@ -178,13 +175,17 @@ bikeshedding does happen, try to treat it as <em>optional</em>. Rather than sayi
 <blockquote>
 <p>Stylistic nitpick, but could you maybe change this to ____? Not blocking.</p>
 </blockquote>
-<h2 id="ch-extending-this-document"><a href="#extending-this-document-ch-extending-this-document" aria-hidden="true" class="anchor" id="extending-this-document-ch-extending-this-document"></a>Extending this document</h2>
+<h2 id="ch-extending-this-document">Extending this document</h2>
 <p>If you find yourself experiencing something as a contributor that makes you less
 motivated to contribute―whether it's for Hjem Rum or some other project―feel
 free to make a PR extending this document. Proper code review practices keep
 contributors around, which is how an open source project thrives. Code review
 will never be perfect, but it can be better.</p>
-</main>
+
+          <div class="footnotes-container">
+            <!-- Footnotes will be appended here -->
+          </div>
+        </main>
       </div>
 
       <footer>

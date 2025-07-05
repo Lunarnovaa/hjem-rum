@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Usage: Quirks, Tips, & Tricks {#usage-quirks-tips-tricks}</title>
+    <title>Usage: Quirks, Tips, & Tricks</title>
     <script>
       // Apply sidebar state immediately to prevent flash
       (function () {
@@ -22,15 +22,11 @@
     <div class="container">
       <header>
         <div class="header-left">
-          <h1 class="site-title">
-            <a href="../index.html">Hjem Rum</a>
-          </h1>
+          <h1 class="site-title"><a href="../index.html">Hjem Rum</a></h1>
         </div>
         <nav class="header-nav">
           <ul>
-            <li >
-              <a href="../options.html">Options</a>
-            </li>
+            <li ><a href="../options.html">Options</a></li>
             
             <li><a href="../search.html">Search</a></li>
             
@@ -76,21 +72,22 @@
           <div class="toc">
             <h2>Contents</h2>
             <ul class="toc-list">
-              <li><a href="#usage-quirks-tips-tricks">Usage: Quirks, Tips, & Tricks {#usage-quirks-tips-tricks}</a>
-<ul><li><a href="#ch-environmental-variables">Environmental Variables {#ch-environmental-variables}</a>
+              <li><a href="#usage-quirks-tips-tricks">Usage: Quirks, Tips, & Tricks</a>
+<ul><li><a href="#ch-environmental-variables">Environmental Variables</a>
 </li></ul></li>
             </ul>
           </div>
         </nav>
 
-        <main class="content"><h1 id="usage-quirks-tips-tricks"><a href="#usage-quirks-tips--tricks-usage-quirks-tips-tricks" aria-hidden="true" class="anchor" id="usage-quirks-tips--tricks-usage-quirks-tips-tricks"></a>Usage: Quirks, Tips, &amp; Tricks</h1>
+        <main class="content">
+          <h1 id="usage-quirks-tips-tricks">Usage: Quirks, Tips, &amp; Tricks</h1>
 <p>As you are getting familiar with Hjem Rum, you may find some strange quirks that
 you are unfamiliar with. This is especially so as unlike Home Manager, the
 underlying toolset implementation is a wholly separate project, with Hjem Rum
 serving only as a module collection on top of Hjem.</p>
 <p>To help alleviate this, here are some of those quirks that you may find, as well
 as some tips to help you on your journey with Hjem Rum.</p>
-<h2 id="ch-environmental-variables"><a href="#environmental-variables-ch-environmental-variables" aria-hidden="true" class="anchor" id="environmental-variables-ch-environmental-variables"></a>Environmental Variables</h2>
+<h2 id="ch-environmental-variables">Environmental Variables</h2>
 <p>Hjem provides the option <code class="nixos-option">environment.sessionVariables</code> allowing the
 user to set environmental variables to be sourced. However, Hjem does not have
 the capability to actually source them. This can be done manually by the user,
@@ -112,11 +109,15 @@ those variables manually, or using one of the above modules, those variables
 will not be loaded. This will likely cause you problems. For example, GTK
 applications may not respect your theme, as many rely on the environmental
 variable to actually use the theme you declare.</p>
-<p>Please see <a href="<a href="https://github.com/snugnug/hjem-rum/issues/17">https://github.com/snugnug/hjem-rum/issues/17</a>">#17</a> for status on providing support for shells and compositors. If
+<p>Please see <a href="https://github.com/snugnug/hjem-rum/issues/17">#17</a> for status on providing support for shells and compositors. If
 your shell or compositor is on listed there, please leave a comment and it will
 be added. You are encouraged to open a PR to help support your shell or
 compositor if possible.</p>
-</main>
+
+          <div class="footnotes-container">
+            <!-- Footnotes will be appended here -->
+          </div>
+        </main>
       </div>
 
       <footer>
