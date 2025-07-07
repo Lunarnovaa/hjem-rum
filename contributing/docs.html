@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contributing: Extending the Documentation</title>
+    <title>Contributing: Extending the Documentation {#contributing-extending-the-documentation}</title>
     <script>
       // Apply sidebar state immediately to prevent flash
       (function () {
@@ -22,11 +22,15 @@
     <div class="container">
       <header>
         <div class="header-left">
-          <h1 class="site-title"><a href="../index.html">Hjem Rum</a></h1>
+          <h1 class="site-title">
+            <a href="../index.html">Hjem Rum</a>
+          </h1>
         </div>
         <nav class="header-nav">
           <ul>
-            <li ><a href="../options.html">Options</a></li>
+            <li >
+              <a href="../options.html">Options</a>
+            </li>
             
             <li><a href="../search.html">Search</a></li>
             
@@ -72,19 +76,18 @@
           <div class="toc">
             <h2>Contents</h2>
             <ul class="toc-list">
-              <li><a href="#contributing-extending-the-documentation">Contributing: Extending the Documentation</a>
-<ul><li><a href="#ch-nixpkgs-markdown">Nixpkgs Markdown</a>
-<ul><li><a href="#sec-roles">Roles</a>
-<li><a href="#sec-anchors">Anchors</a>
-</ul><li><a href="#ch-other-guidelines">Other Guidelines</a>
-<ul><li><a href="#sec-masked-links">Masked Links</a>
+              <li><a href="#contributing-extending-the-documentation">Contributing: Extending the Documentation {#contributing-extending-the-documentation}</a>
+<ul><li><a href="#ch-nixpkgs-markdown">Nixpkgs Markdown {#ch-nixpkgs-markdown}</a>
+<ul><li><a href="#sec-roles">Roles {#sec-roles}</a>
+<li><a href="#sec-anchors">Anchors {#sec-anchors}</a>
+</ul><li><a href="#ch-other-guidelines">Other Guidelines {#ch-other-guidelines}</a>
+<ul><li><a href="#sec-masked-links">Masked Links {#sec-masked-links}</a>
 </li></ul></li></ul></li>
             </ul>
           </div>
         </nav>
 
-        <main class="content">
-          <h1 id="contributing-extending-the-documentation">Contributing: Extending the Documentation</h1>
+        <main class="content"><h1 id="contributing-extending-the-documentation"><a href="#contributing-extending-the-documentation-contributing-extending-the-documentation" aria-hidden="true" class="anchor" id="contributing-extending-the-documentation-contributing-extending-the-documentation"></a>Contributing: Extending the Documentation</h1>
 <p>If you would like to contribute to our documentation, we ask a few things of
 you:</p>
 <ol>
@@ -96,64 +99,61 @@ you:</p>
 specific asks of you depending on the case. Writing can be very personal and
 very fluid, so there are less rigid expectations here, but that does not mean
 standards are lower.</p>
-<h2 id="ch-nixpkgs-markdown">Nixpkgs Markdown</h2>
-<p><a href="https://github.com/feel-co/ndg">ndg</a> supports extended markdown syntax in accordance with Nixpkgs' flavor.</p>
-<h3 id="sec-roles">Roles</h3>
+<h2 id="ch-nixpkgs-markdown"><a href="#nixpkgs-markdown-ch-nixpkgs-markdown" aria-hidden="true" class="anchor" id="nixpkgs-markdown-ch-nixpkgs-markdown"></a>Nixpkgs Markdown</h2>
+<p><a href="<a href="https://github.com/feel-co/ndg">https://github.com/feel-co/ndg</a>">ndg</a> supports extended markdown syntax in accordance with Nixpkgs' flavor.</p>
+<h3 id="sec-roles"><a href="#roles-sec-roles" aria-hidden="true" class="anchor" id="roles-sec-roles"></a>Roles</h3>
 <p>If you are including an option or function labeled like:</p>
-<pre style="background-color:#ffffff;">
-<span style="color:#323232;">Make sure to use </span><span style="color:#a71d5d;">`</span><span style="color:#323232;">lib.options.mkEnableOption</span><span style="color:#a71d5d;">`</span><span style="color:#323232;">, like is done in
-</span><span style="color:#a71d5d;">`</span><span style="color:#323232;">rum.programs.fish.enable</span><span style="color:#a71d5d;">`</span><span style="color:#323232;">.
-</span></pre>
-<p>Then you will have to include {file} before it, or {option} if it is an option:<sup class="footnote-reference"><a href="#1">1</a></sup></p>
-<pre style="background-color:#ffffff;">
-<span style="color:#323232;">Make sure to use </span><span style="color:#a71d5d;">&lt;</span><span style="color:#63a35c;">code </span><span style="color:#795da3;">class</span><span style="color:#323232;">=</span><span style="color:#a71d5d;">&quot;</span><span style="color:#183691;">file-path</span><span style="color:#a71d5d;">&quot;&gt;</span><span style="color:#323232;">lib.options.mkEnableOption</span><span style="color:#a71d5d;">&lt;/</span><span style="color:#63a35c;">code</span><span style="color:#a71d5d;">&gt;</span><span style="color:#323232;">, like is done in
-</span><span style="color:#a71d5d;">&lt;</span><span style="color:#63a35c;">code </span><span style="color:#795da3;">class</span><span style="color:#323232;">=</span><span style="color:#a71d5d;">&quot;</span><span style="color:#183691;">nixos-option</span><span style="color:#a71d5d;">&quot;&gt;</span><span style="color:#323232;">rum.programs.fish.enable</span><span style="color:#a71d5d;">&lt;/</span><span style="color:#63a35c;">code</span><span style="color:#a71d5d;">&gt;</span><span style="color:#323232;">.
-</span></pre>
-<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup><p>It is admittedly a bit confusing why we could use {file} for <code>lib</code>, but
-the best way to think of it is that <code class="file-path">lib.modules.mkIf</code> literally
-corresponds to the file <code class="file-path">lib/modules.nix</code> in Nixpkgs, which contains
-the <code>mkIf</code> function.</p>
-</div>
+<pre><code class="language-md">Make sure to use `lib.options.mkEnableOption`, like is done in
+`rum.programs.fish.enable`.
+</code></pre>
+<p>Then you will have to include {file} before it, or {option} if it is an option:<sup class="footnote-ref"><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup></p>
+<pre><code class="language-md">Make sure to use &lt;code class=&quot;file-path&quot;&gt;lib.options.mkEnableOption&lt;/code&gt;, like is done in
+&lt;code class=&quot;nixos-option&quot;&gt;rum.programs.fish.enable&lt;/code&gt;.
+</code></pre>
 <p>If you do not do it like this, the link check on the docs will fail, since our
 docs generator will attempt to make hyperlinks out of those function names.</p>
-<h3 id="sec-anchors">Anchors</h3>
+<h3 id="sec-anchors"><a href="#anchors-sec-anchors" aria-hidden="true" class="anchor" id="anchors-sec-anchors"></a>Anchors</h3>
 <p>Headers should always have an anchor with them to ensure the link checker can
 follow header links at time of build. Follow these examples, and you should find
 it simple:</p>
-<pre style="background-color:#ffffff;">
-<span style="font-weight:bold;color:#a71d5d;"># </span><span style="font-weight:bold;color:#323232;">My new document page {#my-new-document-page}
-</span><span style="color:#323232;">
-</span><span style="font-weight:bold;color:#a71d5d;">## </span><span style="font-weight:bold;color:#323232;">My 1st chapter heading! {#ch-my-1st-chapter-heading}
-</span><span style="color:#323232;">
-</span><span style="font-weight:bold;color:#a71d5d;">### </span><span style="font-weight:bold;color:#323232;">WHAT_DI-887-NI-DO&gt;????? WRONG ? my cool section! {#sec-what-di-887-ni-do-wrong-my-cool-section}
-</span></pre>
+<pre><code class="language-md"># My new document page {#my-new-document-page}
+
+## My 1st chapter heading! {#ch-my-1st-chapter-heading}
+
+### WHAT_DI-887-NI-DO&gt;????? WRONG ? my cool section! {#sec-what-di-887-ni-do-wrong-my-cool-section}
+</code></pre>
 <p>Words should be separated by <code>-</code>, special characters should be removed, numbers
 are fine to keep, extra spaces should be removed, everything should be lower
 caps, first headings have no prefix, second headings have <code>ch</code> prefix, third
 headings have <code>sec</code> prefix, etc. If you're unsure, just give it your best shot
 and a reviewer will make sure it's as it should be.</p>
-<h2 id="ch-other-guidelines">Other Guidelines</h2>
-<h3 id="sec-masked-links">Masked Links</h3>
-<p>All links should be "masked," meaning with in-line redirects to their links at
+<h2 id="ch-other-guidelines"><a href="#other-guidelines-ch-other-guidelines" aria-hidden="true" class="anchor" id="other-guidelines-ch-other-guidelines"></a>Other Guidelines</h2>
+<h3 id="sec-masked-links"><a href="#masked-links-sec-masked-links" aria-hidden="true" class="anchor" id="masked-links-sec-masked-links"></a>Masked Links</h3>
+<p>All links should be &quot;masked,&quot; meaning with in-line redirects to their links at
 the top of the page directly under the first heading:</p>
-<pre style="background-color:#ffffff;">
-<span style="font-weight:bold;color:#a71d5d;"># </span><span style="font-weight:bold;color:#323232;">My Document Page {#my-document-page}
-</span><span style="color:#323232;">
-</span><span style="color:#a71d5d;">[</span><span style="color:#4183c4;">cool link</span><span style="color:#a71d5d;">]</span><span style="color:#4183c4;">: </span><span style="font-style:italic;color:#4183c4;"><a href="https://rum.aurabora.org">https://rum.aurabora.org</a>
-</span><span style="color:#323232;">
-</span><span style="color:#323232;">Here&#39;s my page.
-</span><span style="color:#323232;">
-</span><span style="font-weight:bold;color:#a71d5d;">## </span><span style="font-weight:bold;color:#323232;">First Heading {#ch-first-heading}
-</span><span style="color:#323232;">
-</span><span style="color:#323232;">Here&#39;s my [cool link]!
-</span></pre>
+<pre><code class="language-md"># My Document Page {#my-document-page}
+
+[cool link]: <a href="https://rum.aurabora.org">https://rum.aurabora.org</a>
+
+Here's my page.
+
+## First Heading {#ch-first-heading}
+
+Here's my [cool link]!
+</code></pre>
 <p>We do this so that paragraph clutter is minimized, making it easier for
 reviewers to review and writers to edit. This should be done everywhere.</p>
-
-          <div class="footnotes-container">
-            <!-- Footnotes will be appended here -->
-          </div>
-        </main>
+<section class="footnotes" data-footnotes>
+<ol>
+<li id="fn-1">
+<p>It is admittedly a bit confusing why we could use {file} for <code>lib</code>, but
+the best way to think of it is that <code class="file-path">lib.modules.mkIf</code> literally
+corresponds to the file <code class="file-path">lib/modules.nix</code> in Nixpkgs, which contains
+the <code>mkIf</code> function. <a href="#fnref-1" class="footnote-backref" data-footnote-backref data-footnote-backref-idx="1" aria-label="Back to reference 1">↩</a></p>
+</li>
+</ol>
+</section>
+</main>
       </div>
 
       <footer>

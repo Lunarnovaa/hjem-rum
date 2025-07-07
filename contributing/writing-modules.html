@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contributing: Writing Modules</title>
+    <title>Contributing: Writing Modules {#contributing-writing-modules}</title>
     <script>
       // Apply sidebar state immediately to prevent flash
       (function () {
@@ -22,11 +22,15 @@
     <div class="container">
       <header>
         <div class="header-left">
-          <h1 class="site-title"><a href="../index.html">Hjem Rum</a></h1>
+          <h1 class="site-title">
+            <a href="../index.html">Hjem Rum</a>
+          </h1>
         </div>
         <nav class="header-nav">
           <ul>
-            <li ><a href="../options.html">Options</a></li>
+            <li >
+              <a href="../options.html">Options</a>
+            </li>
             
             <li><a href="../search.html">Search</a></li>
             
@@ -72,48 +76,47 @@
           <div class="toc">
             <h2>Contents</h2>
             <ul class="toc-list">
-              <li><a href="#contributing-writing-modules">Contributing: Writing Modules</a>
-<ul><li><a href="#ch-aliases">Aliases</a>
-<li><a href="#ch-writing-options">Writing Options</a>
-<ul><li><a href="#sec-package-overrides">Package Overrides</a>
-<li><a href="#sec-type">Type</a>
-<li><a href="#sec-submodules-nested-configuration">Submodules / Nested Configuration</a>
-<li><a href="#sec-dependence-on-config">Dependence on `config`</a>
-</ul><li><a href="#ch-conditionals-in-modules">Conditionals in Modules</a>
+              <li><a href="#contributing-writing-modules">Contributing: Writing Modules {#contributing-writing-modules}</a>
+<ul><li><a href="#ch-aliases">Aliases {#ch-aliases}</a>
+<li><a href="#ch-writing-options">Writing Options {#ch-writing-options}</a>
+<ul><li><a href="#sec-package-overrides">Package Overrides {#sec-package-overrides}</a>
+<li><a href="#sec-nullable-package-options">Nullable Package Options {#sec-nullable-package-options}</a>
+<li><a href="#sec-type">Type {#sec-type}</a>
+<li><a href="#sec-submodules-nested-configuration">Submodules / Nested Configuration {#sec-submodules-nested-configuration}</a>
+<li><a href="#dependence-on-config---sec-dependence-on-config">Dependence on config {#sec-dependence-on-config}</a>
+</ul><li><a href="#ch-conditionals-in-modules">Conditionals in Modules {#ch-conditionals-in-modules}</a>
 </li></ul></li>
             </ul>
           </div>
         </nav>
 
-        <main class="content">
-          <h1 id="contributing-writing-modules">Contributing: Writing Modules</h1>
+        <main class="content"><h1 id="contributing-writing-modules"><a href="#contributing-writing-modules-contributing-writing-modules" aria-hidden="true" class="anchor" id="contributing-writing-modules-contributing-writing-modules"></a>Contributing: Writing Modules</h1>
 <p>Writing modules is a core task of contributing to Hjem Rum, and makes up the
 bulk of PRs. Learning to follow our guidelines, standards, and expectations in
 writing modules is accordingly crucial. Please read the following to be made
 aware of these.</p>
-<h2 id="ch-aliases">Aliases</h2>
+<h2 id="ch-aliases"><a href="#aliases-ch-aliases" aria-hidden="true" class="anchor" id="aliases-ch-aliases"></a>Aliases</h2>
 <p>At the top of any module, there should always be a <code>let ... in</code> set. Within
 this, functions should have their location aliased, cfg should be aliased, and
 any generators should have an alias as well. Here's an example for a module that
 makes use of the TOML generator used in Nixpkgs:</p>
-<pre style="background-color:#ffffff;">
-<span style="color:#323232;">{
-</span><span style="color:#323232;">  config</span><span style="font-weight:bold;color:#a71d5d;">,
-</span><span style="color:#323232;">  lib</span><span style="font-weight:bold;color:#a71d5d;">,
-</span><span style="color:#323232;">  pkgs</span><span style="font-weight:bold;color:#a71d5d;">,
-</span><span style="color:#323232;">  </span><span style="font-weight:bold;color:#a71d5d;">...
-</span><span style="color:#323232;">}: </span><span style="font-weight:bold;color:#a71d5d;">let
-</span><span style="color:#323232;">  </span><span style="font-style:italic;color:#969896;"># in case you are unfamiliar, &#39;inherit func;&#39; is the same as &#39;func = func;&#39;, and
-</span><span style="color:#323232;">  </span><span style="font-style:italic;color:#969896;"># &#39;inherit (cfg) func;&#39; is the same as &#39;func = cfg.func;&#39;
-</span><span style="color:#323232;">  </span><span style="font-weight:bold;color:#a71d5d;">inherit </span><span style="color:#323232;">(lib</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">modules) </span><span style="color:#795da3;">mkIf</span><span style="color:#323232;">;
-</span><span style="color:#323232;">  </span><span style="font-weight:bold;color:#a71d5d;">inherit </span><span style="color:#323232;">(lib</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">options) </span><span style="color:#795da3;">mkOption mkEnableOption mkPackageOption</span><span style="color:#323232;">;
-</span><span style="color:#323232;">
-</span><span style="color:#323232;">  </span><span style="color:#795da3;">toml </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">pkgs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">formats</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">toml {};
-</span><span style="color:#323232;">
-</span><span style="color:#323232;">  </span><span style="color:#795da3;">cfg </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">config</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">rum</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">programs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">alacritty;
-</span><span style="font-weight:bold;color:#a71d5d;">in </span><span style="color:#323232;">{
-</span><span style="color:#323232;">  </span><span style="color:#795da3;">options</span><span style="color:#323232;">.</span><span style="color:#795da3;">rum</span><span style="color:#323232;">.</span><span style="color:#795da3;">programs</span><span style="color:#323232;">.</span><span style="color:#795da3;">alacritty </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
-</span></pre>
+<pre><code class="language-nix">{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  # in case you are unfamiliar, 'inherit func;' is the same as 'func = func;', and
+  # 'inherit (cfg) func;' is the same as 'func = cfg.func;'
+  inherit (lib.modules) mkIf;
+  inherit (lib.options) mkOption mkEnableOption mkPackageOption;
+
+  toml = pkgs.formats.toml {};
+
+  cfg = config.rum.programs.alacritty;
+in {
+  options.rum.programs.alacritty = {
+</code></pre>
 <p>Notice that each function has its location aliased with an inherit to its target
 location. Ideally, this location should be where one could find it in the source
 code. For example, rather than using <code class="file-path">lib.mkIf</code>, we use
@@ -123,19 +126,21 @@ the Nixpkgs repo.</p>
 and <code>type</code>, so the alias name is just <code>toml</code>.</p>
 <p>Always be sure to include <code>cfg</code> that links to the point where options are
 configured by the user.</p>
-<h2 id="ch-writing-options">Writing Options</h2>
+<h2 id="ch-writing-options"><a href="#writing-options-ch-writing-options" aria-hidden="true" class="anchor" id="writing-options-ch-writing-options"></a>Writing Options</h2>
 <p>Writing new options is the core of any new module. It is also the easiest place
 to blunder. As stated above, a core principle of HJR is to minimize the number
 of options as much as possible. As such, we have created a general template that
 should help inform you of what options are needed and what are not:</p>
 <ul>
 <li><code>enable</code>: Used to toggle install and configuration of package(s).</li>
-<li><code>package</code>: Used to customize and override the package installed.<ul>
+<li><code>package</code>: Used to customize and override the package installed.
+<ul>
 <li>As needed, <code>packages</code>: List of packages used in a module.</li>
 </ul>
 </li>
 <li><code>settings</code>: Primary configuration option, takes Nix code and converts to
-target lang.<ul>
+target lang.
+<ul>
 <li>As needed, one extra option for each extra file, such as <code>theme</code> for
 theme.toml.</li>
 </ul>
@@ -144,207 +149,219 @@ theme.toml.</li>
 file for certain programs.</li>
 </ul>
 <p>For the most part, this should be sufficient.</p>
-<h3 id="sec-package-overrides">Package Overrides</h3>
+<h3 id="sec-package-overrides"><a href="#package-overrides-sec-package-overrides" aria-hidden="true" class="anchor" id="package-overrides-sec-package-overrides"></a>Package Overrides</h3>
 <p>Overrides of packages should be simply offered through a direct override in
 <code>package</code>. For example, ncmpcpp's package has a <code>withVisualizer ? false</code>
 argument. Rather than creating an extra option for this, the contributor should
 note this with <code>extraDescription</code>, and give an example of it like so:</p>
-<pre style="background-color:#ffffff;">
-<span style="color:#323232;">options</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">rum</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">programs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">ncmpcpp </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> {
-</span><span style="color:#323232;">  </span><span style="color:#795da3;">enable </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">mkEnableOption </span><span style="color:#183691;">&quot;ncmpcpp, a mpd-based music player.&quot;</span><span style="color:#323232;">;
-</span><span style="color:#323232;">
-</span><span style="color:#323232;">  </span><span style="color:#795da3;">package </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">mkPackageOption pkgs </span><span style="color:#183691;">&quot;ncmpcpp&quot; </span><span style="color:#323232;">{
-</span><span style="color:#323232;">    </span><span style="color:#795da3;">extraDescription </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&#39;&#39;
-</span><span style="color:#183691;">        You can override the package to customize certain settings that are baked
-</span><span style="color:#183691;">        into the package.
-</span><span style="color:#183691;">    &#39;&#39;</span><span style="color:#323232;">;
-</span><span style="color:#323232;">    </span><span style="font-style:italic;color:#969896;"># Note that mkPackageOption&#39;s example automatically uses literalExpression
-</span><span style="color:#323232;">    </span><span style="color:#795da3;">example </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&#39;&#39;
-</span><span style="color:#183691;">        pkgs.ncmpcpp.override {
-</span><span style="color:#183691;">            # useful overrides in the package
-</span><span style="color:#183691;">            outputsSupport = true; # outputs screen
-</span><span style="color:#183691;">            visualizerSupport = false; # visualizer screen
-</span><span style="color:#183691;">            clockSupport = true; # clock screen
-</span><span style="color:#183691;">            taglibSupport = true; # tag editor
-</span><span style="color:#183691;">        };
-</span><span style="color:#183691;">    &#39;&#39;</span><span style="color:#323232;">;
-</span><span style="color:#323232;">  };
-</span></pre>
+<pre><code class="language-nix">options.rum.programs.ncmpcpp = {
+  enable = mkEnableOption &quot;ncmpcpp, a mpd-based music player.&quot;;
+
+  package = mkPackageOption pkgs &quot;ncmpcpp&quot; {
+    nullable = true; # Always enable `nullable` in `mkPackageOption`. Usually, this would be inline.
+    extraDescription = ''
+        You can override the package to customize certain settings that are baked
+        into the package.
+    '';
+    # Note that mkPackageOption's example automatically uses literalExpression
+    example = ''
+        pkgs.ncmpcpp.override {
+            # useful overrides in the package
+            outputsSupport = true; # outputs screen
+            visualizerSupport = false; # visualizer screen
+            clockSupport = true; # clock screen
+            taglibSupport = true; # tag editor
+        };
+    '';
+  };
+</code></pre>
 <p>and the user could simply pass:</p>
-<pre style="background-color:#ffffff;">
-<span style="color:#323232;">config</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hjem</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">users</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#183691;">&lt;username&gt;</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">rum</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">programs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">ncmpcpp </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> {
-</span><span style="color:#323232;">    </span><span style="color:#795da3;">enable </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">true</span><span style="color:#323232;">;
-</span><span style="color:#323232;">    </span><span style="color:#795da3;">package </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">(pkgs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">ncmpcpp</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">override {
-</span><span style="color:#323232;">        </span><span style="color:#795da3;">withVisualizer </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">true</span><span style="color:#323232;">;
-</span><span style="color:#323232;">    });
-</span><span style="color:#323232;">}</span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">;</span><span style="color:#323232;">
-</span></pre>
-<h3 id="sec-type">Type</h3>
+<pre><code class="language-nix">config.hjem.users.&lt;username&gt;.rum.programs.ncmpcpp = {
+    enable = true;
+    package = (pkgs.ncmpcpp.override {
+        withVisualizer = true;
+    });
+};
+</code></pre>
+<h3 id="sec-nullable-package-options"><a href="#nullable-package-options-sec-nullable-package-options" aria-hidden="true" class="anchor" id="nullable-package-options-sec-nullable-package-options"></a>Nullable Package Options</h3>
+<p>When using <code>mkPackageOption</code>, you should always be sure to enable <code>nullable</code>, so
+that the user can choose not to have Hjem Rum install the package into the
+user's environment.</p>
+<pre><code class="language-nix">options.rum.programs.alacritty = {
+    enable = mkEnableOption &quot;Alacritty&quot;;
+
+    package = mkPackageOption pkgs &quot;alacritty&quot; {nullable = true;};
+};
+</code></pre>
+<p><code>mkPackageOption</code> is a function with three required arguments: the source of the
+package (usually <code>pkgs</code>), the name of the package, and an attribute set for
+configuration. The latter has several options, such as <code>extraDescription</code>,
+<code>example</code>, and, in this case <code>nullable</code>. For a complete list of options for this
+function, see <a href="<a href="https://noogle.dev/f/lib/options/mkPackageOption">https://noogle.dev/f/lib/options/mkPackageOption</a>">Noogle's page on it</a>.</p>
+<p>Because the user can set the package to null, however, we must check for this
+before adding the package to the user's environment, as adding <code>null</code> would
+result in an error. Thankfully, this is relatively simple:</p>
+<pre><code class="language-nix">config = mkIf cfg.enable {
+    packages = mkIf (cfg.package != null) [cfg.package];
+};
+</code></pre>
+<p>This simply checks if the package is null before adding it to the list.</p>
+<h3 id="sec-type"><a href="#type-sec-type" aria-hidden="true" class="anchor" id="type-sec-type"></a>Type</h3>
 <p>The <code>type</code> of <code>settings</code> and other conversion options should preferably be a
 <code>type</code> option exposed by the generator (for example, TOML has
 <code>pkgs.formats.toml {}.type</code> and <code>pkgs.formats.toml {}.generate</code>), or, if using a
 custom generator, a <code>type</code> should be created in <code>lib/types/</code> (for example,
 <code>hyprType</code>). Otherwise, a simple <code>attrsOf anything</code> would suffice.</p>
-<h3 id="sec-submodules-nested-configuration">Submodules / Nested Configuration</h3>
+<h3 id="sec-submodules-nested-configuration"><a href="#submodules--nested-configuration-sec-submodules-nested-configuration" aria-hidden="true" class="anchor" id="submodules--nested-configuration-sec-submodules-nested-configuration"></a>Submodules / Nested Configuration</h3>
 <p>As a rule of thumb, submodules should not be employed. Instead, there should
 only be one option per file. For some files, such as spotify-player's
 <code class="file-path">keymap.toml</code>, you may be tempted to create multiple options for <code>actions</code>
 and <code>keymaps</code>, as Home Manager does. Please avoid this. In this case, we can
 have a simple <code>keymap</code> option that the user can then include a list of keymaps
 and/or a list of actions that get propagated accordingly:</p>
-<pre style="background-color:#ffffff;">
-<span style="color:#323232;">  keymap </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> mkOption {
-</span><span style="color:#323232;">    </span><span style="font-weight:bold;color:#a71d5d;">inherit </span><span style="color:#323232;">(toml) </span><span style="color:#795da3;">type</span><span style="color:#323232;">; </span><span style="font-style:italic;color:#969896;"># We can use a streamlined inherit to say type = toml.type
-</span><span style="color:#323232;">    </span><span style="color:#795da3;">default </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{};
-</span><span style="color:#323232;">    </span><span style="color:#795da3;">example </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
-</span><span style="color:#323232;">      </span><span style="color:#795da3;">keymaps </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[
-</span><span style="color:#323232;">        {
-</span><span style="color:#323232;">          </span><span style="color:#795da3;">command </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;NextTrack&quot;</span><span style="color:#323232;">;
-</span><span style="color:#323232;">          </span><span style="color:#795da3;">key_sequence </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;g n&quot;</span><span style="color:#323232;">;
-</span><span style="color:#323232;">        }
-</span><span style="color:#323232;">      ];
-</span><span style="color:#323232;">      </span><span style="color:#795da3;">actions </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[
-</span><span style="color:#323232;">        {
-</span><span style="color:#323232;">          </span><span style="color:#795da3;">action </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;GoToArtist&quot;</span><span style="color:#323232;">;
-</span><span style="color:#323232;">          </span><span style="color:#795da3;">key_sequence </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;g A&quot;</span><span style="color:#323232;">;
-</span><span style="color:#323232;">        }
-</span><span style="color:#323232;">      ];
-</span><span style="color:#323232;">    };
-</span><span style="color:#323232;">    </span><span style="color:#795da3;">description </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&#39;&#39;
-</span><span style="color:#183691;">      Sets of keymaps and actions converted into TOML and written to
-</span><span style="color:#183691;">      &lt;code class=&quot;file-path&quot;&gt;$HOME/.config/spotify-player/keymap.toml&lt;/code&gt;.
-</span><span style="color:#183691;">      See example for how to format declarations.
-</span><span style="color:#183691;">
-</span><span style="color:#183691;">      Please reference <a href="https://github.com/aome510/spotify-player/blob/master/docs/config.md#keymaps">https://github.com/aome510/spotify-player/blob/master/docs/config.md#keymaps</a>
-</span><span style="color:#183691;">      for more information.
-</span><span style="color:#183691;">    &#39;&#39;</span><span style="color:#323232;">;
-</span><span style="color:#323232;">  }</span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">;</span><span style="color:#323232;">
-</span></pre>
+<pre><code class="language-nix">  keymap = mkOption {
+    inherit (toml) type; # We can use a streamlined inherit to say type = toml.type
+    default = {};
+    example = {
+      keymaps = [
+        {
+          command = &quot;NextTrack&quot;;
+          key_sequence = &quot;g n&quot;;
+        }
+      ];
+      actions = [
+        {
+          action = &quot;GoToArtist&quot;;
+          key_sequence = &quot;g A&quot;;
+        }
+      ];
+    };
+    description = ''
+      Sets of keymaps and actions converted into TOML and written to
+      &lt;code class=&quot;file-path&quot;&gt;$HOME/.config/spotify-player/keymap.toml&lt;/code&gt;.
+      See example for how to format declarations.
+
+      Please reference <a href="https://github.com/aome510/spotify-player/blob/master/docs/config.md#keymaps">https://github.com/aome510/spotify-player/blob/master/docs/config.md#keymaps</a>
+      for more information.
+    '';
+  };
+</code></pre>
 <p>Also note that the option description includes a link to upstream info on
 settings options.</p>
-<h3 id="sec-dependence-on-config">Dependence on <code>config</code></h3>
+<h3 id="sec-dependence-on-config"><a href="#dependence-on-config-sec-dependence-on-config" aria-hidden="true" class="anchor" id="dependence-on-config-sec-dependence-on-config"></a>Dependence on <code>config</code></h3>
 <p>If an option is dependent on <code>config</code>, (e.g.
 <code>default = config.myOption.enable;</code>) you must <em>also</em> set <code>defaultText</code> alongside
 <code>default</code>. Example:</p>
-<pre style="background-color:#ffffff;">
-<span style="color:#323232;">integrations </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> {
-</span><span style="color:#323232;">    </span><span style="font-style:italic;color:#969896;"># We basically override the `default` and `defaultText` attrs in the mkEnableOption function
-</span><span style="color:#323232;">    </span><span style="color:#795da3;">fish</span><span style="color:#323232;">.</span><span style="color:#795da3;">enable </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">mkEnableOption </span><span style="color:#183691;">&quot;starship integration with fish&quot; </span><span style="font-weight:bold;color:#a71d5d;">// </span><span style="color:#323232;">{
-</span><span style="color:#323232;">        </span><span style="color:#795da3;">default </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">config</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">programs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">fish</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">enable;
-</span><span style="color:#323232;">        </span><span style="color:#795da3;">defaultText </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;config.programs.fish.enable&quot;</span><span style="color:#323232;">;
-</span><span style="color:#323232;">    };
-</span><span style="color:#323232;">}</span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">;</span><span style="color:#323232;">
-</span></pre>
+<pre><code class="language-nix">integrations = {
+    # We basically override the `default` and `defaultText` attrs in the mkEnableOption function
+    fish.enable = mkEnableOption &quot;starship integration with fish&quot; // {
+        default = config.programs.fish.enable;
+        defaultText = &quot;config.programs.fish.enable&quot;;
+    };
+};
+</code></pre>
 <p>It is essentially just a string that shows the user what the option is set to by
 default. This can also be used in <code>mkOption</code>, but it is more common to use it in
 <code>mkEnableOption</code>.</p>
 <p>If you do not set this, the docs builder will break due to not knowing how to
 resolve the reference to <code>config</code>.</p>
-<h2 id="ch-conditionals-in-modules">Conditionals in Modules</h2>
+<h2 id="ch-conditionals-in-modules"><a href="#conditionals-in-modules-ch-conditionals-in-modules" aria-hidden="true" class="anchor" id="conditionals-in-modules-ch-conditionals-in-modules"></a>Conditionals in Modules</h2>
 <p>Always use a <code>mkIf</code> before the <code>config</code> section. Example:</p>
-<pre style="background-color:#ffffff;">
-<span style="color:#323232;">config </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> mkIf cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">enable {
-</span><span style="color:#323232;">    </span><span style="font-style:italic;color:#969896;"># Module code
-</span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">};</span><span style="color:#323232;">
-</span></pre>
+<pre><code class="language-nix">config = mkIf cfg.enable {
+    # Module code
+};
+</code></pre>
 <p>As a general guideline, <strong>do not write empty strings to files</strong>. Not only is
 this poorly optimized, but it will cause issues if a user happens to be manually
 using the Hjem tooling alongside HJR. Here are some examples of how you might
 avoid this:</p>
-<pre style="background-color:#ffffff;">
-<span style="color:#323232;">config </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> mkIf cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">enable {
-</span><span style="color:#323232;">  </span><span style="color:#795da3;">packages </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">package];
-</span><span style="color:#323232;">  </span><span style="color:#795da3;">files</span><span style="color:#323232;">.</span><span style="color:#183691;">&quot;.config/alacritty/alacritty.toml&quot;</span><span style="color:#323232;">.</span><span style="color:#795da3;">source </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">mkIf (cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">settings </span><span style="font-weight:bold;color:#a71d5d;">!= </span><span style="color:#323232;">{}) (
-</span><span style="color:#323232;">    toml</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">generate </span><span style="color:#183691;">&quot;alacritty.toml&quot; </span><span style="color:#323232;">cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">settings </span><span style="font-style:italic;color:#969896;"># The indentation makes it more readable
-</span><span style="color:#323232;">  );
-</span><span style="color:#323232;">}</span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">;</span><span style="color:#323232;">
-</span></pre>
+<pre><code class="language-nix">config = mkIf cfg.enable {
+  packages = [cfg.package];
+  files.&quot;.config/alacritty/alacritty.toml&quot;.source = mkIf (cfg.settings != {}) (
+    toml.generate &quot;alacritty.toml&quot; cfg.settings # The indentation makes it more readable
+  );
+};
+</code></pre>
 <p>Here all that is needed is a simple <code>mkIf</code> with a condition of the <code>settings</code>
 option not being left empty. In a case where you write to multiple files, you
 can use <code>optionalAttrs</code>, like so:</p>
-<pre style="background-color:#ffffff;">
-<span style="color:#323232;">files </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> (
-</span><span style="color:#323232;">    optionalAttrs (cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">settings </span><span style="font-weight:bold;color:#a71d5d;">!= </span><span style="color:#323232;">{}) {
-</span><span style="color:#323232;">    </span><span style="color:#183691;">&quot;.gtkrc-2.0&quot;</span><span style="color:#323232;">.</span><span style="color:#795da3;">text </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">toGtk2Text {</span><span style="font-weight:bold;color:#a71d5d;">inherit </span><span style="color:#323232;">(cfg) </span><span style="color:#795da3;">settings</span><span style="color:#323232;">;};
-</span><span style="color:#323232;">    </span><span style="color:#183691;">&quot;.config/gtk-3.0/settings.ini&quot;</span><span style="color:#323232;">.</span><span style="color:#795da3;">text </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">toGtkINI {</span><span style="color:#795da3;">Settings </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">settings;};
-</span><span style="color:#323232;">    </span><span style="color:#183691;">&quot;.config/gtk-4.0/settings.ini&quot;</span><span style="color:#323232;">.</span><span style="color:#795da3;">text </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">toGtkINI {</span><span style="color:#795da3;">Settings </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">settings;};
-</span><span style="color:#323232;">    }
-</span><span style="color:#323232;">    </span><span style="font-weight:bold;color:#a71d5d;">// </span><span style="color:#323232;">optionalAttrs (cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">css</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">gtk3 </span><span style="font-weight:bold;color:#a71d5d;">!= </span><span style="color:#183691;">&quot;&quot;</span><span style="color:#323232;">) {
-</span><span style="color:#323232;">    </span><span style="color:#183691;">&quot;.config/gtk-3.0/gtk.css&quot;</span><span style="color:#323232;">.</span><span style="color:#795da3;">text </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">css</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">gtk3;
-</span><span style="color:#323232;">    }
-</span><span style="color:#323232;">    </span><span style="font-weight:bold;color:#a71d5d;">// </span><span style="color:#323232;">optionalAttrs (cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">css</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">gtk4 </span><span style="font-weight:bold;color:#a71d5d;">!= </span><span style="color:#183691;">&quot;&quot;</span><span style="color:#323232;">) {
-</span><span style="color:#323232;">    </span><span style="color:#183691;">&quot;.config/gtk-4.0/gtk.css&quot;</span><span style="color:#323232;">.</span><span style="color:#795da3;">text </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">css</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">gtk4;
-</span><span style="color:#323232;">    }
-</span><span style="color:#323232;">)</span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">;</span><span style="color:#323232;">
-</span></pre>
+<pre><code class="language-nix">files = (
+    optionalAttrs (cfg.settings != {}) {
+    &quot;.gtkrc-2.0&quot;.text = toGtk2Text {inherit (cfg) settings;};
+    &quot;.config/gtk-3.0/settings.ini&quot;.text = toGtkINI {Settings = cfg.settings;};
+    &quot;.config/gtk-4.0/settings.ini&quot;.text = toGtkINI {Settings = cfg.settings;};
+    }
+    // optionalAttrs (cfg.css.gtk3 != &quot;&quot;) {
+    &quot;.config/gtk-3.0/gtk.css&quot;.text = cfg.css.gtk3;
+    }
+    // optionalAttrs (cfg.css.gtk4 != &quot;&quot;) {
+    &quot;.config/gtk-4.0/gtk.css&quot;.text = cfg.css.gtk4;
+    }
+);
+</code></pre>
 <p>This essentially takes the attribute set of <code>files</code> and <em>conditionally</em> adds
 attributes defining more files to be written to depending on <em>if</em> the
 corresponding option has been set. This is optimal because the first three files
 written to share an option due to how GTK configuration works.</p>
 <p>One last case is in the Hyprland module, where several checks and several
 options are needed to compile into one file. Here is how it is done:</p>
-<pre style="background-color:#ffffff;">
-<span style="color:#323232;">files </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">let</span><span style="color:#323232;">
-</span><span style="color:#323232;">  check </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> {
-</span><span style="color:#323232;">    </span><span style="color:#795da3;">plugins </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">plugins </span><span style="font-weight:bold;color:#a71d5d;">!= </span><span style="color:#323232;">[];
-</span><span style="color:#323232;">    </span><span style="color:#795da3;">settings </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">settings </span><span style="font-weight:bold;color:#a71d5d;">!= </span><span style="color:#323232;">{};
-</span><span style="color:#323232;">    </span><span style="color:#795da3;">variables </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
-</span><span style="color:#323232;">      </span><span style="color:#795da3;">noUWSM </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">config</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">environment</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">sessionVariables </span><span style="font-weight:bold;color:#a71d5d;">!= </span><span style="color:#323232;">{} </span><span style="font-weight:bold;color:#a71d5d;">&amp;&amp; !</span><span style="color:#323232;">osConfig</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">programs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hyprland</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">withUWSM;
-</span><span style="color:#323232;">      </span><span style="color:#795da3;">withUWSM </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">config</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">environment</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">sessionVariables </span><span style="font-weight:bold;color:#a71d5d;">!= </span><span style="color:#323232;">{} </span><span style="font-weight:bold;color:#a71d5d;">&amp;&amp; </span><span style="color:#323232;">osConfig</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">programs</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hyprland</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">withUWSM;
-</span><span style="color:#323232;">    };
-</span><span style="color:#323232;">    </span><span style="color:#795da3;">extraConfig </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">extraConfig </span><span style="font-weight:bold;color:#a71d5d;">!= </span><span style="color:#183691;">&quot;&quot;</span><span style="color:#323232;">;
-</span><span style="color:#323232;">  }</span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">;</span><span style="color:#323232;">
-</span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">in</span><span style="color:#323232;"> {
-</span><span style="color:#323232;">  </span><span style="color:#183691;">&quot;.config/hypr/hyprland.conf&quot;</span><span style="color:#323232;">.</span><span style="color:#795da3;">text </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">mkIf (check</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">plugins </span><span style="font-weight:bold;color:#a71d5d;">|| </span><span style="color:#323232;">check</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">settings </span><span style="font-weight:bold;color:#a71d5d;">|| </span><span style="color:#323232;">check</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">variables</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">noUWSM </span><span style="font-weight:bold;color:#a71d5d;">|| </span><span style="color:#323232;">check</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">extraConfig) (
-</span><span style="color:#323232;">    optionalString check</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">plugins (pluginsToHyprconf cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">plugins cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">importantPrefixes)
-</span><span style="color:#323232;">    </span><span style="font-weight:bold;color:#a71d5d;">+ </span><span style="color:#323232;">optionalString check</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">settings (toHyprconf {
-</span><span style="color:#323232;">      </span><span style="color:#795da3;">attrs </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">settings;
-</span><span style="color:#323232;">      </span><span style="font-weight:bold;color:#a71d5d;">inherit </span><span style="color:#323232;">(cfg) </span><span style="color:#795da3;">importantPrefixes</span><span style="color:#323232;">;
-</span><span style="color:#323232;">    })
-</span><span style="color:#323232;">    </span><span style="font-weight:bold;color:#a71d5d;">+ </span><span style="color:#323232;">optionalString check</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">variables</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">noUWSM (toHyprconf {
-</span><span style="color:#323232;">      </span><span style="color:#795da3;">attrs</span><span style="color:#323232;">.</span><span style="color:#795da3;">env </span><span style="font-weight:bold;color:#a71d5d;">=
-</span><span style="color:#323232;">        </span><span style="font-style:italic;color:#969896;"># <a href="https://wiki.hyprland.org/Configuring/Environment-variables/#xdg-specifications">https://wiki.hyprland.org/Configuring/Environment-variables/#xdg-specifications</a>
-</span><span style="color:#323232;">        [
-</span><span style="color:#323232;">          </span><span style="color:#183691;">&quot;XDG_CURRENT_DESKTOP,Hyprland&quot;
-</span><span style="color:#323232;">          </span><span style="color:#183691;">&quot;XDG_SESSION_TYPE,wayland&quot;
-</span><span style="color:#323232;">          </span><span style="color:#183691;">&quot;XDG_SESSION_DESKTOP,Hyprland&quot;
-</span><span style="color:#323232;">        ]
-</span><span style="color:#323232;">        </span><span style="font-weight:bold;color:#a71d5d;">++ </span><span style="color:#323232;">mapAttrsToList (key: value: </span><span style="color:#183691;">&quot;${</span><span style="color:#323232;">key</span><span style="color:#183691;">},${</span><span style="color:#323232;">value</span><span style="color:#183691;">}&quot;</span><span style="color:#323232;">) config</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">environment</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">sessionVariables;
-</span><span style="color:#323232;">    })
-</span><span style="color:#323232;">    </span><span style="font-weight:bold;color:#a71d5d;">+ </span><span style="color:#323232;">optionalString check</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">extraConfig cfg</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">extraConfig
-</span><span style="color:#323232;">  );
-</span><span style="color:#323232;">
-</span><span style="color:#323232;">  </span><span style="font-style:italic;color:#969896;">/*
-</span><span style="font-style:italic;color:#969896;">  uwsm environment variables are advised to be separated
-</span><span style="font-style:italic;color:#969896;">  (see <a href="https://wiki.hyprland.org/Configuring/Environment-variables/">https://wiki.hyprland.org/Configuring/Environment-variables/</a>)
-</span><span style="font-style:italic;color:#969896;">  */
-</span><span style="color:#323232;">  </span><span style="color:#183691;">&quot;.config/uwsm/env&quot;</span><span style="color:#323232;">.</span><span style="color:#795da3;">text </span><span style="font-weight:bold;color:#a71d5d;">=
-</span><span style="color:#323232;">    mkIf check</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">variables</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">withUWSM
-</span><span style="color:#323232;">    (toEnvExport config</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">environment</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">sessionVariables);
-</span><span style="color:#323232;">
-</span><span style="color:#323232;">  </span><span style="color:#183691;">&quot;.config/uwsm/env-hyprland&quot;</span><span style="color:#323232;">.</span><span style="color:#795da3;">text </span><span style="font-weight:bold;color:#a71d5d;">= let
-</span><span style="color:#323232;">    </span><span style="font-style:italic;color:#969896;">/*
-</span><span style="font-style:italic;color:#969896;">    this is needed as we&#39;re using a predicate so we don&#39;t create an empty file
-</span><span style="font-style:italic;color:#969896;">    (improvements are welcome)
-</span><span style="font-style:italic;color:#969896;">    */
-</span><span style="color:#323232;">    </span><span style="color:#795da3;">filteredVars </span><span style="font-weight:bold;color:#a71d5d;">=
-</span><span style="color:#323232;">      filterKeysPrefixes [</span><span style="color:#183691;">&quot;HYPRLAND_&quot; &quot;AQ_&quot;</span><span style="color:#323232;">] config</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">environment</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">sessionVariables;
-</span><span style="color:#323232;">  </span><span style="font-weight:bold;color:#a71d5d;">in
-</span><span style="color:#323232;">    mkIf (check</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">variables</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">withUWSM </span><span style="font-weight:bold;color:#a71d5d;">&amp;&amp; </span><span style="color:#323232;">filteredVars </span><span style="font-weight:bold;color:#a71d5d;">!= </span><span style="color:#323232;">{})
-</span><span style="color:#323232;">    (toEnvExport filteredVars);
-</span><span style="color:#323232;">}</span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">;</span><span style="color:#323232;">
-</span></pre>
+<pre><code class="language-nix">files = let
+  check = {
+    plugins = cfg.plugins != [];
+    settings = cfg.settings != {};
+    variables = {
+      noUWSM = config.environment.sessionVariables != {} &amp;&amp; !osConfig.programs.hyprland.withUWSM;
+      withUWSM = config.environment.sessionVariables != {} &amp;&amp; osConfig.programs.hyprland.withUWSM;
+    };
+    extraConfig = cfg.extraConfig != &quot;&quot;;
+  };
+in {
+  &quot;.config/hypr/hyprland.conf&quot;.text = mkIf (check.plugins || check.settings || check.variables.noUWSM || check.extraConfig) (
+    optionalString check.plugins (pluginsToHyprconf cfg.plugins cfg.importantPrefixes)
+    + optionalString check.settings (toHyprconf {
+      attrs = cfg.settings;
+      inherit (cfg) importantPrefixes;
+    })
+    + optionalString check.variables.noUWSM (toHyprconf {
+      attrs.env =
+        # <a href="https://wiki.hyprland.org/Configuring/Environment-variables/#xdg-specifications">https://wiki.hyprland.org/Configuring/Environment-variables/#xdg-specifications</a>
+        [
+          &quot;XDG_CURRENT_DESKTOP,Hyprland&quot;
+          &quot;XDG_SESSION_TYPE,wayland&quot;
+          &quot;XDG_SESSION_DESKTOP,Hyprland&quot;
+        ]
+        ++ mapAttrsToList (key: value: &quot;${key},${value}&quot;) config.environment.sessionVariables;
+    })
+    + optionalString check.extraConfig cfg.extraConfig
+  );
+
+  /*
+  uwsm environment variables are advised to be separated
+  (see <a href="https://wiki.hyprland.org/Configuring/Environment-variables/">https://wiki.hyprland.org/Configuring/Environment-variables/</a>)
+  */
+  &quot;.config/uwsm/env&quot;.text =
+    mkIf check.variables.withUWSM
+    (toEnvExport config.environment.sessionVariables);
+
+  &quot;.config/uwsm/env-hyprland&quot;.text = let
+    /*
+    this is needed as we're using a predicate so we don't create an empty file
+    (improvements are welcome)
+    */
+    filteredVars =
+      filterKeysPrefixes [&quot;HYPRLAND_&quot; &quot;AQ_&quot;] config.environment.sessionVariables;
+  in
+    mkIf (check.variables.withUWSM &amp;&amp; filteredVars != {})
+    (toEnvExport filteredVars);
+};
+</code></pre>
 <p>An additional attribute set of boolean aliases is set within a <code>let ... in</code> set
 to highlight the different checks done and to add quick ways to reference each
 check without excess and redundant code.</p>
 <p>First, the file is only written if any of the options to write to the file are
 set. <code>optionalString</code> is then used to compile each option's results in an
 optimized and clean way.</p>
-
-          <div class="footnotes-container">
-            <!-- Footnotes will be appended here -->
-          </div>
-        </main>
+</main>
       </div>
 
       <footer>

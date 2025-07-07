@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contributing: Setting Up Module Tests</title>
+    <title>Contributing: Setting Up Module Tests {#contributing-setting-up-module-tests}</title>
     <script>
       // Apply sidebar state immediately to prevent flash
       (function () {
@@ -22,11 +22,15 @@
     <div class="container">
       <header>
         <div class="header-left">
-          <h1 class="site-title"><a href="../index.html">Hjem Rum</a></h1>
+          <h1 class="site-title">
+            <a href="../index.html">Hjem Rum</a>
+          </h1>
         </div>
         <nav class="header-nav">
           <ul>
-            <li ><a href="../options.html">Options</a></li>
+            <li >
+              <a href="../options.html">Options</a>
+            </li>
             
             <li><a href="../search.html">Search</a></li>
             
@@ -72,23 +76,22 @@
           <div class="toc">
             <h2>Contents</h2>
             <ul class="toc-list">
-              <li><a href="#contributing-setting-up-module-tests">Contributing: Setting Up Module Tests</a>
-<ul><li><a href="#ch-creating-tests">Creating Tests</a>
-<ul><li><a href="#sec-naming">Naming</a>
-</ul><li><a href="#ch-writing-tests">Writing Tests</a>
+              <li><a href="#contributing-setting-up-module-tests">Contributing: Setting Up Module Tests {#contributing-setting-up-module-tests}</a>
+<ul><li><a href="#ch-creating-tests">Creating Tests {#ch-creating-tests}</a>
+<ul><li><a href="#sec-naming">Naming {#sec-naming}</a>
+</ul><li><a href="#ch-writing-tests">Writing Tests {#ch-writing-tests}</a>
 </li></ul></li>
             </ul>
           </div>
         </nav>
 
-        <main class="content">
-          <h1 id="contributing-setting-up-module-tests">Contributing: Setting Up Module Tests</h1>
+        <main class="content"><h1 id="contributing-setting-up-module-tests"><a href="#contributing-setting-up-module-tests-contributing-setting-up-module-tests" aria-hidden="true" class="anchor" id="contributing-setting-up-module-tests-contributing-setting-up-module-tests"></a>Contributing: Setting Up Module Tests</h1>
 <p>Hjem Rum's testing system is designed with simplicity in mind, so we shy away
 from other testing frameworks and stick with <code>runTest</code>, from the
-<a href="https://github.com/NixOS/nixpkgs/tree/master/nixos/lib/testing">internal NixOS lib</a> located in the Nixpkgs monorepo. There are no non-standard
+<a href="<a href="https://github.com/NixOS/nixpkgs/tree/master/nixos/lib/testing">https://github.com/NixOS/nixpkgs/tree/master/nixos/lib/testing</a>">internal NixOS lib</a> located in the Nixpkgs monorepo. There are no non-standard
 abstractions in regards to writing the tests, so they should be written just
 like any other test that uses the NixOS Test Driver.</p>
-<h2 id="ch-creating-tests">Creating Tests</h2>
+<h2 id="ch-creating-tests"><a href="#creating-tests-ch-creating-tests" aria-hidden="true" class="anchor" id="creating-tests-ch-creating-tests"></a>Creating Tests</h2>
 <p>Every file is automatically imported with
 <code class="file-path">lib.filesystem.listFilesRecursive</code>, given that there is a check output
 that imports the directory (more on that later), so your only worry should be
@@ -98,11 +101,10 @@ btop, for instance, you should create a module as
 <p>If you're certain your test category doesn't get covered by any of the existing
 directories, you can create a new one together with a check that imports files
 in this directory. This is really easy to do:</p>
-<pre style="background-color:#ffffff;">
-<span style="color:#323232;">checks </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> hjem-rum-services </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> </span><span style="color:#62a35c;">import </span><span style="color:#183691;">./modules/tests </span><span style="color:#323232;">(mkCheckArgs </span><span style="color:#183691;">./modules/tests/services</span><span style="color:#323232;">)</span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">;</span><span style="color:#323232;">
-</span><span style="color:#323232;">  </span><span style="font-style:italic;color:#969896;"># Just // (import ./modules/tests and pass mkCheckArgs with your brand-new directory to it.
-</span></pre>
-<h3 id="sec-naming">Naming</h3>
+<pre><code class="language-nix">checks = hjem-rum-services = import ./modules/tests (mkCheckArgs ./modules/tests/services);
+  # Just // (import ./modules/tests and pass mkCheckArgs with your brand-new directory to it.
+</code></pre>
+<h3 id="sec-naming"><a href="#naming-sec-naming" aria-hidden="true" class="anchor" id="naming-sec-naming"></a>Naming</h3>
 <p>To reduce CI run time, we only run checks for which the module or test file has
 changed. For this association to work, the following naming scheme has to be
 respected: <code>&lt;category&gt;-&lt;module name&gt;</code>.</p>
@@ -118,19 +120,19 @@ start with the aformentioned pattern, such as <code>programs-foot-test-plugins</
 <p class="admonition-title">Important</p>
 <p>If you do not follow this rule, your tests will not be run during CI.</p>
 </div>
-<h2 id="ch-writing-tests">Writing Tests</h2>
+<h2 id="ch-writing-tests"><a href="#writing-tests-ch-writing-tests" aria-hidden="true" class="anchor" id="writing-tests-ch-writing-tests"></a>Writing Tests</h2>
 <p>Tests for Hjem Rum are written just like any other test, so it might be worth to
-take a read at how NixOS tests work. <a href="https://nix.dev/tutorials/nixos/integration-testing-using-virtual-machines.html">nix.dev provides a useful guide</a>, as does
-the <a href="https://nixos.org/manual/nixos/stable/index.html#sec-calling-nixos-tests">NixOS Manual</a>,<sup class="footnote-reference"><a href="#1">1</a></sup> both detailing how to use the framework.</p>
+take a read at how NixOS tests work. <a href="<a href="https://nix.dev/tutorials/nixos/integration-testing-using-virtual-machines.html">https://nix.dev/tutorials/nixos/integration-testing-using-virtual-machines.html</a>">nix.dev provides a useful guide</a>, as does
+the <a href="<a href="https://nixos.org/manual/nixos/stable/index.html#sec-calling-nixos-tests">https://nixos.org/manual/nixos/stable/index.html#sec-calling-nixos-tests</a>">NixOS Manual</a>,<sup class="footnote-ref"><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup> both detailing how to use the framework.</p>
 <p>Our test system has some pre-defined things aiming at avoid boilerplate code:</p>
 <ul>
-<li>A user named "bob" is already created, with no groups, <code>isNormalUser</code> set to
+<li>A user named &quot;bob&quot; is already created, with no groups, <code>isNormalUser</code> set to
 true and no password.</li>
 <li>Both Hjem and Hjem Rum are already imported by default.</li>
 </ul>
 <p><code>self</code>, <code>lib</code> and <code>pkgs</code> are also passed to every test module, so you're free to
 use them as you will.</p>
-<p>The <a href="https://github.com/snugnug/hjem-rum/blob/main/modules/tests/programs/nushell.nix">nushell test module</a> can serve as a strong example of a test module, and
+<p>The <a href="<a href="https://github.com/snugnug/hjem-rum/blob/main/modules/tests/programs/nushell.nix">https://github.com/snugnug/hjem-rum/blob/main/modules/tests/programs/nushell.nix</a>">nushell test module</a> can serve as a strong example of a test module, and
 provides comments for each step of the <code>testScript</code>. Care should be taken to
 wait for the proper systemd targets to be reached, change users to run commands,
 and avoid other possible footguns. The approach this module uses to test its
@@ -138,19 +140,19 @@ configuration is to have a file for each configuration alongside it, which then
 gets passed to the test VM and gets evaluated with diff. You can use other
 approaches if it's more convenient, that's just a suggestion.</p>
 <p>You can also debug your tests through a Python REPL by running:</p>
-<pre style="background-color:#ffffff;">
-<span style="color:#323232;">nix run .#checks.</span><span style="font-weight:bold;color:#a71d5d;">&lt;</span><span style="color:#323232;">arch</span><span style="font-weight:bold;color:#a71d5d;">&gt;</span><span style="color:#323232;">.vm-test-run-</span><span style="font-weight:bold;color:#a71d5d;">&lt;</span><span style="color:#323232;">category</span><span style="font-weight:bold;color:#a71d5d;">&gt;</span><span style="color:#323232;">-</span><span style="font-weight:bold;color:#a71d5d;">&lt;</span><span style="color:#323232;">module name</span><span style="font-weight:bold;color:#a71d5d;">&gt;[</span><span style="color:#323232;">-suffix</span><span style="font-weight:bold;color:#a71d5d;">]</span><span style="color:#323232;">.driver</span><span style="font-weight:bold;color:#a71d5d;"> --</span><span style="color:#323232;"> --interactive
-</span></pre>
-<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup><p>Although both guides refer to <code class="file-path">lib.tests.runNixOSTest</code> instead of
+<pre><code class="language-bash">nix run .#checks.&lt;arch&gt;.vm-test-run-&lt;category&gt;-&lt;module name&gt;[-suffix].driver -- --interactive
+</code></pre>
+<section class="footnotes" data-footnotes>
+<ol>
+<li id="fn-1">
+<p>Although both guides refer to <code class="file-path">lib.tests.runNixOSTest</code> instead of
 <code>runTest</code>, the former is just a wrapper around the latter, abstracting
 certain concepts, so the code ran by them should be interchangeable between
-one another.</p>
-</div>
-
-          <div class="footnotes-container">
-            <!-- Footnotes will be appended here -->
-          </div>
-        </main>
+one another. <a href="#fnref-1" class="footnote-backref" data-footnote-backref data-footnote-backref-idx="1" aria-label="Back to reference 1">↩</a></p>
+</li>
+</ol>
+</section>
+</main>
       </div>
 
       <footer>

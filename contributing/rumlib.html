@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contributing: Extending Hjem Rum's Library</title>
+    <title>Contributing: Extending Hjem Rum's Library {#contributing-extending-hjem-rum-library}</title>
     <script>
       // Apply sidebar state immediately to prevent flash
       (function () {
@@ -22,11 +22,15 @@
     <div class="container">
       <header>
         <div class="header-left">
-          <h1 class="site-title"><a href="../index.html">Hjem Rum</a></h1>
+          <h1 class="site-title">
+            <a href="../index.html">Hjem Rum</a>
+          </h1>
         </div>
         <nav class="header-nav">
           <ul>
-            <li ><a href="../options.html">Options</a></li>
+            <li >
+              <a href="../options.html">Options</a>
+            </li>
             
             <li><a href="../search.html">Search</a></li>
             
@@ -72,22 +76,21 @@
           <div class="toc">
             <h2>Contents</h2>
             <ul class="toc-list">
-              <li><a href="#contributing-extending-hjem-rum-library">Contributing: Extending Hjem Rum's Library</a>
+              <li><a href="#contributing-extending-hjem-rum-library">Contributing: Extending Hjem Rum's Library {#contributing-extending-hjem-rum-library}</a>
 </li>
             </ul>
           </div>
         </nav>
 
-        <main class="content">
-          <h1 id="contributing-extending-hjem-rum-library">Contributing: Extending Hjem Rum's Library</h1>
+        <main class="content"><h1 id="contributing-extending-hjem-rum-library"><a href="#contributing-extending-hjem-rums-library-contributing-extending-hjem-rum-library" aria-hidden="true" class="anchor" id="contributing-extending-hjem-rums-library-contributing-extending-hjem-rum-library"></a>Contributing: Extending Hjem Rum's Library</h1>
 <p>Rather than having functions scattered throughout the module collection, we
 would rather keep our directories organized and purposeful. Therefore, all
 custom functions should go into our extended lib, found at <code>modules/lib/</code>.</p>
 <p>The most common functions that might be created are a <code>generator</code> and <code>type</code>
-pair. The former should be prefixed with "to" to maintain style and describe
+pair. The former should be prefixed with &quot;to&quot; to maintain style and describe
 their function: conversion <em>to</em> other formats. For example, <code>toNcmpcppSettings</code>
 is the function that converts to the format required for ncmpcpp settings.</p>
-<p>Likewise, types should be suffixed with "Type" to maintain style and describe
+<p>Likewise, types should be suffixed with &quot;Type&quot; to maintain style and describe
 their function. For example, <code>hyprType</code> describes the type used in <code>settings</code>
 converted to Hyprlang.</p>
 <p>When it comes to directory structure, you should be able to infer how we
@@ -100,11 +103,7 @@ can put them in one file, like is done in <code>lib/generators/gtk.nix</code>.</
 <p>Additionally, please follow how lib is structured in Nixpkgs. For example, the
 custom function <code>attrsNamesHasPrefix</code> is under <code>attrsets</code> to signify that it
 operates on an attribute set, just like in Nixpkgs.</p>
-
-          <div class="footnotes-container">
-            <!-- Footnotes will be appended here -->
-          </div>
-        </main>
+</main>
       </div>
 
       <footer>
