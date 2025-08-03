@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contributing: Writing Modules {#contributing-writing-modules}</title>
+    <title>Contributing: Writing Modules</title>
     <script>
       // Apply sidebar state immediately to prevent flash
       (function () {
@@ -60,14 +60,14 @@
             <h2>Documents</h2>
             <ul>
               <li><a href="../index.html">Hjem Rum</a></li>
-<li><a href="../contributing/reviewing.html">Contributing: Review Tips</a></li>
-<li><a href="../contributing/testing.html">Contributing: Setting Up Module Tests</a></li>
+<li><a href="../usage/quirks.html">Usage: Quirks, Tips, & Tricks</a></li>
+<li><a href="../usage/installation.html">Usage: Installing Hjem Rum</a></li>
 <li><a href="../contributing/docs.html">Contributing: Extending the Documentation</a></li>
+<li><a href="../contributing/testing.html">Contributing: Setting Up Module Tests</a></li>
+<li><a href="../contributing/reviewing.html">Contributing: Review Tips</a></li>
+<li><a href="../contributing/writing-modules.html">Contributing: Writing Modules</a></li>
 <li><a href="../contributing/introduction.html">Contributing: Introduction</a></li>
 <li><a href="../contributing/rumlib.html">Contributing: Extending Hjem Rum's Library</a></li>
-<li><a href="../contributing/writing-modules.html">Contributing: Writing Modules</a></li>
-<li><a href="../usage/installation.html">Usage: Installing Hjem Rum</a></li>
-<li><a href="../usage/quirks.html">Usage: Quirks, Tips, & Tricks</a></li>
 <li><a href="../search.html">Search</a></li>
 
             </ul>
@@ -76,26 +76,26 @@
           <div class="toc">
             <h2>Contents</h2>
             <ul class="toc-list">
-              <li><a href="#contributing-writing-modules">Contributing: Writing Modules {#contributing-writing-modules}</a>
-<ul><li><a href="#ch-aliases">Aliases {#ch-aliases}</a>
-<li><a href="#ch-writing-options">Writing Options {#ch-writing-options}</a>
-<ul><li><a href="#sec-package-overrides">Package Overrides {#sec-package-overrides}</a>
-<li><a href="#sec-nullable-package-options">Nullable Package Options {#sec-nullable-package-options}</a>
-<li><a href="#sec-type">Type {#sec-type}</a>
-<li><a href="#sec-submodules-nested-configuration">Submodules / Nested Configuration {#sec-submodules-nested-configuration}</a>
-<li><a href="#dependence-on-config---sec-dependence-on-config">Dependence on config {#sec-dependence-on-config}</a>
-</ul><li><a href="#ch-conditionals-in-modules">Conditionals in Modules {#ch-conditionals-in-modules}</a>
+              <li><a href="#contributing-writing-modules">Contributing: Writing Modules</a>
+<ul><li><a href="#ch-aliases">Aliases</a>
+<li><a href="#ch-writing-options">Writing Options</a>
+<ul><li><a href="#sec-package-overrides">Package Overrides</a>
+<li><a href="#sec-nullable-package-options">Nullable Package Options</a>
+<li><a href="#sec-type">Type</a>
+<li><a href="#sec-submodules-nested-configuration">Submodules / Nested Configuration</a>
+<li><a href="#sec-dependence-on-config">Dependence on config</a>
+</ul><li><a href="#ch-conditionals-in-modules">Conditionals in Modules</a>
 </li></ul></li>
             </ul>
           </div>
         </nav>
 
-        <main class="content"><h1 id="contributing-writing-modules"><a href="#contributing-writing-modules-contributing-writing-modules" aria-hidden="true" class="anchor" id="contributing-writing-modules-contributing-writing-modules"></a>Contributing: Writing Modules</h1>
+        <main class="content"><html><head></head><body><h1 id="contributing-writing-modules"><a aria-hidden="true" class="anchor" href="#contributing-writing-modules-contributing-writing-modules" id="contributing-writing-modules-contributing-writing-modules" inert=""></a>Contributing: Writing Modules</h1>
 <p>Writing modules is a core task of contributing to Hjem Rum, and makes up the
 bulk of PRs. Learning to follow our guidelines, standards, and expectations in
 writing modules is accordingly crucial. Please read the following to be made
 aware of these.</p>
-<h2 id="ch-aliases"><a href="#aliases-ch-aliases" aria-hidden="true" class="anchor" id="aliases-ch-aliases"></a>Aliases</h2>
+<h2 id="ch-aliases"><a aria-hidden="true" class="anchor" href="#aliases-ch-aliases" id="aliases-ch-aliases" inert=""></a>Aliases</h2>
 <p>At the top of any module, there should always be a <code>let ... in</code> set. Within
 this, functions should have their location aliased, cfg should be aliased, and
 any generators should have an alias as well. Here's an example for a module that
@@ -126,7 +126,7 @@ the Nixpkgs repo.</p>
 and <code>type</code>, so the alias name is just <code>toml</code>.</p>
 <p>Always be sure to include <code>cfg</code> that links to the point where options are
 configured by the user.</p>
-<h2 id="ch-writing-options"><a href="#writing-options-ch-writing-options" aria-hidden="true" class="anchor" id="writing-options-ch-writing-options"></a>Writing Options</h2>
+<h2 id="ch-writing-options"><a aria-hidden="true" class="anchor" href="#writing-options-ch-writing-options" id="writing-options-ch-writing-options" inert=""></a>Writing Options</h2>
 <p>Writing new options is the core of any new module. It is also the easiest place
 to blunder. As stated above, a core principle of HJR is to minimize the number
 of options as much as possible. As such, we have created a general template that
@@ -149,15 +149,15 @@ theme.toml.</li>
 file for certain programs.</li>
 </ul>
 <p>For the most part, this should be sufficient.</p>
-<h3 id="sec-package-overrides"><a href="#package-overrides-sec-package-overrides" aria-hidden="true" class="anchor" id="package-overrides-sec-package-overrides"></a>Package Overrides</h3>
+<h3 id="sec-package-overrides"><a aria-hidden="true" class="anchor" href="#package-overrides-sec-package-overrides" id="package-overrides-sec-package-overrides" inert=""></a>Package Overrides</h3>
 <p>Overrides of packages should be simply offered through a direct override in
 <code>package</code>. For example, ncmpcpp's package has a <code>withVisualizer ? false</code>
 argument. Rather than creating an extra option for this, the contributor should
 note this with <code>extraDescription</code>, and give an example of it like so:</p>
 <pre><code class="language-nix">options.rum.programs.ncmpcpp = {
-  enable = mkEnableOption &quot;ncmpcpp, a mpd-based music player.&quot;;
+  enable = mkEnableOption "ncmpcpp, a mpd-based music player.";
 
-  package = mkPackageOption pkgs &quot;ncmpcpp&quot; {
+  package = mkPackageOption pkgs "ncmpcpp" {
     nullable = true; # Always enable `nullable` in `mkPackageOption`. Usually, this would be inline.
     extraDescription = ''
         You can override the package to customize certain settings that are baked
@@ -183,14 +183,14 @@ note this with <code>extraDescription</code>, and give an example of it like so:
     });
 };
 </code></pre>
-<h3 id="sec-nullable-package-options"><a href="#nullable-package-options-sec-nullable-package-options" aria-hidden="true" class="anchor" id="nullable-package-options-sec-nullable-package-options"></a>Nullable Package Options</h3>
+<h3 id="sec-nullable-package-options"><a aria-hidden="true" class="anchor" href="#nullable-package-options-sec-nullable-package-options" id="nullable-package-options-sec-nullable-package-options" inert=""></a>Nullable Package Options</h3>
 <p>When using <code>mkPackageOption</code>, you should always be sure to enable <code>nullable</code>, so
 that the user can choose not to have Hjem Rum install the package into the
 user's environment.</p>
 <pre><code class="language-nix">options.rum.programs.alacritty = {
-    enable = mkEnableOption &quot;Alacritty&quot;;
+    enable = mkEnableOption "Alacritty";
 
-    package = mkPackageOption pkgs &quot;alacritty&quot; {nullable = true;};
+    package = mkPackageOption pkgs "alacritty" { = true;};
 };
 </code></pre>
 <p><code>mkPackageOption</code> is a function with three required arguments: the source of the
@@ -206,13 +206,13 @@ result in an error. Thankfully, this is relatively simple:</p>
 };
 </code></pre>
 <p>This simply checks if the package is null before adding it to the list.</p>
-<h3 id="sec-type"><a href="#type-sec-type" aria-hidden="true" class="anchor" id="type-sec-type"></a>Type</h3>
+<h3 id="sec-type"><a aria-hidden="true" class="anchor" href="#type-sec-type" id="type-sec-type" inert=""></a>Type</h3>
 <p>The <code>type</code> of <code>settings</code> and other conversion options should preferably be a
 <code>type</code> option exposed by the generator (for example, TOML has
 <code>pkgs.formats.toml {}.type</code> and <code>pkgs.formats.toml {}.generate</code>), or, if using a
 custom generator, a <code>type</code> should be created in <code>lib/types/</code> (for example,
 <code>hyprType</code>). Otherwise, a simple <code>attrsOf anything</code> would suffice.</p>
-<h3 id="sec-submodules-nested-configuration"><a href="#submodules--nested-configuration-sec-submodules-nested-configuration" aria-hidden="true" class="anchor" id="submodules--nested-configuration-sec-submodules-nested-configuration"></a>Submodules / Nested Configuration</h3>
+<h3 id="sec-submodules-nested-configuration"><a aria-hidden="true" class="anchor" href="#submodules--nested-configuration-sec-submodules-nested-configuration" id="submodules--nested-configuration-sec-submodules-nested-configuration" inert=""></a>Submodules / Nested Configuration</h3>
 <p>As a rule of thumb, submodules should not be employed. Instead, there should
 only be one option per file. For some files, such as spotify-player's
 <code class="file-path">keymap.toml</code>, you may be tempted to create multiple options for <code>actions</code>
@@ -225,20 +225,20 @@ and/or a list of actions that get propagated accordingly:</p>
     example = {
       keymaps = [
         {
-          command = &quot;NextTrack&quot;;
-          key_sequence = &quot;g n&quot;;
+          command = "NextTrack";
+          key_sequence = "g n";
         }
       ];
       actions = [
         {
-          action = &quot;GoToArtist&quot;;
-          key_sequence = &quot;g A&quot;;
+          action = "GoToArtist";
+          key_sequence = "g A";
         }
       ];
     };
     description = ''
       Sets of keymaps and actions converted into TOML and written to
-      &lt;code class=&quot;file-path&quot;&gt;$HOME/.config/spotify-player/keymap.toml&lt;/code&gt;.
+      &lt;code class="file-path"&gt;$HOME/.config/spotify-player/keymap.toml&lt;/code&gt;.
       See example for how to format declarations.
 
       Please reference <a href="https://github.com/aome510/spotify-player/blob/master/docs/config.md#keymaps">https://github.com/aome510/spotify-player/blob/master/docs/config.md#keymaps</a>
@@ -248,15 +248,15 @@ and/or a list of actions that get propagated accordingly:</p>
 </code></pre>
 <p>Also note that the option description includes a link to upstream info on
 settings options.</p>
-<h3 id="sec-dependence-on-config"><a href="#dependence-on-config-sec-dependence-on-config" aria-hidden="true" class="anchor" id="dependence-on-config-sec-dependence-on-config"></a>Dependence on <code>config</code></h3>
+<h3 id="sec-dependence-on-config"><a aria-hidden="true" class="anchor" href="#dependence-on-config-sec-dependence-on-config" id="dependence-on-config-sec-dependence-on-config" inert=""></a>Dependence on <code>config</code></h3>
 <p>If an option is dependent on <code>config</code>, (e.g.
 <code>default = config.myOption.enable;</code>) you must <em>also</em> set <code>defaultText</code> alongside
 <code>default</code>. Example:</p>
 <pre><code class="language-nix">integrations = {
     # We basically override the `default` and `defaultText` attrs in the mkEnableOption function
-    fish.enable = mkEnableOption &quot;starship integration with fish&quot; // {
+    fish.enable = mkEnableOption "starship integration with fish" // {
         default = config.programs.fish.enable;
-        defaultText = &quot;config.programs.fish.enable&quot;;
+        defaultText = "config.programs.fish.enable";
     };
 };
 </code></pre>
@@ -265,7 +265,7 @@ default. This can also be used in <code>mkOption</code>, but it is more common t
 <code>mkEnableOption</code>.</p>
 <p>If you do not set this, the docs builder will break due to not knowing how to
 resolve the reference to <code>config</code>.</p>
-<h2 id="ch-conditionals-in-modules"><a href="#conditionals-in-modules-ch-conditionals-in-modules" aria-hidden="true" class="anchor" id="conditionals-in-modules-ch-conditionals-in-modules"></a>Conditionals in Modules</h2>
+<h2 id="ch-conditionals-in-modules"><a aria-hidden="true" class="anchor" href="#conditionals-in-modules-ch-conditionals-in-modules" id="conditionals-in-modules-ch-conditionals-in-modules" inert=""></a>Conditionals in Modules</h2>
 <p>Always use a <code>mkIf</code> before the <code>config</code> section. Example:</p>
 <pre><code class="language-nix">config = mkIf cfg.enable {
     # Module code
@@ -277,8 +277,8 @@ using the Hjem tooling alongside HJR. Here are some examples of how you might
 avoid this:</p>
 <pre><code class="language-nix">config = mkIf cfg.enable {
   packages = [cfg.package];
-  files.&quot;.config/alacritty/alacritty.toml&quot;.source = mkIf (cfg.settings != {}) (
-    toml.generate &quot;alacritty.toml&quot; cfg.settings # The indentation makes it more readable
+  files.".config/alacritty/alacritty.toml".source = mkIf (cfg.settings != {}) (
+    toml.generate "alacritty.toml" cfg.settings # The indentation makes it more readable
   );
 };
 </code></pre>
@@ -287,15 +287,15 @@ option not being left empty. In a case where you write to multiple files, you
 can use <code>optionalAttrs</code>, like so:</p>
 <pre><code class="language-nix">files = (
     optionalAttrs (cfg.settings != {}) {
-    &quot;.gtkrc-2.0&quot;.text = toGtk2Text {inherit (cfg) settings;};
-    &quot;.config/gtk-3.0/settings.ini&quot;.text = toGtkINI {Settings = cfg.settings;};
-    &quot;.config/gtk-4.0/settings.ini&quot;.text = toGtkINI {Settings = cfg.settings;};
+    ".gtkrc-2.0".text = toGtk2Text { (cfg) settings;};
+    ".config/gtk-3.0/settings.ini".text = toGtkINI {Settings = cfg.settings;};
+    ".config/gtk-4.0/settings.ini".text = toGtkINI {Settings = cfg.settings;};
     }
-    // optionalAttrs (cfg.css.gtk3 != &quot;&quot;) {
-    &quot;.config/gtk-3.0/gtk.css&quot;.text = cfg.css.gtk3;
+    // optionalAttrs (cfg.css.gtk3 != "") {
+    ".config/gtk-3.0/gtk.css".text = cfg.css.gtk3;
     }
-    // optionalAttrs (cfg.css.gtk4 != &quot;&quot;) {
-    &quot;.config/gtk-4.0/gtk.css&quot;.text = cfg.css.gtk4;
+    // optionalAttrs (cfg.css.gtk4 != "") {
+    ".config/gtk-4.0/gtk.css".text = cfg.css.gtk4;
     }
 );
 </code></pre>
@@ -313,10 +313,10 @@ options are needed to compile into one file. Here is how it is done:</p>
       noUWSM = config.environment.sessionVariables != {} &amp;&amp; !osConfig.programs.hyprland.withUWSM;
       withUWSM = config.environment.sessionVariables != {} &amp;&amp; osConfig.programs.hyprland.withUWSM;
     };
-    extraConfig = cfg.extraConfig != &quot;&quot;;
+    extraConfig = cfg.extraConfig != "";
   };
 in {
-  &quot;.config/hypr/hyprland.conf&quot;.text = mkIf (check.plugins || check.settings || check.variables.noUWSM || check.extraConfig) (
+  ".config/hypr/hyprland.conf".text = mkIf (check.plugins || check.settings || check.variables.noUWSM || check.extraConfig) (
     optionalString check.plugins (pluginsToHyprconf cfg.plugins cfg.importantPrefixes)
     + optionalString check.settings (toHyprconf {
       attrs = cfg.settings;
@@ -326,11 +326,11 @@ in {
       attrs.env =
         # <a href="https://wiki.hyprland.org/Configuring/Environment-variables/#xdg-specifications">https://wiki.hyprland.org/Configuring/Environment-variables/#xdg-specifications</a>
         [
-          &quot;XDG_CURRENT_DESKTOP,Hyprland&quot;
-          &quot;XDG_SESSION_TYPE,wayland&quot;
-          &quot;XDG_SESSION_DESKTOP,Hyprland&quot;
+          "XDG_CURRENT_DESKTOP,Hyprland"
+          "XDG_SESSION_TYPE,wayland"
+          "XDG_SESSION_DESKTOP,Hyprland"
         ]
-        ++ mapAttrsToList (key: value: &quot;${key},${value}&quot;) config.environment.sessionVariables;
+        ++ mapAttrsToList (key: value: "${,${") config.environment.sessionVariables;
     })
     + optionalString check.extraConfig cfg.extraConfig
   );
@@ -339,17 +339,17 @@ in {
   uwsm environment variables are advised to be separated
   (see <a href="https://wiki.hyprland.org/Configuring/Environment-variables/">https://wiki.hyprland.org/Configuring/Environment-variables/</a>)
   */
-  &quot;.config/uwsm/env&quot;.text =
+  ".config/uwsm/env".text =
     mkIf check.variables.withUWSM
     (toEnvExport config.environment.sessionVariables);
 
-  &quot;.config/uwsm/env-hyprland&quot;.text = let
+  ".config/uwsm/env-hyprland".text = let
     /*
     this is needed as we're using a predicate so we don't create an empty file
     (improvements are welcome)
     */
     filteredVars =
-      filterKeysPrefixes [&quot;HYPRLAND_&quot; &quot;AQ_&quot;] config.environment.sessionVariables;
+      filterKeysPrefixes ["HYPRLAND_" "AQ_"] config.environment.sessionVariables;
   in
     mkIf (check.variables.withUWSM &amp;&amp; filteredVars != {})
     (toEnvExport filteredVars);
@@ -361,7 +361,7 @@ check without excess and redundant code.</p>
 <p>First, the file is only written if any of the options to write to the file are
 set. <code>optionalString</code> is then used to compile each option's results in an
 optimized and clean way.</p>
-</main>
+</body></html></main>
       </div>
 
       <footer>

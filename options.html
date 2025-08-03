@@ -56,14 +56,14 @@
             <h2>Documents</h2>
             <ul>
               <li><a href="index.html">Hjem Rum</a></li>
-<li><a href="contributing/reviewing.html">Contributing: Review Tips</a></li>
-<li><a href="contributing/testing.html">Contributing: Setting Up Module Tests</a></li>
+<li><a href="usage/quirks.html">Usage: Quirks, Tips, & Tricks</a></li>
+<li><a href="usage/installation.html">Usage: Installing Hjem Rum</a></li>
 <li><a href="contributing/docs.html">Contributing: Extending the Documentation</a></li>
+<li><a href="contributing/testing.html">Contributing: Setting Up Module Tests</a></li>
+<li><a href="contributing/reviewing.html">Contributing: Review Tips</a></li>
+<li><a href="contributing/writing-modules.html">Contributing: Writing Modules</a></li>
 <li><a href="contributing/introduction.html">Contributing: Introduction</a></li>
 <li><a href="contributing/rumlib.html">Contributing: Extending Hjem Rum's Library</a></li>
-<li><a href="contributing/writing-modules.html">Contributing: Writing Modules</a></li>
-<li><a href="usage/installation.html">Usage: Installing Hjem Rum</a></li>
-<li><a href="usage/quirks.html">Usage: Quirks, Tips, & Tricks</a></li>
 <li><a href="search.html">Search</a></li>
 
             </ul>
@@ -1674,8 +1674,8 @@
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable Hyprland.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable Hyprland.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/desktops/hyprland.nix" target="_blank">&lt;hjem-rum/modules/collection/desktops/hyprland.nix&gt;</a></code></div>
@@ -1687,8 +1687,8 @@
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>Extra configuration that will be appended verbatim at the end of <code class="file-path">~/.config/hypr/hyprland.conf</code>.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Extra configuration that will be appended verbatim at the end of <code class="file-path">~/.config/hypr/hyprland.conf</code>.</p>
+</body></html></div>
   <div class="option-default">Default: <code>""</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/desktops/hyprland.nix" target="_blank">&lt;hjem-rum/modules/collection/desktops/hyprland.nix&gt;</a></code></div>
 </div>
@@ -1699,8 +1699,8 @@
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>list of string</code></div>
-  <div class="option-description"><p>List of prefix of attributes to source at the top of the config.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>List of prefix of attributes to source at the top of the config.</p>
+</body></html></div>
   <div class="option-default">Default: <code>[
   "$"
   "bezier"
@@ -1719,9 +1719,9 @@
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>list of (package or absolute path)</code></div>
-  <div class="option-description"><p>List of Hyprland plugins to use. Can either be packages or
+  <div class="option-description"><html><head></head><body><p>List of Hyprland plugins to use. Can either be packages or
 absolute plugin paths.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>[ ]</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/desktops/hyprland.nix" target="_blank">&lt;hjem-rum/modules/collection/desktops/hyprland.nix&gt;</a></code></div>
 </div>
@@ -1732,10 +1732,10 @@ absolute plugin paths.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>Hyprland configuration value</code></div>
-  <div class="option-description"><p>Hyprland configuration written in Nix. Entries with the same key
+  <div class="option-description"><html><head></head><body><p>Hyprland configuration written in Nix. Entries with the same key
 should be written as lists. Variables' and colors' names should be
 quoted. See <a href="<a href="https://wiki.hyprland.org">https://wiki.hyprland.org</a>">Hyprland's documentation</a> for more examples.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   "\$mod" = "SUPER";
@@ -1752,8 +1752,8 @@ quoted. See <a href="<a href="https://wiki.hyprland.org">https://wiki.hyprland.o
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable a warning for env vars not being implemented.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable a warning for env vars not being implemented.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/environment/warning.nix" target="_blank">&lt;hjem-rum/modules/collection/environment/warning.nix&gt;</a></code></div>
@@ -1765,13 +1765,13 @@ quoted. See <a href="<a href="https://wiki.hyprland.org">https://wiki.hyprland.o
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>list of string</code></div>
-  <div class="option-description"><p>Bookmarks used by GTK file managers (ex. Nautilus).
+  <div class="option-description"><html><head></head><body><p>Bookmarks used by GTK file managers (ex. Nautilus).
 Each entry should have one of the following formats:</p>
 <ul>
 <li><code>[uri]</code></li>
 <li><code>[uri] &lt;display name&gt;</code></li>
 </ul>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>[ ]</code></div>
   <div class="option-example">Example: <pre><code>[
   "file:///home/user/Documents Documents"
@@ -1789,10 +1789,10 @@ Each entry should have one of the following formats:</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>CSS to be written to <code class="file-path">$HOME/.config/gtk-3.0/gtk.css</code>.
+  <div class="option-description"><html><head></head><body><p>CSS to be written to <code class="file-path">$HOME/.config/gtk-3.0/gtk.css</code>.
 You can either use this as lines or you can reference
 a CSS file from your theme's package (or both).</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>""</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/misc/gtk.nix" target="_blank">&lt;hjem-rum/modules/collection/misc/gtk.nix&gt;</a></code></div>
 </div>
@@ -1803,10 +1803,10 @@ a CSS file from your theme's package (or both).</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>CSS to be written to <code class="file-path">$HOME/.config/gtk-4.0/gtk.css</code>.
+  <div class="option-description"><html><head></head><body><p>CSS to be written to <code class="file-path">$HOME/.config/gtk-4.0/gtk.css</code>.
 You can either use this as lines or you can reference
 a CSS file from your theme's package (or both).</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>""</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/misc/gtk.nix" target="_blank">&lt;hjem-rum/modules/collection/misc/gtk.nix&gt;</a></code></div>
 </div>
@@ -1817,8 +1817,8 @@ a CSS file from your theme's package (or both).</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable GTK configuration.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable GTK configuration.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/misc/gtk.nix" target="_blank">&lt;hjem-rum/modules/collection/misc/gtk.nix&gt;</a></code></div>
@@ -1830,10 +1830,10 @@ a CSS file from your theme's package (or both).</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>list of package</code></div>
-  <div class="option-description"><p>The list of packages to be installed for gtk themes.
+  <div class="option-description"><html><head></head><body><p>The list of packages to be installed for gtk themes.
 This list should consist of any packages that will be used
 by your GTK theme(s).</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>[ ]</code></div>
   <div class="option-example">Example: <pre><code>[
   (pkgs.catppuccin-papirus-folders.override {
@@ -1852,13 +1852,13 @@ by your GTK theme(s).</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of (boolean or signed integer or floating point number or string)</code></div>
-  <div class="option-description"><p>The settings that will be written to the various gtk files
+  <div class="option-description"><html><head></head><body><p>The settings that will be written to the various gtk files
 to configure the GTK theme. GTK documentation is perhaps
 nebulous, but the <a href="<a href="https://wiki.archlinux.org/title/GTK">https://wiki.archlinux.org/title/GTK</a>">Arch Wiki entry</a> and the <a href="<a href="https://docs.gtk.org/gtk3/class.Settings.html">https://docs.gtk.org/gtk3/class.Settings.html</a>">official GTK
 documentation</a> are decent places to start.</p>
-<p>Please note that each option name will have &quot;gtk-&quot; prepended
+<p>Please note that each option name will have "gtk-" prepended
 to it, so there is no need to include that on every single option.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   application-prefer-dark-theme = true;
@@ -1874,8 +1874,8 @@ to it, so there is no need to include that on every single option.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable Alacritty.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable Alacritty.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/alacritty.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/alacritty.nix&gt;</a></code></div>
@@ -1887,8 +1887,8 @@ to it, so there is no need to include that on every single option.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The alacritty package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The alacritty package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.alacritty</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/alacritty.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/alacritty.nix&gt;</a></code></div>
 </div>
@@ -1899,11 +1899,11 @@ to it, so there is no need to include that on every single option.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>TOML value</code></div>
-  <div class="option-description"><p>The configuration converted into TOML and written to
+  <div class="option-description"><html><head></head><body><p>The configuration converted into TOML and written to
 <code class="file-path">$HOME/.config/alacritty/alacritty.toml</code>.
 Please reference <a href="<a href="https://alacritty.org/config-alacritty.html">https://alacritty.org/config-alacritty.html</a>">Alacritty's documentation</a>
 for config options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   window = {
@@ -1926,8 +1926,8 @@ for config options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable beets.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable beets.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/beets.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/beets.nix&gt;</a></code></div>
@@ -1939,10 +1939,10 @@ for config options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The beets package to use. To get plugins to work, you will need to override the beets derivation
+  <div class="option-description"><html><head></head><body><p>The beets package to use. To get plugins to work, you will need to override the beets derivation
 with the plugins you want. Consult the <a href="<a href="https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/audio/beets/builtin-plugins.nix">https://github.com/NixOS/nixpkgs/blob/master/pkgs/tools/audio/beets/builtin-plugins.nix</a>">beets derivation</a> for a list of
 available plugins.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.beets</code></div>
   <div class="option-example">Example: <pre><code>pkgs.beets.override {
     pluginOverrides = {
@@ -1960,12 +1960,12 @@ available plugins.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>YAML value</code></div>
-  <div class="option-description"><p>Beets configuration that is written to <code class="file-path">$HOME/.config/beets/config.yaml</code>.
+  <div class="option-description"><html><head></head><body><p>Beets configuration that is written to <code class="file-path">$HOME/.config/beets/config.yaml</code>.
 Refer to the beets <a href="<a href="https://beets.readthedocs.io/en/stable/reference/config.html">https://beets.readthedocs.io/en/stable/reference/config.html</a>">documentation</a> for available options.</p>
 <p>If you would like to use plugins, please consult the description of
 <a href="#option-rum-programs-beets-package">rum.programs.beets.package</a> and the
 <a href="<a href="https://beets.readthedocs.io/en/stable/reference/config.html#plugins">https://beets.readthedocs.io/en/stable/reference/config.html#plugins</a>">official plugin documentation</a> on the plugins configuration.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   asciify_paths = true;
@@ -1993,8 +1993,8 @@ Refer to the beets <a href="<a href="https://beets.readthedocs.io/en/stable/refe
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable bottom.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable bottom.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/bottom.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/bottom.nix&gt;</a></code></div>
@@ -2006,8 +2006,8 @@ Refer to the beets <a href="<a href="https://beets.readthedocs.io/en/stable/refe
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The bottom package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The bottom package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.bottom</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/bottom.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/bottom.nix&gt;</a></code></div>
 </div>
@@ -2018,11 +2018,11 @@ Refer to the beets <a href="<a href="https://beets.readthedocs.io/en/stable/refe
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>TOML value</code></div>
-  <div class="option-description"><p>The configuration converted into TOML and written to
+  <div class="option-description"><html><head></head><body><p>The configuration converted into TOML and written to
 <code class="file-path">$HOME/.config/bottom/bottom.toml</code>.</p>
 <p>Please reference <a href="<a href="https://bottom.pages.dev/stable/configuration/config-file">https://bottom.pages.dev/stable/configuration/config-file</a>">bottom's config file documentation</a>
 for config options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   flags = {
@@ -2044,9 +2044,9 @@ for config options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>Bash code loaded before every <code>.envrc</code>. Good for personal extensions.
+  <div class="option-description"><html><head></head><body><p>Bash code loaded before every <code>.envrc</code>. Good for personal extensions.
 Find community-maintained examples in <a href="<a href="https://github.com/direnv/direnv/wiki">https://github.com/direnv/direnv/wiki</a>">direnv's wiki</a></p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>""</code></div>
   <div class="option-example">Example: <pre><code>''
   : ''${XDG_CACHE_HOME:=$HOME/.cache}
@@ -2067,8 +2067,8 @@ Find community-maintained examples in <a href="<a href="https://github.com/diren
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable direnv.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable direnv.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/direnv.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/direnv.nix&gt;</a></code></div>
@@ -2080,8 +2080,8 @@ Find community-maintained examples in <a href="<a href="https://github.com/diren
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable direnv integration with fish.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable direnv integration with fish.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/direnv.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/direnv.nix&gt;</a></code></div>
@@ -2093,8 +2093,8 @@ Find community-maintained examples in <a href="<a href="https://github.com/diren
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable direnv integration with nix-direnv.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable direnv integration with nix-direnv.</p>
+</body></html></div>
   <div class="option-default">Default: <code>true</code></div>
   <div class="option-example">Example: <code>false</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/direnv.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/direnv.nix&gt;</a></code></div>
@@ -2106,8 +2106,8 @@ Find community-maintained examples in <a href="<a href="https://github.com/diren
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>package</code></div>
-  <div class="option-description"><p>The nix-direnv package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The nix-direnv package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.nix-direnv</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/direnv.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/direnv.nix&gt;</a></code></div>
 </div>
@@ -2118,8 +2118,8 @@ Find community-maintained examples in <a href="<a href="https://github.com/diren
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable direnv integration with zsh.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable direnv integration with zsh.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/direnv.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/direnv.nix&gt;</a></code></div>
@@ -2131,8 +2131,8 @@ Find community-maintained examples in <a href="<a href="https://github.com/diren
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The direnv package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The direnv package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.direnv</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/direnv.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/direnv.nix&gt;</a></code></div>
 </div>
@@ -2143,9 +2143,9 @@ Find community-maintained examples in <a href="<a href="https://github.com/diren
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>TOML value</code></div>
-  <div class="option-description"><p>Configuration written to <code class="file-path">$HOME/.config/direnv/direnv.toml</code>.
+  <div class="option-description"><html><head></head><body><p>Configuration written to <code class="file-path">$HOME/.config/direnv/direnv.toml</code>.
 Please reference <a href="<a href="https://direnv.net/man/direnv.toml.1.html">https://direnv.net/man/direnv.toml.1.html</a>">direnv's documentation</a> for config options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   global = {
@@ -2166,8 +2166,8 @@ Please reference <a href="<a href="https://direnv.net/man/direnv.toml.1.html">ht
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>A set of fish abbreviations, they will be set up with the <code>abbr --add</code> fish builtin.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>A set of fish abbreviations, they will be set up with the <code>abbr --add</code> fish builtin.</p>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/fish.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/fish.nix&gt;</a></code></div>
 </div>
@@ -2178,8 +2178,8 @@ Please reference <a href="<a href="https://direnv.net/man/direnv.toml.1.html">ht
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>A set of fish aliases, they will be set up with the <code>alias</code> fish builtin.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>A set of fish aliases, they will be set up with the <code>alias</code> fish builtin.</p>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/fish.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/fish.nix&gt;</a></code></div>
 </div>
@@ -2190,8 +2190,8 @@ Please reference <a href="<a href="https://direnv.net/man/direnv.toml.1.html">ht
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>The main configuration for fish, written verbatim to <code>.config/fish/config.fish</code>.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The main configuration for fish, written verbatim to <code>.config/fish/config.fish</code>.</p>
+</body></html></div>
   <div class="option-default">Default: <code>""</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/fish.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/fish.nix&gt;</a></code></div>
 </div>
@@ -2202,10 +2202,10 @@ Please reference <a href="<a href="https://direnv.net/man/direnv.toml.1.html">ht
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>Extra configuration files, they will all be written verbatim
+  <div class="option-description"><html><head></head><body><p>Extra configuration files, they will all be written verbatim
 to <code>.config/fish/conf.d/&lt;name&gt;.fish</code>.</p>
 <p>Those files are run before <code>.config/fish/config.fish</code> as per the <a href="<a href="https://fishshell.com/docs/current/language.html#configuration-files">https://fishshell.com/docs/current/language.html#configuration-files</a>">fish documentation</a>.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   set-path = "fish_add_path ~/.local/bin";
@@ -2219,8 +2219,8 @@ to <code>.config/fish/conf.d/&lt;name&gt;.fish</code>.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable fish.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable fish.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/fish.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/fish.nix&gt;</a></code></div>
@@ -2232,7 +2232,7 @@ to <code>.config/fish/conf.d/&lt;name&gt;.fish</code>.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of (strings concatenated with "\n" or absolute path)</code></div>
-  <div class="option-description"><p>A fish function which is being written to <code>.config/fish/functions/&lt;name&gt;.fish</code>.</p>
+  <div class="option-description"><html><head></head><body><p>A fish function which is being written to <code>.config/fish/functions/&lt;name&gt;.fish</code>.</p>
 <p>If the input value is a string, its contents will be wrapped
 inside of a function declaration, like so:</p>
 <pre><code class="language-fish">function &lt;name&gt;;
@@ -2240,7 +2240,7 @@ inside of a function declaration, like so:</p>
 end
 </code></pre>
 <p>Otherwise you are expected to handle that yourself.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   fish_prompt = pkgs.writers.writeFish "fish_prompt.fish" '\'
@@ -2265,8 +2265,8 @@ end
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The fish package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The fish package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.fish</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/fish.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/fish.nix&gt;</a></code></div>
 </div>
@@ -2277,7 +2277,7 @@ end
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of absolute path</code></div>
-  <div class="option-description"><p>An attrset of plugins.</p>
+  <div class="option-description"><html><head></head><body><p>An attrset of plugins.</p>
 <p>In the case where a plugin is a 'vendored' plugin, all we are doing is adding that
 plugin to <code>hjem.users.&lt;name&gt;.packages</code>. As fish automatically discovers those files.</p>
 <p>A vendored plugin is denoted by the existence of one of the following files in its derivation:</p>
@@ -2295,7 +2295,7 @@ It will attempt to handle or source a variety of expected files from the derivat
 <li><code>/conf.d/*</code>, <code>/key_bindings.fish</code>, <code>/init.fish</code>: sourced in this order</li>
 </ul>
 <p>If a plugin seems to not work, verify that it contains one of the aformentioned files.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   inherit (pkgs.fishPlugins) z;
@@ -2316,8 +2316,8 @@ It will attempt to handle or source a variety of expected files from the derivat
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable flameshot.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable flameshot.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/flameshot.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/flameshot.nix&gt;</a></code></div>
@@ -2329,8 +2329,8 @@ It will attempt to handle or source a variety of expected files from the derivat
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The flameshot package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The flameshot package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.flameshot</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/flameshot.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/flameshot.nix&gt;</a></code></div>
 </div>
@@ -2341,9 +2341,9 @@ It will attempt to handle or source a variety of expected files from the derivat
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string))</code></div>
-  <div class="option-description"><p>Configuration written to <code class="file-path">$HOME/.config/flameshot/flameshot.ini</code>.
+  <div class="option-description"><html><head></head><body><p>Configuration written to <code class="file-path">$HOME/.config/flameshot/flameshot.ini</code>.
 Please reference <a href="<a href="https://github.com/flameshot-org/flameshot/blob/master/flameshot.example.ini">https://github.com/flameshot-org/flameshot/blob/master/flameshot.example.ini</a>">flameshot's example config</a> for config options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   General = {
@@ -2362,8 +2362,8 @@ Please reference <a href="<a href="https://github.com/flameshot-org/flameshot/bl
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable foot.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable foot.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/foot.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/foot.nix&gt;</a></code></div>
@@ -2375,8 +2375,8 @@ Please reference <a href="<a href="https://github.com/flameshot-org/flameshot/bl
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The foot package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The foot package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.foot</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/foot.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/foot.nix&gt;</a></code></div>
 </div>
@@ -2387,10 +2387,10 @@ Please reference <a href="<a href="https://github.com/flameshot-org/flameshot/bl
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string))</code></div>
-  <div class="option-description"><p>Settings are written as an INI file to <code class="file-path">$HOME/.config/foot/foot.ini</code>.</p>
+  <div class="option-description"><html><head></head><body><p>Settings are written as an INI file to <code class="file-path">$HOME/.config/foot/foot.ini</code>.</p>
 <p>Refer to <span class="manpage-reference">foot.ini(5)</span> or the <a href="<a href="https://github.com/aome510/spotify-player/blob/master/docs/config.md#themes">https://github.com/aome510/spotify-player/blob/master/docs/config.md#themes</a>">upstream template</a>
 for all available options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   colors = {
@@ -2417,8 +2417,8 @@ for all available options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable fuzzel.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable fuzzel.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/fuzzel.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/fuzzel.nix&gt;</a></code></div>
@@ -2430,8 +2430,8 @@ for all available options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The fuzzel package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The fuzzel package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.fuzzel</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/fuzzel.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/fuzzel.nix&gt;</a></code></div>
 </div>
@@ -2442,9 +2442,9 @@ for all available options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string))</code></div>
-  <div class="option-description"><p>Is written to <code class="file-path">$HOME/fuzzel/fuzzel.ini</code>.</p>
+  <div class="option-description"><html><head></head><body><p>Is written to <code class="file-path">$HOME/fuzzel/fuzzel.ini</code>.</p>
 <p>Please reference <span class="manpage-reference">fuzzel.ini(5)</span> for configuration options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   colors = {
@@ -2464,8 +2464,8 @@ for all available options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable fzf.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable fzf.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/fzf.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/fzf.nix&gt;</a></code></div>
@@ -2477,8 +2477,8 @@ for all available options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable fzf integration with fish.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable fzf integration with fish.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/fzf.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/fzf.nix&gt;</a></code></div>
@@ -2490,8 +2490,8 @@ for all available options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable fzf integration with zsh.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable fzf integration with zsh.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/fzf.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/fzf.nix&gt;</a></code></div>
@@ -2503,8 +2503,8 @@ for all available options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The fzf package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The fzf package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.fzf</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/fzf.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/fzf.nix&gt;</a></code></div>
 </div>
@@ -2515,8 +2515,8 @@ for all available options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable gammastep.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable gammastep.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/gammastep.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/gammastep.nix&gt;</a></code></div>
@@ -2528,8 +2528,8 @@ for all available options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The gammastep package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The gammastep package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.gammastep</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/gammastep.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/gammastep.nix&gt;</a></code></div>
 </div>
@@ -2540,9 +2540,9 @@ for all available options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string))</code></div>
-  <div class="option-description"><p>Settings are written as an INI file to <code class="file-path">$HOME/.config/gammastep/config.ini</code>.
+  <div class="option-description"><html><head></head><body><p>Settings are written as an INI file to <code class="file-path">$HOME/.config/gammastep/config.ini</code>.
 Refer to <a href="<a href="https://gitlab.com/chinstrap/gammastep/-/blob/master/gammastep.conf.sample">https://gitlab.com/chinstrap/gammastep/-/blob/master/gammastep.conf.sample</a>">gammastep's example configuration</a> all available options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   general = {
@@ -2563,8 +2563,8 @@ Refer to <a href="<a href="https://gitlab.com/chinstrap/gammastep/-/blob/master/
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable Ghostty.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable Ghostty.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/ghostty.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/ghostty.nix&gt;</a></code></div>
@@ -2576,8 +2576,8 @@ Refer to <a href="<a href="https://gitlab.com/chinstrap/gammastep/-/blob/master/
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The ghostty package to use. You can use an override to configure some settings baked into the package.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The ghostty package to use. You can use an override to configure some settings baked into the package.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.ghostty</code></div>
   <div class="option-example">Example: <pre><code>pkgs.ghostty.override {
   withAdwaita = true;
@@ -2592,10 +2592,10 @@ Refer to <a href="<a href="https://gitlab.com/chinstrap/gammastep/-/blob/master/
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of (atom (null, bool, int, float or string) or a list of them for duplicate keys)</code></div>
-  <div class="option-description"><p>The configuration converted to INI and written to <code class="file-path">$HOME/.config/ghostty/config</code>.
+  <div class="option-description"><html><head></head><body><p>The configuration converted to INI and written to <code class="file-path">$HOME/.config/ghostty/config</code>.
 Please consult <a href="<a href="https://ghostty.org/docs/config/reference">https://ghostty.org/docs/config/reference</a>">Ghostty's option reference</a>
 for configuration options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   font-size = 10;
@@ -2614,10 +2614,10 @@ for configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of attribute set of (atom (null, bool, int, float or string) or a list of them for duplicate keys)</code></div>
-  <div class="option-description"><p>An attribute set of themes, with the key as the theme name.
+  <div class="option-description"><html><head></head><body><p>An attribute set of themes, with the key as the theme name.
 Please reference <a href="<a href="https://ghostty.org/docs/features/theme">https://ghostty.org/docs/features/theme</a>">Ghostty's color theme documentation</a>
 for configuration options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   example-theme = {
@@ -2656,9 +2656,9 @@ for configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>Global user-level version of .gitattributes written to
+  <div class="option-description"><html><head></head><body><p>Global user-level version of .gitattributes written to
 <code class="file-path">$HOME/.config/git/attributes</code>.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>""</code></div>
   <div class="option-example">Example: <pre><code>''
   # Auto detect text files and perform LF normalization
@@ -2676,8 +2676,8 @@ for configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable git.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable git.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/git.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/git.nix&gt;</a></code></div>
@@ -2689,9 +2689,9 @@ for configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>Global user-level version of .gitignore written to
+  <div class="option-description"><html><head></head><body><p>Global user-level version of .gitignore written to
 <code class="file-path">$HOME/.config/git/ignore</code>.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>""</code></div>
   <div class="option-example">Example: <pre><code>''
   .direnv
@@ -2705,8 +2705,8 @@ for configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable git integration with difftastic.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable git integration with difftastic.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/git.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/git.nix&gt;</a></code></div>
@@ -2718,9 +2718,9 @@ for configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>list of string</code></div>
-  <div class="option-description"><p>Command-line flags passed to <code>difft</code>. Please run <code>difft --help</code> for
+  <div class="option-description"><html><head></head><body><p>Command-line flags passed to <code>difft</code>. Please run <code>difft --help</code> for
 configuration options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>[ ]</code></div>
   <div class="option-example">Example: <pre><code>[
   "--background light"
@@ -2736,8 +2736,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>package</code></div>
-  <div class="option-description"><p>The difftastic package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The difftastic package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.difftastic</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/git.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/git.nix&gt;</a></code></div>
 </div>
@@ -2748,8 +2748,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The git package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The git package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.git</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/git.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/git.nix&gt;</a></code></div>
 </div>
@@ -2760,8 +2760,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of attribute set of (INI atom (null, bool, int, float or string) or attribute set of (INI atom (null, bool, int, float or string)))</code></div>
-  <div class="option-description"><p>Settings that will be written to your configuration file.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Settings that will be written to your configuration file.</p>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   diff = {
@@ -2787,8 +2787,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable Helix.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable Helix.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/helix.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/helix.nix&gt;</a></code></div>
@@ -2800,10 +2800,10 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>TOML value</code></div>
-  <div class="option-description"><p>The languages configurations converted into TOML and written to
+  <div class="option-description"><html><head></head><body><p>The languages configurations converted into TOML and written to
 <code class="file-path">$HOME/.config/helix/languages.toml</code>. Please reference
 <a href="<a href="https://docs.helix-editor.com/languages.html">https://docs.helix-editor.com/languages.html</a>">Helix's language documentation</a> for config options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   language-server = {
@@ -2821,8 +2821,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The helix package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The helix package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.helix</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/helix.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/helix.nix&gt;</a></code></div>
 </div>
@@ -2833,10 +2833,10 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>TOML value</code></div>
-  <div class="option-description"><p>The editor configuration converted into TOML and written to
+  <div class="option-description"><html><head></head><body><p>The editor configuration converted into TOML and written to
 <code class="file-path">$HOME/.config/helix/config.toml</code>. Please reference
 <a href="<a href="https://docs.helix-editor.com/editor.html">https://docs.helix-editor.com/editor.html</a>">Helix's documentation</a> for config options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   editor = {
@@ -2860,10 +2860,10 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of (TOML value)</code></div>
-  <div class="option-description"><p>The custom themes converted into TOML and written to
+  <div class="option-description"><html><head></head><body><p>The custom themes converted into TOML and written to
 <code class="file-path">$HOME/.config/helix/themes/</code>. Please reference
 <a href="<a href="https://docs.helix-editor.com/themes.html">https://docs.helix-editor.com/themes.html</a>">Helix's theming documentation</a> for config options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   theme1 = {
@@ -2884,8 +2884,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable hypridle.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable hypridle.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/hypridle.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/hypridle.nix&gt;</a></code></div>
@@ -2897,8 +2897,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The hypridle package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The hypridle package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.hypridle</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/hypridle.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/hypridle.nix&gt;</a></code></div>
 </div>
@@ -2909,9 +2909,9 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>Hyprland configuration value</code></div>
-  <div class="option-description"><p>Is written to <code class="file-path">$HOME/hypr/hypridle.conf</code>.</p>
+  <div class="option-description"><html><head></head><body><p>Is written to <code class="file-path">$HOME/hypr/hypridle.conf</code>.</p>
 <p>Configuration options can be found on the <a href="<a href="https://wiki.hyprland.org/Hypr-Ecosystem/hypridle">https://wiki.hyprland.org/Hypr-Ecosystem/hypridle</a>">Hyprland Wiki</a>.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   general = {
@@ -2939,8 +2939,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable hyprlock.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable hyprlock.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/hyprlock.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/hyprlock.nix&gt;</a></code></div>
@@ -2952,8 +2952,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The hyprlock package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The hyprlock package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.hyprlock</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/hyprlock.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/hyprlock.nix&gt;</a></code></div>
 </div>
@@ -2964,9 +2964,9 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>Hyprland configuration value</code></div>
-  <div class="option-description"><p>Is written to <code class="file-path">$HOME/hypr/hyprlock.conf</code>.</p>
+  <div class="option-description"><html><head></head><body><p>Is written to <code class="file-path">$HOME/hypr/hyprlock.conf</code>.</p>
 <p>Configuration options can be found on the <a href="<a href="https://wiki.hyprland.org/Hypr-Ecosystem/hyprlock">https://wiki.hyprland.org/Hypr-Ecosystem/hyprlock</a>">Hyprland Wiki</a>.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   background = [
@@ -2990,8 +2990,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable KeePassXC.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable KeePassXC.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/keepassxc.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/keepassxc.nix&gt;</a></code></div>
@@ -3003,8 +3003,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The keepassxc package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The keepassxc package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.keepassxc</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/keepassxc.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/keepassxc.nix&gt;</a></code></div>
 </div>
@@ -3015,10 +3015,10 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string))</code></div>
-  <div class="option-description"><p>Settings are written as an INI file to <code class="file-path">$HOME/.config/keepassxc/keepassxc.ini</code>. Please reference
+  <div class="option-description"><html><head></head><body><p>Settings are written as an INI file to <code class="file-path">$HOME/.config/keepassxc/keepassxc.ini</code>. Please reference
 <a href="<a href="https://keepassxc.org/docs/KeePassXC_UserGuide">https://keepassxc.org/docs/KeePassXC_UserGuide</a>">KeePassXC's User Guide</a>.</p>
 <p>It also can be configured by toggling options through the GUI, but this does not seem documented.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   GUI = {
@@ -3043,8 +3043,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable kitty.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable kitty.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/kitty.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/kitty.nix&gt;</a></code></div>
@@ -3056,8 +3056,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable kitty integration with fish.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable kitty integration with fish.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/kitty.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/kitty.nix&gt;</a></code></div>
@@ -3069,8 +3069,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable kitty integration with zsh.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable kitty integration with zsh.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/kitty.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/kitty.nix&gt;</a></code></div>
@@ -3082,8 +3082,8 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The kitty package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The kitty package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.kitty</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/kitty.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/kitty.nix&gt;</a></code></div>
 </div>
@@ -3094,9 +3094,9 @@ configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of (atom (null, bool, int, float or string) or a list of them for duplicate keys)</code></div>
-  <div class="option-description"><p>Configuration written to <code class="file-path">$HOME/.config/kitty/kitty.conf</code>.
+  <div class="option-description"><html><head></head><body><p>Configuration written to <code class="file-path">$HOME/.config/kitty/kitty.conf</code>.
 Please reference <a href="<a href="https://sw.kovidgoyal.net/kitty/conf/">https://sw.kovidgoyal.net/kitty/conf/</a>">kitty's documentation</a> for config options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   font_family = "RobotoMono";
@@ -3110,10 +3110,10 @@ Please reference <a href="<a href="https://sw.kovidgoyal.net/kitty/conf/">https:
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or absolute path</code></div>
-  <div class="option-description"><p>Dark theme to be linked to <code class="file-path">$HOME/.config/kitty/dark-theme.auto.conf</code>.
+  <div class="option-description"><html><head></head><body><p>Dark theme to be linked to <code class="file-path">$HOME/.config/kitty/dark-theme.auto.conf</code>.
 This theme is set when your OS theme is set to dark.</p>
 <p>Please reference <a href="<a href="https://github.com/kovidgoyal/kitty-themes">https://github.com/kovidgoyal/kitty-themes</a>">kitty-themes' repository</a> for available themes.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>null</code></div>
   <div class="option-example">Example: <code>"\${pkgs.kitty-themes}/share/kitty-themes/themes/1984_dark.conf"</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/kitty.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/kitty.nix&gt;</a></code></div>
@@ -3125,10 +3125,10 @@ This theme is set when your OS theme is set to dark.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or absolute path</code></div>
-  <div class="option-description"><p>Light theme to be linked to <code class="file-path">$HOME/.config/kitty/light-theme.auto.conf</code>.
+  <div class="option-description"><html><head></head><body><p>Light theme to be linked to <code class="file-path">$HOME/.config/kitty/light-theme.auto.conf</code>.
 This theme is set when your OS theme is set to light.</p>
 <p>Please reference <a href="<a href="https://github.com/kovidgoyal/kitty-themes">https://github.com/kovidgoyal/kitty-themes</a>">kitty-themes' repository</a> for available themes.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>null</code></div>
   <div class="option-example">Example: <code>"\${pkgs.kitty-themes}/share/kitty-themes/themes/1984_light.conf"</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/kitty.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/kitty.nix&gt;</a></code></div>
@@ -3140,10 +3140,10 @@ This theme is set when your OS theme is set to light.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or absolute path</code></div>
-  <div class="option-description"><p>no-preference theme to be linked to <code class="file-path">$HOME/.config/kitty/no-preference-theme.auto.conf</code>.
+  <div class="option-description"><html><head></head><body><p>no-preference theme to be linked to <code class="file-path">$HOME/.config/kitty/no-preference-theme.auto.conf</code>.
 This theme is set when your OS does not specify any theme preference.</p>
 <p>Please reference <a href="<a href="https://github.com/kovidgoyal/kitty-themes">https://github.com/kovidgoyal/kitty-themes</a>">kitty-themes' repository</a> for available themes.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>null</code></div>
   <div class="option-example">Example: <code>"\${pkgs.kitty-themes}/share/kitty-themes/themes/default.conf"</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/kitty.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/kitty.nix&gt;</a></code></div>
@@ -3155,9 +3155,9 @@ This theme is set when your OS does not specify any theme preference.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>YAML value</code></div>
-  <div class="option-description"><p>Configuration written to <code class="file-path">$HOME/.config/lsd/colors.yaml</code>, defining the colors used by lsd.
+  <div class="option-description"><html><head></head><body><p>Configuration written to <code class="file-path">$HOME/.config/lsd/colors.yaml</code>, defining the colors used by lsd.
 Please reference <a href="<a href="https://github.com/lsd-rs/lsd#color-theme-file-content">https://github.com/lsd-rs/lsd#color-theme-file-content</a>">lsd's color theme example</a> to configure it accordingly.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   group = 187;
@@ -3176,8 +3176,8 @@ Please reference <a href="<a href="https://github.com/lsd-rs/lsd#color-theme-fil
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable LSD (LSDeluxe).</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable LSD (LSDeluxe).</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/lsd.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/lsd.nix&gt;</a></code></div>
@@ -3189,9 +3189,9 @@ Please reference <a href="<a href="https://github.com/lsd-rs/lsd#color-theme-fil
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>YAML value</code></div>
-  <div class="option-description"><p>Configuration written to <code class="file-path">$HOME/.config/lsd/icons.yaml</code>, defining the icons used by lsd.
+  <div class="option-description"><html><head></head><body><p>Configuration written to <code class="file-path">$HOME/.config/lsd/icons.yaml</code>, defining the icons used by lsd.
 Please reference <a href="<a href="https://github.com/lsd-rs/lsd#icon-theme">https://github.com/lsd-rs/lsd#icon-theme</a>">lsd's icon theme example</a> to configure it accordingly.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   filetype = {
@@ -3209,8 +3209,8 @@ Please reference <a href="<a href="https://github.com/lsd-rs/lsd#icon-theme">htt
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The lsd package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The lsd package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.lsd</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/lsd.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/lsd.nix&gt;</a></code></div>
 </div>
@@ -3221,9 +3221,9 @@ Please reference <a href="<a href="https://github.com/lsd-rs/lsd#icon-theme">htt
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>YAML value</code></div>
-  <div class="option-description"><p>Configuration written to <code class="file-path">$HOME/.config/lsd/config.yaml</code>, defining lsd settings.
+  <div class="option-description"><html><head></head><body><p>Configuration written to <code class="file-path">$HOME/.config/lsd/config.yaml</code>, defining lsd settings.
 Please reference  <a href="<a href="https://github.com/lsd-rs/lsd#config-file-content">https://github.com/lsd-rs/lsd#config-file-content</a>">lsd's example configuration</a> to configure it accordingly.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   classic = false;
@@ -3240,12 +3240,12 @@ Please reference  <a href="<a href="https://github.com/lsd-rs/lsd#config-file-co
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of list of (submodule)</code></div>
-  <div class="option-description"><p>Custom bindings configuration written to <code class="file-path">$HOME/.config/ncmpcpp/bindings</code>.
+  <div class="option-description"><html><head></head><body><p>Custom bindings configuration written to <code class="file-path">$HOME/.config/ncmpcpp/bindings</code>.
 Please reference <span class="manpage-reference">ncmpcpp(1)</span> to configure it accordingly, or consult
 <a href="<a href="https://github.com/ncmpcpp/ncmpcpp/blob/master/doc/bindings">https://github.com/ncmpcpp/ncmpcpp/blob/master/doc/bindings</a>">ncmpcpp's example bindings file</a>.</p>
 <p>The lists are separated between keys, for actions ran on keypresses, and commands, for actions ran
 on commands. The option's example demonstrates this greatly.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   commands = [
@@ -3290,8 +3290,8 @@ on commands. The option's example demonstrates this greatly.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or (list of string)</code></div>
-  <div class="option-description"><p>The actions to be ran on either the key's or command's activation.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The actions to be ran on either the key's or command's activation.</p>
+</body></html></div>
   <div class="option-default">Default: <code>null</code></div>
   <div class="option-example">Example: <pre><code>[
   "stop"
@@ -3306,8 +3306,8 @@ on commands. The option's example demonstrates this greatly.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or string</code></div>
-  <div class="option-description"><p>The key or command for which the set of actions is binded to.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The key or command for which the set of actions is binded to.</p>
+</body></html></div>
   <div class="option-default">Default: <code>null</code></div>
   <div class="option-example">Example: <code>"p"</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/ncmpcpp.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/ncmpcpp.nix&gt;</a></code></div>
@@ -3319,8 +3319,8 @@ on commands. The option's example demonstrates this greatly.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether the binding or command should be deferred (true) or immediate (false).</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether the binding or command should be deferred (true) or immediate (false).</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/ncmpcpp.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/ncmpcpp.nix&gt;</a></code></div>
@@ -3332,8 +3332,8 @@ on commands. The option's example demonstrates this greatly.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable ncmpcpp, a mpd-based music player..</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable ncmpcpp, a mpd-based music player..</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/ncmpcpp.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/ncmpcpp.nix&gt;</a></code></div>
@@ -3345,8 +3345,8 @@ on commands. The option's example demonstrates this greatly.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The ncmpcpp package to use. You can override the package to customize certain settings that are baked into the package.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The ncmpcpp package to use. You can override the package to customize certain settings that are baked into the package.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.ncmpcpp</code></div>
   <div class="option-example">Example: <pre><code>pkgs.ncmpcpp.override {
   # useful overrides in the package
@@ -3365,9 +3365,9 @@ on commands. The option's example demonstrates this greatly.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of (signed integer or string or boolean)</code></div>
-  <div class="option-description"><p>Configuration written to <code class="file-path">$HOME/.config/ncmpcpp/config</code>.
+  <div class="option-description"><html><head></head><body><p>Configuration written to <code class="file-path">$HOME/.config/ncmpcpp/config</code>.
 Please reference <span class="manpage-reference">ncmpcpp(1)</span> to configure it accordingly, or consult <a href="<a href="https://github.com/ncmpcpp/ncmpcpp/blob/master/doc/config">https://github.com/ncmpcpp/ncmpcpp/blob/master/doc/config</a>">ncmpcpp's example configuration</a>.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   mpd_host = "localhost";
@@ -3384,11 +3384,11 @@ Please reference <span class="manpage-reference">ncmpcpp(1)</span> to configure 
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of anything</code></div>
-  <div class="option-description"><p>A set of aliases for nushell, converted into nu and written to
+  <div class="option-description"><html><head></head><body><p>A set of aliases for nushell, converted into nu and written to
 <code class="file-path">$HOME/.config/nushell/config.nu</code>. Please note that we cannot
 handle complex aliases that use <code>def</code> at this time.</p>
 <p>Please see <a href="<a href="https://www.nushell.sh/book/aliases.html">https://www.nushell.sh/book/aliases.html</a>">The Nushell Book</a> for a simple tutorial.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   ll = "ls -l";
@@ -3403,8 +3403,8 @@ handle complex aliases that use <code>def</code> at this time.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable nushell.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable nushell.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/nushell.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/nushell.nix&gt;</a></code></div>
@@ -3416,11 +3416,11 @@ handle complex aliases that use <code>def</code> at this time.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>Extra configuration to be written to <code class="file-path">$HOME/.config/nushell/env.nu</code>.
+  <div class="option-description"><html><head></head><body><p>Extra configuration to be written to <code class="file-path">$HOME/.config/nushell/env.nu</code>.
 Please keep in mind that the upstream documentation generally advises against
 writing to this file, and instead suggests using <code class="file-path">$HOME/.config/nushell/config.nu</code>.</p>
 <p>See <a href="<a href="https://www.nushell.sh/book/configuration.html">https://www.nushell.sh/book/configuration.html</a>">The Nushell Book</a> for more info.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>""</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/nushell.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/nushell.nix&gt;</a></code></div>
 </div>
@@ -3431,9 +3431,9 @@ writing to this file, and instead suggests using <code class="file-path">$HOME/.
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>Extra configuration to be written to <code class="file-path">$HOME/.config/nushell/config.nu</code>.</p>
+  <div class="option-description"><html><head></head><body><p>Extra configuration to be written to <code class="file-path">$HOME/.config/nushell/config.nu</code>.</p>
 <p>Please see <a href="<a href="https://www.nushell.sh/book/configuration.html">https://www.nushell.sh/book/configuration.html</a>">The Nushell Book</a> for more info.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>""</code></div>
   <div class="option-example">Example: <pre><code>''
   def webdev [--run (-r)] {
@@ -3454,13 +3454,13 @@ writing to this file, and instead suggests using <code class="file-path">$HOME/.
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>Nushell may be used as a login shell, so this option writes to
+  <div class="option-description"><html><head></head><body><p>Nushell may be used as a login shell, so this option writes to
 <code class="file-path">$HOME/.config/nushell/login.nu</code> to allow you to configure
 nushell as your login shell.</p>
 <p>Please recognize that this is mainly for advanced users and is not
 for the faint of heart. Direct your questions and concerns to
 <a href="<a href="https://www.nushell.sh/book/configuration.html#configuring-nu-as-a-login-shell">https://www.nushell.sh/book/configuration.html#configuring-nu-as-a-login-shell</a>">The Nushell Book</a> for more information.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>""</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/nushell.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/nushell.nix&gt;</a></code></div>
 </div>
@@ -3471,8 +3471,8 @@ for the faint of heart. Direct your questions and concerns to
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>package</code></div>
-  <div class="option-description"><p>The nushell package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The nushell package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.nushell</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/nushell.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/nushell.nix&gt;</a></code></div>
 </div>
@@ -3483,9 +3483,9 @@ for the faint of heart. Direct your questions and concerns to
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>list of package</code></div>
-  <div class="option-description"><p>A list of plugin packages to be installed and added to the
+  <div class="option-description"><html><head></head><body><p>A list of plugin packages to be installed and added to the
 nushell plugin registry.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>[ ]</code></div>
   <div class="option-example">Example: <pre><code>with pkgs.nushellPlugins; [
   units
@@ -3502,11 +3502,11 @@ nushell plugin registry.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of anything</code></div>
-  <div class="option-description"><p>A set of options for nushell, flattened, prepended with <code class="terminal"><span class="prompt">$</span> env.config</code> to avoid overwriting
+  <div class="option-description"><html><head></head><body><p>A set of options for nushell, flattened, prepended with <code class="terminal"><span class="prompt">$</span> env.config</code> to avoid overwriting
 (tables of config are overwritten if they occupy the same namespace). It is then written
 to <code class="file-path">$HOME/.config/nushell/config.nu</code>.</p>
 <p>Please see <a href="<a href="https://www.nushell.sh/book/configuration.html">https://www.nushell.sh/book/configuration.html</a>">The Nushell Book</a> for configuration options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   history = {
@@ -3526,8 +3526,8 @@ to <code class="file-path">$HOME/.config/nushell/config.nu</code>.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable OBS Studio.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable OBS Studio.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/obs-studio.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/obs-studio.nix&gt;</a></code></div>
@@ -3539,8 +3539,8 @@ to <code class="file-path">$HOME/.config/nushell/config.nu</code>.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The obs-studio package to use. You can override the package to install plugins.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The obs-studio package to use. You can override the package to install plugins.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.obs-studio</code></div>
   <div class="option-example">Example: <pre><code># OBS has a special "package" to wrap the obs-studio package with plugins
 package = pkgs.wrapOBS.override {
@@ -3561,8 +3561,8 @@ package = pkgs.wrapOBS.override {
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable spotify_player.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable spotify_player.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/spotify-player.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/spotify-player.nix&gt;</a></code></div>
@@ -3574,12 +3574,12 @@ package = pkgs.wrapOBS.override {
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>TOML value</code></div>
-  <div class="option-description"><p>Sets of keymaps and actions converted into TOML and written to
+  <div class="option-description"><html><head></head><body><p>Sets of keymaps and actions converted into TOML and written to
 <code class="file-path">$HOME/.config/spotify-player/keymap.toml</code>.
 See example for how to format declarations.</p>
 <p>Please reference <a href="<a href="https://github.com/aome510/spotify-player/blob/master/docs/config.md#keymaps">https://github.com/aome510/spotify-player/blob/master/docs/config.md#keymaps</a>">spotify_player's keymaps documentation</a>
 for more information.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   actions = [
@@ -3604,9 +3604,9 @@ for more information.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The spotify-player package to use. You can use an override to configure certain settings
+  <div class="option-description"><html><head></head><body><p>The spotify-player package to use. You can use an override to configure certain settings
 baked into the package.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.spotify-player</code></div>
   <div class="option-example">Example: <pre><code>package = pkgs.spotify-player.override {
   # Useful overrides in the package
@@ -3629,11 +3629,11 @@ baked into the package.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>TOML value</code></div>
-  <div class="option-description"><p>The configuration converted into TOML and written to
+  <div class="option-description"><html><head></head><body><p>The configuration converted into TOML and written to
 <code class="file-path">$HOME/.config/spotify-player/app.toml</code>.</p>
 <p>Please reference <a href="<a href="https://github.com/aome510/spotify-player/blob/master/docs/config.md#general">https://github.com/aome510/spotify-player/blob/master/docs/config.md#general</a>">spotify_player's configuration documentation</a>
 for configuration options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   device = {
@@ -3653,11 +3653,11 @@ for configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>list of (TOML value)</code></div>
-  <div class="option-description"><p>The theme converted into TOML and written to
+  <div class="option-description"><html><head></head><body><p>The theme converted into TOML and written to
 <code class="file-path">$HOME/.config/spotify-player/themes.toml</code>.</p>
 <p>Please reference <a href="<a href="https://github.com/aome510/spotify-player/blob/master/docs/config.md#themes">https://github.com/aome510/spotify-player/blob/master/docs/config.md#themes</a>">spotify_player's theme documentation</a>
 for configuration options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>[ ]</code></div>
   <div class="option-example">Example: <pre><code>[
   {
@@ -3709,8 +3709,8 @@ for configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable starship module..</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable starship module..</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/starship.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/starship.nix&gt;</a></code></div>
@@ -3722,8 +3722,8 @@ for configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable starship integration with fish.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable starship integration with fish.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/starship.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/starship.nix&gt;</a></code></div>
@@ -3735,8 +3735,8 @@ for configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable starship integration with nushell.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable starship integration with nushell.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/starship.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/starship.nix&gt;</a></code></div>
@@ -3748,8 +3748,8 @@ for configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable starship integration with zsh.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable starship integration with zsh.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/starship.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/starship.nix&gt;</a></code></div>
@@ -3761,8 +3761,8 @@ for configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The starship package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The starship package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.starship</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/starship.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/starship.nix&gt;</a></code></div>
 </div>
@@ -3773,9 +3773,9 @@ for configuration options.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>TOML value</code></div>
-  <div class="option-description"><p>The configuration converted to TOML and written to <code class="file-path">$HOME/.config/starship.toml</code>.
+  <div class="option-description"><html><head></head><body><p>The configuration converted to TOML and written to <code class="file-path">$HOME/.config/starship.toml</code>.
 Please reference <a href="<a href="https://starship.rs/config">https://starship.rs/config</a>">Starship's documentation</a> for configuration options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   add_newline = false;
@@ -3795,8 +3795,8 @@ Please reference <a href="<a href="https://starship.rs/config">https://starship.
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable enable transience.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable enable transience.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/starship.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/starship.nix&gt;</a></code></div>
@@ -3808,8 +3808,8 @@ Please reference <a href="<a href="https://starship.rs/config">https://starship.
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable tealdeer.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable tealdeer.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/tealdeer.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/tealdeer.nix&gt;</a></code></div>
@@ -3821,8 +3821,8 @@ Please reference <a href="<a href="https://starship.rs/config">https://starship.
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The tealdeer package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The tealdeer package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.tealdeer</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/tealdeer.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/tealdeer.nix&gt;</a></code></div>
 </div>
@@ -3833,9 +3833,9 @@ Please reference <a href="<a href="https://starship.rs/config">https://starship.
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>TOML value</code></div>
-  <div class="option-description"><p>Configuration written to <code class="file-path">$HOME/.config/tealdeer/config.toml</code>.
+  <div class="option-description"><html><head></head><body><p>Configuration written to <code class="file-path">$HOME/.config/tealdeer/config.toml</code>.
 Please reference <a href="<a href="https://tealdeer-rs.github.io/tealdeer/config.html">https://tealdeer-rs.github.io/tealdeer/config.html</a>">tealdeer's documentation</a> for config options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   updates = {
@@ -3851,8 +3851,8 @@ Please reference <a href="<a href="https://tealdeer-rs.github.io/tealdeer/config
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable tofi.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable tofi.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/tofi.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/tofi.nix&gt;</a></code></div>
@@ -3864,8 +3864,8 @@ Please reference <a href="<a href="https://tealdeer-rs.github.io/tealdeer/config
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The tofi package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The tofi package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.tofi</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/tofi.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/tofi.nix&gt;</a></code></div>
 </div>
@@ -3876,11 +3876,11 @@ Please reference <a href="<a href="https://tealdeer-rs.github.io/tealdeer/config
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of (string or absolute path or boolean or signed integer or floating point number)</code></div>
-  <div class="option-description"><p>The configuration converted into &quot;key = value&quot; and written to
+  <div class="option-description"><html><head></head><body><p>The configuration converted into "key = value" and written to
 <code class="file-path">$HOME/.config/tofi/config</code>. Please reference
 <span class="manpage-reference">tofi(5)</span>, or see an example at
 <a href="<a href="https://github.com/philj56/tofi/blob/master/doc/config">https://github.com/philj56/tofi/blob/master/doc/config</a>">tofi's default configuration</a>.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   horizontal = false;
@@ -3896,8 +3896,8 @@ Please reference <a href="<a href="https://tealdeer-rs.github.io/tealdeer/config
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable Visual Studio Code.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable Visual Studio Code.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/vscode.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/vscode.nix&gt;</a></code></div>
@@ -3909,8 +3909,8 @@ Please reference <a href="<a href="https://tealdeer-rs.github.io/tealdeer/config
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The vscode package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The vscode package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.vscode</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/vscode.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/vscode.nix&gt;</a></code></div>
 </div>
@@ -3921,11 +3921,11 @@ Please reference <a href="<a href="https://tealdeer-rs.github.io/tealdeer/config
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>JSON value</code></div>
-  <div class="option-description"><p>The configuration converted into JSON and written to
+  <div class="option-description"><html><head></head><body><p>The configuration converted into JSON and written to
 <code class="file-path">$HOME/.config/Code/User/settings.json</code>.</p>
 <p>Please reference <a href="<a href="https://code.visualstudio.com/docs/getstarted/settings#_settings-json-file">https://code.visualstudio.com/docs/getstarted/settings#_settings-json-file</a>">Visual Studio Code's official documentation</a>
 for more information.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-example">Example: <pre><code>{
   catppuccin = {
@@ -3944,8 +3944,8 @@ for more information.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable zoxide.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable zoxide.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/zoxide.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/zoxide.nix&gt;</a></code></div>
@@ -3957,9 +3957,9 @@ for more information.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>list of string</code></div>
-  <div class="option-description"><p>Command-line flags passed to <code>zoxide init</code>.
+  <div class="option-description"><html><head></head><body><p>Command-line flags passed to <code>zoxide init</code>.
 Please reference <a href="<a href="https://github.com/ajeetdsouza/zoxide#flags">https://github.com/ajeetdsouza/zoxide#flags</a>">zoxide's documentation</a> for configuration options.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>[ ]</code></div>
   <div class="option-example">Example: <pre><code>[
   "--cmd cd"
@@ -3973,8 +3973,8 @@ Please reference <a href="<a href="https://github.com/ajeetdsouza/zoxide#flags">
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable zoxide integration with fish.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable zoxide integration with fish.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/zoxide.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/zoxide.nix&gt;</a></code></div>
@@ -3986,8 +3986,8 @@ Please reference <a href="<a href="https://github.com/ajeetdsouza/zoxide#flags">
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable zoxide integration with zsh.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable zoxide integration with zsh.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/zoxide.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/zoxide.nix&gt;</a></code></div>
@@ -3999,8 +3999,8 @@ Please reference <a href="<a href="https://github.com/ajeetdsouza/zoxide#flags">
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The zoxide package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The zoxide package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.zoxide</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/zoxide.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/zoxide.nix&gt;</a></code></div>
 </div>
@@ -4011,8 +4011,8 @@ Please reference <a href="<a href="https://github.com/ajeetdsouza/zoxide#flags">
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable zsh.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Whether to enable zsh.</p>
+</body></html></div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/zsh.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/zsh.nix&gt;</a></code></div>
@@ -4024,9 +4024,9 @@ Please reference <a href="<a href="https://github.com/ajeetdsouza/zoxide#flags">
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>Commands that will be added verbatim to <code class="file-path">.zshrc</code>.</p>
+  <div class="option-description"><html><head></head><body><p>Commands that will be added verbatim to <code class="file-path">.zshrc</code>.</p>
 <p>A good starting point for learning how to configure zsh is the <a href="<a href="https://wiki.archlinux.org/title/Zsh">https://wiki.archlinux.org/title/Zsh</a>">Arch Wiki entry</a>.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>""</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/zsh.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/zsh.nix&gt;</a></code></div>
 </div>
@@ -4037,9 +4037,9 @@ Please reference <a href="<a href="https://github.com/ajeetdsouza/zoxide#flags">
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>Commands that will be added verbatim to <code class="file-path">.zlogin</code>.</p>
+  <div class="option-description"><html><head></head><body><p>Commands that will be added verbatim to <code class="file-path">.zlogin</code>.</p>
 <p>A good starting point for learning how to configure zsh is the <a href="<a href="https://wiki.archlinux.org/title/Zsh">https://wiki.archlinux.org/title/Zsh</a>">Arch Wiki entry</a>.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>""</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/zsh.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/zsh.nix&gt;</a></code></div>
 </div>
@@ -4050,9 +4050,9 @@ Please reference <a href="<a href="https://github.com/ajeetdsouza/zoxide#flags">
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>Commands that will be added verbatim to <code class="file-path">.zlogout</code>.</p>
+  <div class="option-description"><html><head></head><body><p>Commands that will be added verbatim to <code class="file-path">.zlogout</code>.</p>
 <p>A good starting point for learning how to configure zsh is the <a href="<a href="https://wiki.archlinux.org/title/Zsh">https://wiki.archlinux.org/title/Zsh</a>">Arch Wiki entry</a>.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>""</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/zsh.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/zsh.nix&gt;</a></code></div>
 </div>
@@ -4063,8 +4063,8 @@ Please reference <a href="<a href="https://github.com/ajeetdsouza/zoxide#flags">
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or package</code></div>
-  <div class="option-description"><p>The zsh package to use.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>The zsh package to use.</p>
+</body></html></div>
   <div class="option-default">Default: <code>pkgs.zsh</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/zsh.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/zsh.nix&gt;</a></code></div>
 </div>
@@ -4075,9 +4075,9 @@ Please reference <a href="<a href="https://github.com/ajeetdsouza/zoxide#flags">
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>attribute set of (submodule)</code></div>
-  <div class="option-description"><p>An attrset of plugins to load into zsh. Configuration of the former can be done and is advised to be
+  <div class="option-description"><html><head></head><body><p>An attrset of plugins to load into zsh. Configuration of the former can be done and is advised to be
 done at this level, for the sake of organization.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>{ }</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/zsh.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/zsh.nix&gt;</a></code></div>
 </div>
@@ -4088,8 +4088,8 @@ done at this level, for the sake of organization.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>list of absolute path</code></div>
-  <div class="option-description"><p>A list of completions that will be loaded into <code>fpath</code>.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>A list of completions that will be loaded into <code>fpath</code>.</p>
+</body></html></div>
   <div class="option-default">Default: <code>[ ]</code></div>
   <div class="option-example">Example: <code>["\${pkgs.nix-zsh-completions}/share/zsh/site-functions"]</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/zsh.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/zsh.nix&gt;</a></code></div>
@@ -4101,9 +4101,9 @@ done at this level, for the sake of organization.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>strings concatenated with "\n"</code></div>
-  <div class="option-description"><p>Commands that will be added verbatim to <code class="file-path">.zshrc</code> right after the plugin import..</p>
+  <div class="option-description"><html><head></head><body><p>Commands that will be added verbatim to <code class="file-path">.zshrc</code> right after the plugin import..</p>
 <p>A good starting point for learning how to configure zsh is the <a href="<a href="https://wiki.archlinux.org/title/Zsh">https://wiki.archlinux.org/title/Zsh</a>">Arch Wiki entry</a>.</p>
-</div>
+</body></html></div>
   <div class="option-default">Default: <code>""</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/zsh.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/zsh.nix&gt;</a></code></div>
 </div>
@@ -4114,8 +4114,8 @@ done at this level, for the sake of organization.</p>
     <span class="copy-feedback">Link copied!</span>
   </h3>
   <div class="option-type">Type: <code>null or absolute path</code></div>
-  <div class="option-description"><p>Path to the plugin file to load.</p>
-</div>
+  <div class="option-description"><html><head></head><body><p>Path to the plugin file to load.</p>
+</body></html></div>
   <div class="option-default">Default: <code>null</code></div>
   <div class="option-example">Example: <code>"\${pkgs.nix-zsh-completions}/share/zsh/plugins/nix/nix-zsh-completions-plugin.zsh\"</code></div>
   <div class="option-declared">Declared in: <code><a href="https://github.com/snugnug/hjem-rum/blob/main/modules/collection/programs/zsh.nix" target="_blank">&lt;hjem-rum/modules/collection/programs/zsh.nix&gt;</a></code></div>
