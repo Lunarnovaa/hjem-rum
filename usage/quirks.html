@@ -60,14 +60,14 @@
             <h2>Documents</h2>
             <ul>
               <li><a href="../index.html">Hjem Rum</a></li>
-<li><a href="../usage/quirks.html">Usage: Quirks, Tips, & Tricks</a></li>
-<li><a href="../usage/installation.html">Usage: Installing Hjem Rum</a></li>
+<li><a href="../contributing/reviewing.html">Contributing: Review Tips</a></li>
 <li><a href="../contributing/docs.html">Contributing: Extending the Documentation</a></li>
 <li><a href="../contributing/testing.html">Contributing: Setting Up Module Tests</a></li>
-<li><a href="../contributing/reviewing.html">Contributing: Review Tips</a></li>
 <li><a href="../contributing/writing-modules.html">Contributing: Writing Modules</a></li>
 <li><a href="../contributing/introduction.html">Contributing: Introduction</a></li>
 <li><a href="../contributing/rumlib.html">Contributing: Extending Hjem Rum's Library</a></li>
+<li><a href="../usage/installation.html">Usage: Installing Hjem Rum</a></li>
+<li><a href="../usage/quirks.html">Usage: Quirks, Tips, & Tricks</a></li>
 <li><a href="../search.html">Search</a></li>
 
             </ul>
@@ -83,14 +83,14 @@
           </div>
         </nav>
 
-        <main class="content"><html><head></head><body><h1 id="usage-quirks-tips-tricks"><a aria-hidden="true" class="anchor" href="#usage-quirks-tips--tricks-usage-quirks-tips-tricks" id="usage-quirks-tips--tricks-usage-quirks-tips-tricks" inert=""></a>Usage: Quirks, Tips, &amp; Tricks</h1>
+        <main class="content"><html><head></head><body><h1 id="usage-quirks-tips-tricks">Usage: Quirks, Tips, &amp; Tricks</h1>
 <p>As you are getting familiar with Hjem Rum, you may find some strange quirks that
 you are unfamiliar with. This is especially so as unlike Home Manager, the
 underlying toolset implementation is a wholly separate project, with Hjem Rum
 serving only as a module collection on top of Hjem.</p>
 <p>To help alleviate this, here are some of those quirks that you may find, as well
 as some tips to help you on your journey with Hjem Rum.</p>
-<h2 id="ch-environmental-variables"><a aria-hidden="true" class="anchor" href="#environmental-variables-ch-environmental-variables" id="environmental-variables-ch-environmental-variables" inert=""></a>Environmental Variables</h2>
+<h2 id="ch-environmental-variables">Environmental Variables</h2>
 <p>Hjem provides the option <a class="option-reference" href="options.html#option-environment-sessionVariables"><code>environment.sessionVariables</code></a> allowing the
 user to set environmental variables to be sourced. However, Hjem does not have
 the capability to actually source them. This can be done manually by the user,
@@ -101,10 +101,10 @@ made available.</p>
 module), but cannot load them without the use of another module. Currently,
 modules that load environmental variables include:</p>
 <ul>
-<li><a class="option-reference" href="options.html#option-rum-programs-fish-enable"><code>rum.programs.fish.enable</code></a></li>
-<li><a class="option-reference" href="options.html#option-rum-programs-nushell-enable"><code>rum.programs.nushell.enable</code></a></li>
-<li><a class="option-reference" href="options.html#option-rum-programs-zsh-enable"><code>rum.programs.zsh.enable</code></a></li>
-<li><a class="option-reference" href="options.html#option-rum-desktops-hyprland-enable"><code>rum.desktops.hyprland.enable</code></a></li>
+<li><a href="options.html#option-rum-programs-fish-enable" class="option-reference"><code>rum.programs.fish.enable</code></a></li>
+<li><a href="options.html#option-rum-programs-nushell-enable" class="option-reference"><code>rum.programs.nushell.enable</code></a></li>
+<li><a href="options.html#option-rum-programs-zsh-enable" class="option-reference"><code>rum.programs.zsh.enable</code></a></li>
+<li><a href="options.html#option-rum-desktops-hyprland-enable" class="option-reference"><code>rum.desktops.hyprland.enable</code></a></li>
 </ul>
 <p>If you are either using something like our GTK module, or are manually adding
 variables to <a class="option-reference" href="options.html#option-environment-sessionVariables"><code>environment.sessionVariables</code></a>, but are neither loading
@@ -112,7 +112,7 @@ those variables manually, or using one of the above modules, those variables
 will not be loaded. This will likely cause you problems. For example, GTK
 applications may not respect your theme, as many rely on the environmental
 variable to actually use the theme you declare.</p>
-<p>Please see <a href="<a href="https://github.com/snugnug/hjem-rum/issues/17">https://github.com/snugnug/hjem-rum/issues/17</a>">#17</a> for status on providing support for shells and compositors. If
+<p>Please see <a href="https://github.com/snugnug/hjem-rum/issues/17">#17</a> for status on providing support for shells and compositors. If
 your shell or compositor is on listed there, please leave a comment and it will
 be added. You are encouraged to open a PR to help support your shell or
 compositor if possible.</p>
